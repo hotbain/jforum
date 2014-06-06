@@ -230,6 +230,7 @@ public class JForum extends JForumBaseServlet
 			// manipulation
 			if (!JForumExecutionContext.isCustomContent()) {
 				out = new BufferedWriter(new OutputStreamWriter(response.getOutputStream(), encoding));
+				//使用jforum command类返回的template的处理结果----
 				template.process(JForumExecutionContext.getTemplateContext(), out);
 				out.flush();
 			}
@@ -259,7 +260,7 @@ public class JForum extends JForumBaseServlet
 		}
 		
 		String redirectTo = JForumExecutionContext.getRedirectTo();
-		JForumExecutionContext.finish();
+		JForumExecutionContext.finish();//释放数据库连接
 		
 		if (redirectTo != null) {
 			if (forumContext != null && forumContext.isEncodingDisabled()) {

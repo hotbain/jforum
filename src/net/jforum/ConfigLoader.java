@@ -226,6 +226,7 @@ public class ConfigLoader
 			String cacheImplementation = SystemGlobals.getValue(ConfigKeys.CACHE_IMPLEMENTATION);
 			logger.info("Using cache engine: " + cacheImplementation);
 			
+			//∑¥…‰ µœ÷
 			cache = (CacheEngine)Class.forName(cacheImplementation).newInstance();
 			cache.init();
 			

@@ -125,10 +125,11 @@ public class SystemGlobals implements VariableStore
 
 		this.defaultConfig = mainConfigurationFile;
 		this.defaults = new Properties();
-
+		//应用路径
 		this.defaults.put(ConfigKeys.APPLICATION_PATH, appPath);
+		//默认配置文件名称
 		this.defaults.put(ConfigKeys.DEFAULT_CONFIG, mainConfigurationFile);
-		
+		//载入配置文件
 		SystemGlobals.loadDefaults();
 	
 		this.installation = new Properties();

@@ -61,7 +61,7 @@
     </session-config>
     
 	<welcome-file-list>
-		<welcome-file>index.htm</welcome-file>
+		<welcome-file>forums/list.page</welcome-file>
 	</welcome-file-list>
 
 	<!-- SSO -->

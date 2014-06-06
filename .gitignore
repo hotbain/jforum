@@ -1,0 +1,5 @@
+.settings/
+.settings/*
+*.class
+/build/*.class
+build/*

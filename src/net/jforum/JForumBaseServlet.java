@@ -103,13 +103,15 @@ public class JForumBaseServlet extends HttpServlet
 
 		try {
 			String appPath = config.getServletContext().getRealPath("");
+			//是否为开发mode
 			debug = "true".equals(config.getInitParameter("development"));
-
+			//读取log4j.xml配置文件
 			DOMConfigurator.configure(appPath + "/WEB-INF/log4j.xml");
 
 			logger.info("Starting JForum. Debug mode is " + debug);
-
+			//
 			ConfigLoader.startSystemglobals(appPath);
+			//启动缓存引擎
 			ConfigLoader.startCacheEngine();
 
 			// Configure the template engine
@@ -135,7 +137,7 @@ public class JForumBaseServlet extends HttpServlet
 				// An extra template path is not configured, we only need the default loader
 				templateCfg.setTemplateLoader(defaultLoader);
 			}
-
+			//载入模块
 			ModulesRepository.init(SystemGlobals.getValue(ConfigKeys.CONFIG_DIR));
 
 			this.loadConfigStuff();
