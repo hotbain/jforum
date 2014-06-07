@@ -51,7 +51,7 @@
 									<a id="hottest" class="mainmenu btn btn-success" href="${JForumContext.encodeURL("/hottestTopics/list")}"><i class="glyphicon glyphicon-fire"></i>&nbsp;${I18n.getMessage("ForumBase.hottestTopics")}</a> &nbsp;
 									<a id="latest2" class="mainmenu btn btn-success" href="${JForumContext.encodeURL("/user/list")}"><i class="glyphicon glyphicon-list"></i>&nbsp;${I18n.getMessage("ForumBase.usersList")}</a> &nbsp;
 									<span class="mainmenu"> 
-									<a id="backtosite" class="mainmenu btn btn-success" href="${homepageLink}"><i class="glyphicon glyphicon-home"></i>&nbsp;${I18n.getMessage("ForumBase.backToSite")}</a>&nbsp;
+									<a id="backtosite" class="mainmenu btn btn-success" href="${JForumContext.encodeURL("/forums/list")}"><i class="glyphicon glyphicon-home"></i>&nbsp;${I18n.getMessage("ForumBase.backToSite")}</a>&nbsp;
 									<br>
 
 									<#if canAccessModerationLog?default(false)>

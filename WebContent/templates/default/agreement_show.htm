@@ -12,8 +12,8 @@
 				
 	<tr align="center">
 		<td class="catbottom" colspan="2" height="28">
-			<input class="mainoption" value="${I18n.getMessage("User.agreement.accept")}" name="submit" onclick="document.location = '${contextPath}/jforum${extension}?module=user&action=acceptAgreement';" type="button">&nbsp;&nbsp;
-			<input class="mainoption" value="${I18n.getMessage("User.agreement.noAccept")}" onclick="document.location = '${JForumContext.encodeURL("/forums/list")}';" type="button">&nbsp;&nbsp;
+			<div class="btn btn-medium btn-danger" onclick="document.location = '${JForumContext.encodeURL("/forums/list")}';">${I18n.getMessage("User.agreement.noAccept")}</div>&nbsp;&nbsp;
+			<div class="btn btn-medium btn-success" onclick="document.location = '${contextPath}/jforum${extension}?module=user&action=acceptAgreement';">${I18n.getMessage("User.agreement.accept")}</div>&nbsp;&nbsp;
 		</td>
 	</tr>
 </table>
