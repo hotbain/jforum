@@ -158,13 +158,11 @@ function smiliePopup()
 			<table cellspacing="2" cellpadding="2" width="100%" align="center" border="0">
 				<tr>
 					<td align="left">
-						<span class="nav">
-							<a class="nav" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a>
+							<a class="" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a>
 
 							<#if forum?exists>
-							&raquo; <a class="nav" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name}</a>
+							&raquo; <a class="maintitle" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name}</a>
 							</#if>
-						</span>
 					</td>
 				</tr>
 			</table>
