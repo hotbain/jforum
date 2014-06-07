@@ -2,7 +2,7 @@
 </tr>
 	<tr>
 		<td align="center">
-			<#if session?exists && session.isAdmin()><span class="gen"><a id="adminpanel" href='${JForumContext.encodeURL("/admBase/login")}'>${I18n.getMessage("ForumBase.admin")}</a></span></#if>
+			<#if session?exists && session.isAdmin()><a id="adminpanel" class="btn btn-medium btn-danger" href='${JForumContext.encodeURL("/admBase/login")}'><i class="glyphicon-search glyphicon-white"></i>${I18n.getMessage("ForumBase.admin")}</a></#if>
 		</td>
 	</tr>
 
@@ -17,7 +17,8 @@
 	<#include "highlighter_js.htm"/>
 </#if>
 
+<!-- 
 <iframe src="${contextPath}/ping_session.jsp" height="0" width="0" frameborder="0" scrolling="no"></iframe>
-
+ -->
 </body>
 </html>

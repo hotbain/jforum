@@ -3,3 +3,8 @@
 *.class
 /build/*.class
 build/*
+/*/build/
+/*/*/build/
+/.settings
+*.project
+*.class
