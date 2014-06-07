@@ -430,9 +430,19 @@ function smiliePopup()
 				
 				<tr>
 					<td align="center" height="28" colspan="2" class="catbottom">
-						<input class="btn btn-success btn-sx" id="btnPreview" tabindex="5" type="button" value="${I18n.getMessage("PostForm.preview")}" onclick="previewMessage();" />&nbsp;
-						<input class="btn btn-success btn-sx" id="btnSubmit" accesskey="s" tabindex="6" type="submit" value="${I18n.getMessage("PostForm.submit")}" name="post" />
+						<div class="btn btn-success btn-sx">
+									<div class="glyphicon glyphicon-send">
+									</div>
+									<input class="btn btn-success btn-sx" id="btnPreview" tabindex="5" type="button" value="${I18n.getMessage("PostForm.preview")}" onclick="previewMessage();" />&nbsp;
+						</div>
+						<div class="btn btn-success btn-sx">
+									<div class="glyphicon glyphicon-send">
+									</div>
+									<input class="btn btn-success btn-sx" id="btnSubmit" accesskey="s" tabindex="6" type="submit" value="${I18n.getMessage("PostForm.submit")}" name="post" />
+						</div>
 						<img src="${contextPath}/images/transp.gif" id="icon_saving">
+						
+						
 					</td>
 				</tr>
 			</table>

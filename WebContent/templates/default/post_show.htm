@@ -60,7 +60,7 @@
 							<span class="icon_reply_locked"><img src="${contextPath}/images/transp.gif" alt="" /></span>
 						<#else>
 							<#if !readonly>
-								<a href="${JForumContext.encodeURL("/posts/reply/${start}/${topic.id}")}" rel="nofollow" class=" btn btn-small btn-success">${I18n.getMessage("Post.Add")} </a>
+								<a href="${JForumContext.encodeURL("/posts/reply/${start}/${topic.id}")}" rel="nofollow" class=" btn btn-small btn-success"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;${I18n.getMessage("Post.Add")} </a>
 							<#else>
 								<#assign colspan = "2"/>
 							</#if>
@@ -219,7 +219,7 @@
 						<span class="icon_reply_locked"><img src="${contextPath}/images/transp.gif" alt="" /></span>
 					<#else>
 						<#if !readonly>
-								<a href="${JForumContext.encodeURL("/posts/reply/${start}/${topic.id}")}" rel="nofollow" class=" btn btn-small btn-success">${I18n.getMessage("Post.Add")} </a>
+								<a href="${JForumContext.encodeURL("/posts/reply/${start}/${topic.id}")}" rel="nofollow" class=" btn btn-small btn-success"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;${I18n.getMessage("Post.Add")} </a>
 						<#else>
 							<#assign colspan = "2"/>
 						</#if>
@@ -290,7 +290,7 @@
 						<table width="100%">
 							<tr>
 								<td align="center">
-									<span class="btn btn-success btn-small"><a href="javascript:activateQuickReply()"><img src="${contextPath}/templates/${templateName}/images/icon_mini_message.gif" align="middle" alt="Message" />${I18n.getMessage("PostForm.quickReply")}</a></span>
+									<span class="btn btn-success btn-small"><a href="javascript:activateQuickReply()"><i class="glyphicon glyphicon-pencil"></i>&nbsp;${I18n.getMessage("PostForm.quickReply")}</a></span>
 								</td>
 							</tr>
 						</table>
@@ -316,8 +316,11 @@
 								</#if>
 								<tr>
 									<td align="right" valign="center">
-										<input type="submit" id="btnSubmit" value="${I18n.getMessage("PostForm.submit")}" class="mainoption" />
-										<img src="${contextPath}/images/transp.gif" id="icon_saving">
+										<div class="btn btn-success btn-sm">
+											<div class="glyphicon glyphicon-send">
+											</div>
+											<input class="btn btn-success btn-sm" type="submit" id="btnSubmit"  value="${I18n.getMessage("PostForm.submit")}" />
+										</div>
 									</td>
 								</tr>
 							</table>

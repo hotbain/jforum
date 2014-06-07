@@ -56,7 +56,7 @@
 				<tr>
 					<#if !readonly && !replyOnly>
 						<td valign="middle" align="left" width="50">
-							<a href="${JForumContext.encodeURL("/jforum${extension}?module=posts&amp;action=insert&amp;forum_id=${forum.id}", "")}" class="btn btn-small btn-success">${I18n.getMessage("New.Article")}</a>
+							<a href="${JForumContext.encodeURL("/jforum${extension}?module=posts&amp;action=insert&amp;forum_id=${forum.id}", "")}" class="btn btn-small btn-success"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;${I18n.getMessage("New.Article")}</a>
 						</td>
 					</#if>
 
@@ -265,7 +265,7 @@
 				<tr>
 					<#if !readonly && !replyOnly>
 						<td valign="middle"  align="left" width="50">
-							<a href="${JForumContext.encodeURL("/jforum${extension}?module=posts&amp;action=insert&amp;forum_id=${forum.id}", "")}" class="btn btn-small btn-success">${I18n.getMessage("New.Article")}</a>
+							<a href="${JForumContext.encodeURL("/jforum${extension}?module=posts&amp;action=insert&amp;forum_id=${forum.id}", "")}" class="btn btn-small btn-success"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;${I18n.getMessage("New.Article")}</a>
 						</td>
 					<#else>
 						<#assign colspan = "2"/>
