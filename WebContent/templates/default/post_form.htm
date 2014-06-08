@@ -362,43 +362,38 @@ function smiliePopup()
 				<tr>
 					<td class="row1">&nbsp;</td>
 					<td class="row2">
-						<div id="tabs10">
-							<ul>
-							    <li target="postOptions" class="current"><a href="javascript:void(0);" onClick="activateTab('postOptions', this);"><span>Options</span></a></li>
-
-								<#if allowPoll>
-									<li target="postPoll"><a href="javascript:void(0);" onClick="activateTab('postPoll', this);"><span>Poll</span></a></li>
-								</#if>
-								<#if attachmentsEnabled>
-								    <li target="postAttachments"><a href="javascript:void(0);" onClick="activateTab('postAttachments', this);"><span>Attachments</span></a></li>
-								</#if>
-							</ul>
-						</div>
-
-						<!-- Post Options -->
-						<div id="postOptions" class="postTabContents">
-							<div>
-								<#include "post_options_tab.htm"/>
-							</div>
-						</div>
-
-						<!-- Poll tab -->
-						<#if allowPoll>
-							<div id="postPoll" class="postTabContents" style="display: none;">
-								<div>
-									<#include "post_poll_tab.htm"/>
-								</div>
-							</div>
-						</#if>
-
-						<!-- Attachments tab -->
-						<#if attachmentsEnabled || attachments?exists>
-							<div id="postAttachments" class="postTabContents" style="display: none; ">
-								<div>
-									<#include "post_attachments_tab.htm"/>
-								</div>
-							</div>
-						</#if>
+					    <div class="tabbable"> <!-- Only required for left/right tabs -->
+									    <ul class="nav nav-tabs">
+										    <li class="active"><a href="#postOptions" data-toggle="tab">Options</a></li>
+										    <#if allowPoll>
+										    	<li><a href="#postPoll" data-toggle="tab">Poll</a></li>
+										    </#if>
+										    <#if attachmentsEnabled || attachments?exists>
+												<li><a href="#postAttachments" data-toggle="tab">Attachments</a></li>
+											</#if>
+									    </ul>
+										    <div class="tab-content">
+											    <div class="tab-pane active" id="postOptions">
+											    	<div>
+														<#include "post_options_tab.htm"/>
+													</div>
+											    </div>
+											    <#if allowPoll>
+												    <div class="tab-pane" id="postPoll">
+												    	<div>
+														<#include "post_poll_tab.htm"/>
+														</div>
+												    </div>
+									    		</#if>
+									    		 <#if attachmentsEnabled || attachments?exists>
+													<div class="tab-pane" id="postAttachments">
+												    	<div>
+															<#include "post_attachments_tab.htm"/>
+														</div>
+												    </div>
+												</#if>
+										    </div>
+					    </div>
 					</td>
 				</tr
 
