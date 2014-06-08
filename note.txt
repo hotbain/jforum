@@ -1,5 +1,6 @@
 1、http://gudh.github.io/ihover/dist/index.html
 2、安装路径：	install/install.page?module=install&action=welcome
+15、显示样式改成div布局的形式，从Header开始处理
 3、首页登录框、table列表显示用bootstrap完成
 4、右下角go用bootstrap格式显示
 5、置顶、投票文章用特殊样式显示
@@ -9,3 +10,6 @@
 9、不是所有的用户都能发表文章，创建所有的用户都可以看到的分类。
 10、文章内容缓存
 11、http://www.jforum.com.cn
+12、登录框放到列表上面
+13、黑色主题为主，
+14、header页面标题要做成bootstrap浮动的，每一个项目都会作为一个选项列出来，搜索框最好做出有选项的哪种类型

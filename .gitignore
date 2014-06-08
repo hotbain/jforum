@@ -8,5 +8,7 @@ build/*
 /.settings
 *.project
 *.class
-.classpath
-.project
+.settings
+/build
+/*.project
+/*.classpath
