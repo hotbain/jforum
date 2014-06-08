@@ -8,5 +8,3 @@ build/*
 /.settings
 *.project
 *.class
-.classpath
-.project
