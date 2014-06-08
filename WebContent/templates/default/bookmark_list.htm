@@ -16,10 +16,10 @@ function confirmDelete(id)
     <tr>
       <td align="left">
 		
-			<span class="nav">
-				<a class="nav" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a>
-				->
-				<a href="${JForumContext.encodeURL("/bookmarks/list/${user.id}")}">${I18n.getMessage("Bookmarks.for")} ${user.username}</a>
+			<span class="">
+				<a class="maintitle" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a>
+				&raquo;
+				<a class="maintitle" href="${JForumContext.encodeURL("/bookmarks/list/${user.id}")}">${I18n.getMessage("Bookmarks.for")} ${user.username}</a>
 			</span>
 		</td>
     </tr>

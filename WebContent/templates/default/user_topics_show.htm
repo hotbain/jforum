@@ -12,10 +12,10 @@
 				<tr>
 					<td valign="bottom" align="left">
 						<#assign breadCrumb>
-							<a class="nav" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a> &raquo;
-							<a class="nav" href="${JForumContext.encodeURL("/user/profile/${u.id}")}">${I18n.getMessage("UserProfile.profileFor")} ${u.username}</a> 
+							<a class="maintitle" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a> &raquo;
+							<a class="maintitle" href="${JForumContext.encodeURL("/user/profile/${u.id}")}">${I18n.getMessage("UserProfile.profileFor")} ${u.username}</a> 
 							&raquo;
-							<a class="nav" href="${JForumContext.encodeURL("/recentTopics/showTopicsByUser/${u.id}")}">${I18n.getMessage("ForumListing.userTopics")} ${u.username?html}</a>
+							<a class="maintitle" href="${JForumContext.encodeURL("/recentTopics/showTopicsByUser/${u.id}")}">${I18n.getMessage("ForumListing.userTopics")} ${u.username?html}</a>
 						</#assign>
 						${breadCrumb}
 					</td>

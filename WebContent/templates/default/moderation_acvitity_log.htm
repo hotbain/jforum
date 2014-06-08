@@ -11,9 +11,11 @@
 				<table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
 					<tr>
 						<td valign="bottom" align="left">
-							<a class="nav" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a>
-							<span class="nav">&raquo;</span>
-							<a id="latest3" class="nav" href="${JForumContext.encodeURL("/moderation/showActivityLog")}">${I18n.getMessage("ModerationLog.moderationLog")}</a>
+							<span>
+									<a class="maintitle" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a>
+									&raquo;
+									<a id="latest3" class="maintitle" href="${JForumContext.encodeURL("/moderation/showActivityLog")}">${I18n.getMessage("ModerationLog.moderationLog")}</a>
+							</span>
 						</td>
 						<td class="gen" align="right">
 							<@pagination.doPagination action/>

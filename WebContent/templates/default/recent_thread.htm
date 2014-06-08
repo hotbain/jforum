@@ -12,12 +12,14 @@
 				<table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
 					<tr>
 						<td valign="bottom" align="left">
-							<a class="nav" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a>
-							&raquo;
-							<a id="latest3" class="nav" href="${JForumContext.encodeURL("/recentTopics/list")}">${I18n.getMessage("ForumBase.recentTopics")}</a>
-							<#if rssEnabled>
-								&nbsp;<a href="${contextPath}/rss/recentTopics${extension}"><img src="${contextPath}/templates/${templateName}/images/xml_button.gif" border="0" align="middle" alt="[XML]" /></a>
-							</#if>
+							<span>
+										<a class="maintitle" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a>
+									&raquo;
+									<a id="latest3" class="maintitle" href="${JForumContext.encodeURL("/recentTopics/list")}">${I18n.getMessage("ForumBase.recentTopics")}</a>
+									<#if rssEnabled>
+										&nbsp;<a href="${contextPath}/rss/recentTopics${extension}"><img src="${contextPath}/templates/${templateName}/images/xml_button.gif" border="0" align="middle" alt="[XML]" /></a>
+									</#if>
+							</span>
 						</td>
 						<td>&nbsp;
 						</td>
