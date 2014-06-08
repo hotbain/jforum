@@ -1,2 +1,9 @@
 1、http://gudh.github.io/ihover/dist/index.html
 2、安装路径：	install/install.page?module=install&action=welcome
+3、首页登录框、table列表显示用bootstrap完成
+4、右下角go用bootstrap格式显示
+5、置顶、投票文章用特殊样式显示
+6、回复-----》 评论
+7、搜索框  用bootstrap格式
+8、匿名用户 不能提交回复
+9、不是所有的用户都能发表文章，创建所有的用户都可以看到的分类。
