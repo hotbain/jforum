@@ -430,19 +430,13 @@ function smiliePopup()
 				
 				<tr>
 					<td align="center" height="28" colspan="2" class="catbottom">
-						<div class="btn btn-success btn-sx">
-									<div class="glyphicon glyphicon-send">
-									</div>
-									<input class="btn btn-success btn-sx" id="btnPreview" tabindex="5" type="button" value="${I18n.getMessage("PostForm.preview")}" onclick="previewMessage();" />&nbsp;
-						</div>
-						<div class="btn btn-success btn-sx">
-									<div class="glyphicon glyphicon-send">
-									</div>
-									<input class="btn btn-success btn-sx" id="btnSubmit" accesskey="s" tabindex="6" type="submit" value="${I18n.getMessage("PostForm.submit")}" name="post" />
-						</div>
+						<button id="btnPreview" tabindex="5" class="btn btn-success btn-sx" type="button" onclick="previewMessage();" >
+							<i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("PostForm.preview")}
+						</button>
+						<button id="btnSubmit" accesskey="s" tabindex="6" type="submit" class="btn btn-success btn-sx"  name="post" onclick="previewMessage();" >
+							<i class="glyphicon glyphicon-send"></i>&nbsp;${I18n.getMessage("PostForm.submit")}
+						</button>
 						<img src="${contextPath}/images/transp.gif" id="icon_saving">
-						
-						
 					</td>
 				</tr>
 			</table>
