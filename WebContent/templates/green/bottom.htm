@@ -1,0 +1,24 @@
+</td>
+</tr>
+	<tr>
+		<td align="center">
+			<#if session?exists && session.isAdmin()><span class="gen"><a id="adminpanel" href='${JForumContext.encodeURL("/admBase/login")}'>${I18n.getMessage("ForumBase.admin")}</a></span></#if>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+			<div align="center" id="footer"><span class="copyright">Powered by <a class="copyright" href="#" target="_blank">${I18n.getMessage("www.jforum.com.cn.siteName")} ${version}</a> &copy; <a class="copyright" href="#" target="_blank">DZ</a></span></div>
+		</td>
+	</tr>
+</table>
+
+<#if hasCodeBlock>
+	<#include "highlighter_js.htm"/>
+</#if>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/1566688.js"></script>
+<noscript><a href="http://www.51.la/?1566688" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/1566688.asp" style="border:none" /></a></noscript>
+<iframe src="${contextPath}/ping_session.jsp" height="0" width="0" frameborder="0" scrolling="no"></iframe>
+
+</body>
+</html>

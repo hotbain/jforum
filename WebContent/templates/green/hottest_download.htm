@@ -1,0 +1,58 @@
+<#include "header.htm"/>
+<#import "../macros/pagination.ftl" as pagination>
+<#import "../macros/presentation.ftl" as presentation/>
+
+<table cellspacing="0" cellpadding="10" width="85%" align="center" border="0">
+	<tr>
+		<td class="bodyline" valign="top">
+		
+			<#assign breadCrumb>
+				<table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+					<tr>
+						<td valign="bottom" align="left">
+							<a class="nav" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a> &raquo;
+							<a id="latest3" class="nav" href="${JForumContext.encodeURL("/dyh/hotDownload")}">${I18n.getMessage("dyh.hottestDownloadTitle")}</a>
+						</td>
+						<td>&nbsp;
+						</td>
+					</tr>
+				</table>
+			</#assign>
+			
+			${breadCrumb}
+			<div class="t">
+			<table class="forumline" cellspacing="1" cellpadding="4" width="100%" border="0">
+			<th colspan="5" class="h">
+						<h2 class="cfont">&raquo;${I18n.getMessage("dyh.hottestDownloadTitle")}</h2>
+					</th>
+				<tr  class="tr2">
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("Forums.Form.ForumName")}&nbsp;</td>
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("ForumIndex.topics")}&nbsp;</td>
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("Attachments.filename")}&nbsp;</td>
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("Attachments.totalDownload")}&nbsp;</td>
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("Attachments.filesize")}&nbsp;</td>
+				</tr>
+
+				<!-- TOPICS LISTING -->
+				<#list hottestDown as hd>
+				<tr class="tr3 f_one">
+					<td class="postdetails" valign="middle" align="center"><span class="name">${hd.forumName}</span></td>
+					<td class="postdetails" >
+						<span class="topictitle">
+						<a href="${JForumContext.encodeURL("/posts/list/${hd.topicId}")}"><#if (hd.topicName?length == 0)>No Subject<#else>${hd.topicName?html}</#if></a>
+						</span>
+					</td>
+					<td class="postdetails" valign="middle" align="center"><span class="postdetails">
+					<a href="${JForumContext.encodeURL("/posts/downloadAttach/${hd.attachId}")}">${hd.attachName}</a></span></td>
+					<td class="postdetails" valign="middle" align="center"><span class="name">${hd.downloadCount}</span></td>
+					<td class="postdetails" valign="middle" align="center"><span class="postdetails">${hd.filesize} K</span></td>
+				</tr>
+				</#list>
+				<!-- END OF TOPICS LISTING -->
+			</table>  
+			</div>
+			${breadCrumb}
+		</td>
+	</tr>
+</table>
+<#include "bottom.htm"/>

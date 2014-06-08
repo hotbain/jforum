@@ -1,0 +1,100 @@
+<#include "header.htm"/>
+<#import "../macros/pagination.ftl" as pagination>
+<#import "../macros/presentation.ftl" as presentation/>
+<script type="text/javascript">
+<!--
+function  doValidate(){
+	<#if user.id=1>
+		alert("请先登录！");
+		return true;
+	<#else>
+		return true;
+	</#if>
+}
+//-->
+</script>
+
+<table cellspacing="0" cellpadding="10" width="87%" align="center" border="0">
+	<tr>
+		<td valign="top">
+		
+			<#assign breadCrumb>
+				<table cellspacing="0" cellpadding="2" width="100%" border="0">
+					<tr>
+						<td valign="bottom" align="left">
+							<a class="nav" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a> &raquo;
+							<a id="latest3" class="nav" href="${JForumContext.encodeURL("/dyh/functionCard")}">${I18n.getMessage("www.jforum.com.cn.function.card")}</a>
+						</td>
+						<td>&nbsp;
+						</td>
+					</tr>
+				</table>
+			</#assign>
+			
+			${breadCrumb}
+			<div class="t">
+			<table class="forumline" cellspacing="1" cellpadding="4" width="100%" border="0">
+			<form action="${JForumContext.encodeURL("/jforum")}" method="post" onsubmit="return doValidate();" >
+			<input type="hidden" name="action" value="insertCard" />
+			<input type="hidden" name="module" value="dyh" />
+			<th colspan="5" class="h">
+						<h2 class="cfont">&raquo;${I18n.getMessage("www.jforum.com.cn.function.card")}</h2>
+					</th>
+				<tr  class="tr2">
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("www.jforum.com.cn.function.card.name")}&nbsp;</td>
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("www.jforum.com.cn.function.card.num")}&nbsp;</td>
+				</tr>
+
+
+				
+				<tr class="tr3 f_one">
+					<td class="tal y-style e" style="font-size:12px">沉默卡</td>
+					<td><!--<input name="silenceNum" />
+						--><select name = "silenceNum">
+							<option value =1>1</option>
+							<option value =2>2</option>
+							<option value =3>3</option>
+							<option value =4>4</option>
+							<option value =5>5</option>
+						</select>
+					</td>
+				</tr>
+				<tr><td colspan="2" align="center"><input type="submit" value="购买"/></td></tr>
+				</form>
+
+			</table>  
+			</div>
+			
+			<div class="t">
+			<table class="forumline" cellspacing="1" cellpadding="4" width="100%" border="0">
+			<form action="${JForumContext.encodeURL("/jforum")}" method="post" onsubmit="return doValidate();" >
+			<input type="hidden" name="action" value="updateMoney" />
+			<input type="hidden" name="module" value="dyh" />
+				<tr  class="tr2">
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("www.jforum.com.cn.function.card.name")}&nbsp;</td>
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("www.jforum.com.cn.function.card.num")}&nbsp;</td>
+				</tr>
+
+
+				
+				<tr class="tr3 f_one">
+					<td class="tal y-style e" style="font-size:12px">金币</td>
+					<td>
+						<input name="UserMoney" value="">
+					</td>
+				</tr>
+				<tr><td colspan="2" align="center"><input type="submit" value="购买"/></td></tr>
+				</form>
+
+			</table>  
+			</div>
+			${breadCrumb}
+		</td>
+	</tr>
+	
+</table>
+
+
+
+
+<#include "bottom.htm"/>

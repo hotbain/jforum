@@ -1,0 +1,261 @@
+<#include "header.htm"/>
+<script type="text/javascript" src="${contextPath}/templates/${templateName}/js/Clock.js"></script>
+<style>
+#style{padding-top:0px;height:10px;margin-top:3px;}
+#style ul{margin-top:5px; margin-bottom:0px;height:12px;}
+#style li{display:inline;  margin:3px;padding:3px;line-height:1px;}
+</style>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="${contextPath}/rss/forums${extension}" />
+
+			<#if !logged && !sso>
+			<br>
+			<form name="formlogin" accept-charset="${encoding}" action="${JForumContext.encodeURL("/jforum")}" method="post">
+				<input type="hidden" name="module" value="user" />
+				<input type="hidden" name="action" value="validateLogin" />
+                <div align="center">
+				<div class="t" style="width:84%">
+				<table class="forumline" cellspacing="1" cellpadding="3" width="100%" border="0">
+
+					<tr>
+						<td class="row1" valign="middle" align="left" height="28">
+							<span class="gensmall">
+								${I18n.getMessage("Login.user")}: <input class="post" size="10" name="username" type="text"/> 
+								&nbsp;&nbsp;&nbsp;
+								${I18n.getMessage("Login.password")}: <input class="post" type="password" size="10" name="password" /> 
+								<#if autoLoginEnabled>
+									&nbsp;&nbsp; &nbsp;&nbsp;
+									<label for="autologin">${I18n.getMessage("Login.autoLogon")}</label> <input class="text" type="checkbox" name="autologin" id="autologin"/>
+								</#if>
+								&nbsp;&nbsp;&nbsp; 
+								<input class="mainoption" type="submit" value="${I18n.getMessage("Login.enter")}" name="login" /> 
+							</span>
+						</td>
+						<td class="row1"><div id='style'><ul style="list-style:none;">
+						<li style="background-color:#0066FF"><a href="${contextPath}/test.jsp?sty=green">&nbsp&nbsp</a></li>
+						<li style="background-color:#33494A"><a href="${contextPath}/test.jsp?sty=new">&nbsp&nbsp</a></li>
+						</ul></div></td>
+					</tr>
+				</table>
+                </div>
+                </div>
+			</form>
+			</#if>
+			<!--
+<div align="center">
+			<div align="center" style="width:85%;" class="t">
+			<ul style=" list-style:none; margin:0px; width:100%">
+				<li style="float:left;"><b>${I18n.getMessage("www.jforum.com.cn.notice")}：</b></li>
+				<li >
+					<marquee direction="left" behavior="scroll"  height="20px"  style="font-size:12px; font-weight:bold; padding:2px;">${I18n.getMessage("www.jforum.com.cn.notice.des")}
+					</marquee>
+				</li>
+			</ul>
+			</div>
+		</div>
+		-->
+<table width="85%" align="center">
+<tr>
+		<td width="100%" height="318" valign="top">
+			<table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+				<tr>
+					<td valign="bottom" align="left">
+						<#if logged><span class="gensmall">${I18n.getMessage("ForumListing.lastVisit")}: ${lastVisit}</span><br /></#if>
+						<span class="gensmall">${I18n.getMessage("ForumListing.date")}: <span id="clock"></span></span><br />
+						<span class="forumlink"><a class="forumlink" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a></span>
+					</td>
+					<td class="gensmall" valign="bottom" align="right">&nbsp;
+					<#if logged>
+						<a class="gensmall" href="${JForumContext.encodeURL("/forums/newMessages")}">${I18n.getMessage("ForumListing.readLastVisitMessages")}</a>
+					</#if>
+					</td>
+				</tr>
+			</table>
+			
+            <#list allCategories as category>
+            <div class="t" id="t_1">
+			<table class="forumline" cellspacing="1" cellpadding="2" width="100%" border="0">
+		  
+				<!-- START FORUM LISTING -->
+				
+					<th colspan="5" class="h">
+						<h2 class="cfont">&raquo;${category.name}</h2>
+					</th>
+					
+                 <tr class="tr2">
+					<td  nowrap="nowrap" colspan="2" class="tac" align="center" valign="middle">&nbsp;${I18n.getMessage("ForumListing.forums")}&nbsp;</td>
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("ForumListing.totalTopics")}&nbsp;</td>
+					<td  nowrap="nowrap" width="80"  class="tal y-style e">&nbsp;${I18n.getMessage("ForumListing.totalMessages")}&nbsp;</td>
+					<td  nowrap="nowrap" class="tal">&nbsp;${I18n.getMessage("ForumListing.lastMessage")}&nbsp;</td>
+				</tr>
+					<#list category.getForums() as forum>
+					<#if forum.parentId=0>
+					<#assign lpi = forumRepository.getLastPostInfo(forum.id)/>
+					<tr class="tr3 f_one">
+						<td class="icon tac" valign="middle" align="center" height="50" width="5%">
+						
+						<!-- <#if forum.countToday!=0>
+							<DL class=today style="BACKGROUND: url(${contextPath}/templates/${templateName}/images/new/new.gif) no-repeat">
+        					<DT><SPAN class="s3 f12">${forum.countToday}</SPAN>
+        					<DD>${I18n.getMessage("countToday")}</DD></DL>
+						<#else>  
+      						<DL class=today style="BACKGROUND: url(${contextPath}/templates/${templateName}/images/new/old.gif) no-repeat">
+        					<DT><SPAN class="s3 f12">${forum.countToday}</SPAN>
+        					<DD>${I18n.getMessage("countToday")}</DD></DL>
+						</#if>
+						 -->
+						<#if forum.countToday==0>
+							<img src="${contextPath}/templates/${templateName}/images/folder_old.gif">
+							<#else>
+							<img src="${contextPath}/templates/${templateName}/images/folder_new.gif">
+						</#if>
+						</td>
+						<th class="tr3 f_one" width="50%" height="50">
+							<h3><span class="b"><a  href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name?html}</a></span></h3><span class="s3">(${I18n.getMessage("countToday")}${forum.countToday})</span><br />
+							<span class="smalltxt gray">
+								${forum.description?default("")}
+								<#if forum.isModerated()><br />
+								${I18n.getMessage("ForumIndex.moderators")}
+								<#assign moderators = forumRepository.getModeratorList(forum.id)/>
+								<#list moderators as m>
+								<a href="${JForumContext.encodeURL("/user/listGroup/${m.id}")}">${m.name?html}</a>	
+								</#list>
+								</#if>
+							</span>
+							<br/>
+							<span>
+							<#assign childList = forum.getChildForm()/>
+							<#if  (childList?size>0)>
+							子版面：<#list childList as child><a  href="${JForumContext.encodeURL("/forums/show/${child.id}")}">${child.name}</a>&nbsp;&nbsp;</#list>
+							</#if>
+							</span>
+							<br />		
+						</th>
+						<td class="tal y-style f10 e" valign="middle" align="center" height="50" width="1%"><span class="gensmall">${forum.totalTopics}</span></td>
+						<td class="gray2 f10" valign="middle" align="center" height="50" width="1%">
+							<#assign total = forum.totalPosts/>
+							<#if (total == 0 && forum.totalTopics > 0)>
+								<#assign total = forum.totalTopics/>
+							</#if>
+							<span class="gensmall"><#if (total > 0)>${total}<#else>${I18n.getMessage("ForumListing.noMessages")}</#if></span>
+						</td>
+						<td class="tr3 f_one" valign="middle" nowrap="nowrap" align="center" height="50" >
+							<span class="postdetails">
+							<#if (lpi.postTimeMillis > 0)>
+								<#assign startPage = ""/>
+								<#if (lpi.topicReplies + 1 > topicsPerPage)>
+									<#assign startPage = ((lpi.topicReplies / topicsPerPage)?int * topicsPerPage) +"/"/>
+								</#if>
+								<#assign url = JForumContext.encodeURL("/posts/list/${startPage}${lpi.topicId}") + "#" + lpi.postId/>
+								${lpi.postDate}
+								<#if (lpi.userId > 0)><a href="${JForumContext.encodeURL("/user/profile/${lpi.userId}")}"></#if>${lpi.username}</a> <br/>
+								<a href="${url}" title="${lpi.topicTitle}">
+									<#if lpi.topicTitle?length lt 20>
+										${lpi.topicTitle}
+									<#else>
+										${lpi.topicTitle[0..19]}...
+									</#if>
+								</a>
+								
+					
+								
+								<a href="${url}"><img src="${contextPath}/templates/${templateName}/images/icon_latest_reply.gif" border="0" alt="[Latest Reply]" /></a>
+							<#else>
+								${I18n.getMessage("ForumListing.noMessages")}
+							</#if>		
+							</span>		
+						</td>
+					</tr>
+					</#if>
+					</#list>
+			</table>
+          </div>
+            <table><tr><td height="2"></td></tr></table>
+            </#list>
+            <!-- END OF FORUM LISTING -->
+		
+			<table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+				<tr>
+					<td align="left"><span class="gensmall"><a class="gensmall" href="">&nbsp;</a></span><span class="gensmall">&nbsp;</span></td>
+				</tr>
+			</table>
+		
+        <div class="t"  id="t_1"><!--根据phpwind 改变-->
+			<table class="forumline" cellspacing="1" cellpadding="3" width="100%" border="0">
+
+					<th class="h" colspan="2" height="28"><h2 class="cfont">${I18n.getMessage("ForumListing.whoIsOnline")}</h2></th>
+
+
+				<tr class="tr2">
+					<td class="f_one" valign="middle" align="center" rowspan="2"><img src="${contextPath}/templates/${templateName}/images/whosonline.gif" alt="[Who's Online]"/></td>
+					<td class="f_one" align="left" width="100%">
+						${I18n.getMessage("ForumListing.totalMessagesInfo", [ totalMessages ])}<br />
+						${I18n.getMessage("ForumListing.registeredUsers", [ totalRegisteredUsers ])}<br />
+						${I18n.getMessage("ForumListing.newestUser")} <a href="${JForumContext.encodeURL("/user/profile/${lastUser.id}")}">${lastUser.username}</a>
+					</td>
+				</tr>
+
+				<tr class="tr2">
+					<td class="f_one" align="left">
+						<#assign adminColor = "class='admin'"/>
+						<#assign moderatorColor = "class='moderator'"/>
+						<#assign color = ""/>
+
+						${I18n.getMessage("ForumListing.numberOfUsersOnline", [ totalOnlineUsers, totalRegisteredOnlineUsers, totalAnonymousUsers ])}&nbsp;&nbsp;
+			
+						[ <span ${adminColor}>${I18n.getMessage("Administrator")}</span> ]&nbsp;[ <span ${moderatorColor}>${I18n.getMessage("Moderator")}</span> ]
+						<br />
+						${I18n.getMessage("ForumListing.mostUsersEverOnline", [ mostUsersEverOnline.getTotal(), mostUsersEverOnline.getDate()?string ])}									
+						<br />
+						${I18n.getMessage("ForumListing.connectedUsers")}: 
+			
+						<#list userSessions as us>
+							<#if us.isAdmin()>
+								<#assign color = adminColor/>
+							<#elseif us.isModerator()>
+								<#assign color = moderatorColor/>
+							<#else>
+								<#assign color = ""/>
+							</#if>
+
+								<a href="${JForumContext.encodeURL("/user/profile/${us.userId}")}"><span ${color}>${us.username}</span></a>&nbsp;
+						</#list>			
+					</td>
+				</tr>
+			</table>
+			</div>
+			<br />
+        <!--连接-->
+         <div class="t"  id="t_1"><!--根据phpwind 改变-->
+			<table class="forumline" cellspacing="1" cellpadding="3" width="100%" border="0">
+
+					<th class="h" colspan="2" height="28"><h2 class="cfont">${I18n.getMessage("www.jforum.com.cn.link")}</h2></th>
+
+
+				<tr class="tr2">
+					<td class="f_one" valign="middle" align="left" >
+					<a href="http://www.andowson.com" target=_blank ><img src="http://www.andowson.com/images/logo_small.gif" alt="安道生网站技术练功房"></a>
+					</td>
+				</tr>
+			</table>
+			</div>
+			<table cellspacing="3" cellpadding="0" align="center" border="0">
+				<tr>
+					<td align="center" width="20"><img src="${contextPath}/templates/${templateName}/images/folder_new.gif" alt="[New Folder]" /></td>
+					<td><span class="gensmall">${I18n.getMessage("ForumListing.newMessages")}</span></td>
+					<td>&nbsp;&nbsp;</td>
+					<td align="center" width="20"><img src="${contextPath}/templates/${templateName}/images/folder.gif" alt="[Folder]" /></td>
+					<td><span class="gensmall">${I18n.getMessage("ForumListing.noNewMessages")}</span></td>
+					<td>&nbsp;&nbsp;</td>
+					<td align="center" width="20"><img src="${contextPath}/templates/${templateName}/images/folder_lock.gif" alt="[Lock Folder]" /></td>
+					<td><span class="gensmall">${I18n.getMessage("ForumListing.blocked")}</span></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<SCRIPT type=text/javascript>
+    var clock = new Clock();
+    clock.display(document.getElementById("clock"));
+</SCRIPT>
+
+<#include "bottom.htm"/>
