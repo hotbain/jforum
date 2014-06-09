@@ -60,15 +60,23 @@
 						</td>
 					</#if>
 
-					<form accept-charset="${encoding}" action="${JForumContext.encodeURL("/jforum")}" method="get" id="formSearch" name="formSearch">
+					<form accept-charset="${encoding}" role="form" action="${JForumContext.encodeURL("/jforum")}" method="get" id="formSearch" name="formSearch">
 					<input type="hidden" name="module" value="search"/>
 					<input type="hidden" name="action" value="search"/>
 					<input type="hidden" name="forum" value="${forum.id}">
 					<input type="hidden" name="match_type" value="all">
 
 					<td  valign="middle" align="left" colspan="${colspan?default("")}">
-						<input type="search" required placeholder="${I18n.getMessage("Search.Input.Required.placeHodler")}" size="20" name="search_keywords" class=""/>
-						<button type="submit" class="btn btn-success btn-medium" ><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>
+						 <div class="form-group">
+							    <div class="col-sm-5">
+										<input type="search"  required placeholder="${I18n.getMessage("Search.Input.Required.placeHodler")}"  name="search_keywords" class="form-control"/>
+							    </div>
+							     <div class="col-sm-2">
+							     		<button type="submit" class="btn btn-success btn-medium" ><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>
+							    </div>
+							     <div class="col-sm-5">
+							    </div>
+  						</div>
 					</td>
 
 					</form>
