@@ -21,7 +21,7 @@
 	<#list 1 .. minTotal as page>
 		<#assign start = postsPerPage * (page - 1)/>
 
-		<#assign link>${link}<a href="${contextPath}/posts/list<#if (start>0)>/${start}</#if>/${topicId}${extension}">${page}</a></#assign>
+		<#assign link>${link}<a class="label label-success" href="${contextPath}/posts/list<#if (start>0)>/${start}</#if>/${topicId}${extension}">${page}</a></#assign>
 		<#if (page < minTotal)><#assign link>${link}, </#assign></#if>		
 	</#list>
 
@@ -33,7 +33,7 @@
 		<#list totalPostPages - 2 .. totalPostPages as page>
 			<#assign start = postsPerPage * (page - 1)/>
 
-			<#assign link>${link}<a href="${contextPath}/posts/list<#if (start>0)>/${start}</#if>/${topicId}${extension}">${page}</a></#assign>
+			<#assign link>${link}<a class="label label-success" href="${contextPath}/posts/list<#if (start>0)>/${start}</#if>/${topicId}${extension}">${page}</a></#assign>
 			<#if (page_index + 1 < 3)><#assign link>${link}, </#assign></#if>
 		</#list>
 

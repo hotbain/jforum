@@ -177,13 +177,13 @@
 				<input type="hidden" name="log_description">
 			</#if>
 
-			<table class="forumline" cellspacing="1" cellpadding="4" width="100%" border="0">
-				<tr>
-					<th class="thcornerl" nowrap="nowrap" align="center" colspan="2" height="25">&nbsp;${I18n.getMessage("ForumIndex.topics")}&nbsp;</th>
-					<th class="thtop" nowrap="nowrap" align="center" width="50">&nbsp;${I18n.getMessage("ForumIndex.answers")}&nbsp;</th>
-					<th class="thtop" nowrap="nowrap" align="center" width="100">&nbsp;${I18n.getMessage("ForumIndex.author")}&nbsp;</th>
-					<th class="thtop" nowrap="nowrap" align="center" width="50">&nbsp;${I18n.getMessage("ForumIndex.views")}&nbsp;</th>
-					<th class="thcornerr" nowrap="nowrap" align="center">&nbsp;${I18n.getMessage("ForumIndex.lastMessage")}&nbsp;</th>
+			<table class="table table-hover table-striped table-bordered" cellspacing="1" cellpadding="4" width="100%" border="0">
+				<tr class="success">
+					<th class="" nowrap="nowrap" align="center" colspan="2" height="25">&nbsp;${I18n.getMessage("ForumIndex.topics")}&nbsp;</th>
+					<th class="" nowrap="nowrap" align="center" width="50">&nbsp;${I18n.getMessage("ForumIndex.answers")}&nbsp;</th>
+					<th class="" nowrap="nowrap" align="center" width="100">&nbsp;${I18n.getMessage("ForumIndex.author")}&nbsp;</th>
+					<th class="" nowrap="nowrap" align="center" width="50">&nbsp;${I18n.getMessage("ForumIndex.views")}&nbsp;</th>
+					<th class="" nowrap="nowrap" align="center">&nbsp;${I18n.getMessage("ForumIndex.lastMessage")}&nbsp;</th>
 
 					<#if moderator && openModeration?default(false)>
 						<th class="thcornerr" nowrap="nowrap" align="center">&nbsp;${I18n.getMessage("ForumIndex.moderation")}&nbsp;</th>
@@ -210,7 +210,7 @@
 							<#if topic.hasAttach() && attachmentsEnabled><img src="${contextPath}/templates/${templateName}/images/icon_clip.gif" align="middle" alt="[Clip]" /></#if>
 							<span class="topictitle">
 							<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}">
-							<#if topic.vote>${I18n.getMessage("ForumListing.pollLabel")}</#if>
+							<#if topic.vote>[<div class="glyphicon glyphicon-star glyphicon-red"></div><span class="label label-danger">${I18n.getMessage("ForumListing.pollLabel")}</span></div>]</#if>
 							<#if (topic.title?length == 0)>
 								No Subject
 							<#else>

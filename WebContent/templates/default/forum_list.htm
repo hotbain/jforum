@@ -19,12 +19,12 @@
 				</tr>
 			</table>
 			
-			<table class="forumline" cellspacing="1" cellpadding="2" width="100%" border="0">
-				<tr>
-					<th class="thcornerl" nowrap="nowrap" colspan="2" height="25" align="center" valign="middle">&nbsp;${I18n.getMessage("ForumListing.forums")}&nbsp;</th>
-					<th class="thtop" nowrap="nowrap" width="50">&nbsp;${I18n.getMessage("ForumListing.totalTopics")}&nbsp;</th>
-					<th class="thtop" nowrap="nowrap" width="50">&nbsp;${I18n.getMessage("ForumListing.totalMessages")}&nbsp;</th>
-					<th class="thcornerr" nowrap="nowrap">&nbsp;${I18n.getMessage("ForumListing.lastMessage")}&nbsp;</th>
+			<table class="table table-hover  table-bordered" >
+				<tr class="">
+					<th class="text-center"  colspan="2" height="25"  >&nbsp;${I18n.getMessage("ForumListing.forums")}&nbsp;</th>
+					<th class="text-center" nowrap="nowrap" width="50">&nbsp;${I18n.getMessage("ForumListing.totalTopics")}&nbsp;</th>
+					<th class="text-center" nowrap="nowrap" width="50">&nbsp;${I18n.getMessage("ForumListing.totalMessages")}&nbsp;</th>
+					<th class="text-center" nowrap="nowrap">&nbsp;${I18n.getMessage("ForumListing.lastMessage")}&nbsp;</th>
 				</tr>
 		  
 				<!-- START FORUM LISTING -->
@@ -38,11 +38,11 @@
 					<#assign lpi = forumRepository.getLastPostInfo(forum.id)/>
 					<tr>
 						<td class="row1" valign="middle" align="center" height="50">
-						<#if forum.unread>
-							<img src="${contextPath}/templates/${templateName}/images/folder_new_big.gif" alt="[New Folder]" />
-						<#else>
-							<img src="${contextPath}/templates/${templateName}/images/folder_big.gif" alt="[Folder]" />
-						</#if>
+							<#if forum.unread>
+								<img src="${contextPath}/templates/${templateName}/images/folder_new_big.gif" alt="[New Folder]" />
+							<#else>
+								<img src="${contextPath}/templates/${templateName}/images/folder_big.gif" alt="[Folder]" />
+							</#if>
 						</td>
 						<td class="row1" width="100%" height="50">
 							<span class="forumlink"><a class="forumlink" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name?html}</a></span><br />
@@ -56,15 +56,16 @@
 								</#list>
 								</#if>
 							</span>
-							<br />		
 						</td>
-						<td class="row2" valign="middle" align="center" height="50"><span class="gensmall">${forum.totalTopics}</span></td>
-						<td class="row2" valign="middle" align="center" height="50">
+						<td class="text-center">
+							<span class="label label-danger">${forum.totalTopics}</span>
+						</td>
+						<td class="text-center">
 							<#assign total = forum.totalPosts/>
 							<#if (total == 0 && forum.totalTopics > 0)>
 								<#assign total = forum.totalTopics/>
 							</#if>
-							<span class="gensmall"><#if (total > 0)>${total}<#else>${I18n.getMessage("ForumListing.noMessages")}</#if></span>
+							<span <#if (total > 0)>class="label label-success">${total}<#else>class="label label-danger">${I18n.getMessage("ForumListing.noMessages")}</#if></span>
 						</td>
 						<td class="row2" valign="middle" nowrap="nowrap" align="center" height="50">
 							<span class="postdetails">
@@ -200,12 +201,6 @@
 		</td>
 	</tr>
 </table>
-   </div>
-                        <div class="col-md-1 column">
-                        </div>
-                    </div>
-                    </div>
-              </div>
-</div>
+
 
 <#include "bottom.htm"/>

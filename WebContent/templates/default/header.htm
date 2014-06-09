@@ -10,6 +10,7 @@
 <meta http-equiv="Expires" content="-1" />
 <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet">
 <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap-theme.css" rel="stylesheet">
+
 <style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/style.css?${startupTime} );</style>
 <style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/${language}.css?${startupTime} );</style>
 
@@ -90,71 +91,7 @@
   </div>
 </header>
 
-<!-- Docs master nav -->
-    <footer class="navbar navbar-inverse navbar-fixed-bottom "  role="banner">
-  <div class="container">
-    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
-        <li>
-			<a id="search"  href="${JForumContext.encodeURL("/search/filters")}"><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</a> 
-        </li>
-        <li class="active">
-				<a id="latest" href="${JForumContext.encodeURL("/recentTopics/list")}"><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.recentTopics")}</a> 
-        </li>
-        <li>
-				<a id="hottest" href="${JForumContext.encodeURL("/hottestTopics/list")}"><i class="glyphicon glyphicon-fire"></i>&nbsp;${I18n.getMessage("ForumBase.hottestTopics")}</a> 
-        </li>
-        <li>
-				<a id="latest2" href="${JForumContext.encodeURL("/user/list")}"><i class="glyphicon glyphicon-list"></i>&nbsp;${I18n.getMessage("ForumBase.usersList")}</a> 
-        </li>
-        <#if canAccessModerationLog?default(false)>
-        <li>
-				<a id="moderationlog"  href="${JForumContext.encodeURL("/moderation/showActivityLog")}"><i class=" glyphicon glyphicon-envelope"></i>&nbsp;${I18n.getMessage("ModerationLog.moderationLog")}</a> 
-		</li>
-		</#if>
-		
-		<#if !logged && !sso>
-		<li>
-				<a id="register" class="" href="${JForumContext.encodeURL("/user/insert")}"><i class="glyphicon glyphicon-map-marker"></i>&nbsp; ${I18n.getMessage("ForumBase.register")}</a>&nbsp;/&nbsp;</span>
-		</li>				
-		<li>			
-				<a id="login" class="" href="${JForumContext.encodeURL("/user/login")}"><i class="glyphicon glyphicon-circle-arrow-up"></i>&nbsp; ${I18n.getMessage("ForumBase.login")}</a>&nbsp; </span>
-		</li>				
-		</#if>
-		<#if logged>
-		<li>
-					<a id="myprofile" class="" href="${JForumContext.encodeURL("/user/edit/${session.userId}")}"><i class="glyphicon glyphicon-file"></i>&nbsp; ${I18n.getMessage("ForumBase.profile")}</a>&nbsp; 
-		</li>
-					<#if bookmarksEnabled>
-							<li>
-								<a class="" href="${JForumContext.encodeURL("/bookmarks/list/${session.userId}")}"><i class="glyphicon glyphicon-flag"></i>&nbsp;${I18n.getMessage("Bookmarks.myBag")}</a>&nbsp;
-							</li>
-					</#if>
-							<li>
-								<a id="privatemessages" class="" href="${JForumContext.encodeURL("/pm/inbox")}"><i class=" glyphicon glyphicon-envelope"></i>&nbsp;
-										<#if (session.privateMessages > 0)>
-											${I18n.getMessage("ForumBase.newPm")}: (${session.privateMessages})
-										<#else>
-											${I18n.getMessage("ForumBase.privateMessages")}
-										</#if>
-								</a>
-							</li>
 
-					<#if !sso>
-							<li>
-								<a id="logout" class="" href="${JForumContext.encodeURL("/user/logout")}"><i class="glyphicon glyphicon-off"></i>&nbsp;${I18n.getMessage("ForumBase.logout")} [${session.username}] </a></span>
-							</li>
-					</#if>
-		</#if>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          		<a id="backtosite"  href="${JForumContext.encodeURL("/forums/list")}"><i class="glyphicon glyphicon-home"></i>&nbsp;${I18n.getMessage("ForumBase.backToSite")}</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</footer>
 
 
 <div class="jumbotron">
@@ -168,29 +105,15 @@
 
 
 
-<div class="container" style="width: 90%">
+<div class="container" style="width: 100%">
             <div class="row clearfix">
                 <div class="col-md-12 column">
                 	<div class="row clearfix">
                         <div class="col-md-1 column">
                            
                         </div>
-                        <div class="col-md-10 column">
-                           <table width="80%" border="0">
-	<tr>
-		<td>
-			<table cellspacing="0" cellpadding="0" width="100%" border="0">
-				<tr>
-					<td>
-						&nbsp;
-						<!--
-						<a href="${homepageLink}"><img src="${contextPath}/templates/${templateName}/images/logo.jpg"  vspace="1" border="0" alt="[Logo]" /></a>
-						-->
-					</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
+                        <div class="col-md-7 column">
+                           <table width="100%" border="0">
 	<tr>
 		<td>
                      
