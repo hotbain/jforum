@@ -66,9 +66,9 @@
 					<input type="hidden" name="forum" value="${forum.id}">
 					<input type="hidden" name="match_type" value="all">
 
-					<td class="nav" valign="middle" align="left" colspan="${colspan?default("")}">
-						<input type="text" onblur="if (this.value == '') this.value = '${I18n.getMessage("ForumIndex.searchThisForum")}...';" onclick="if (this.value == '${I18n.getMessage("ForumIndex.searchThisForum")}...') this.value = '';" value="${I18n.getMessage("ForumIndex.searchThisForum")}..." size="20" name="search_keywords" class="inputSearchForum"/>
-						<input type="submit" value="${I18n.getMessage("ForumBase.search")}" class="liteoption">
+					<td  valign="middle" align="left" colspan="${colspan?default("")}">
+						<input type="search" required placeholder="${I18n.getMessage("Search.Input.Required.placeHodler")}" size="20" name="search_keywords" class=""/>
+						<button type="submit" class="btn btn-success btn-medium" ><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>
 					</td>
 
 					</form>

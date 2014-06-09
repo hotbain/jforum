@@ -156,7 +156,7 @@
 						</#list>
 					</select>
 					&nbsp;
-					<input class="liteoption" type="button" value="${I18n.getMessage("ForumIndex.goToGo")}" onclick="if(document.f.select.options[document.f.select.selectedIndex].value != -1){ document.location = '${contextPath}/forums/show/'+ document.f.select.options[document.f.select.selectedIndex].value +'${extension}'; }" />
+					<input class="btn btn-medium btn-success " type="button" value="${I18n.getMessage("ForumIndex.goToGo")}" onclick="if(document.f.select.options[document.f.select.selectedIndex].value != -1){ document.location = '${contextPath}/forums/show/'+ document.f.select.options[document.f.select.selectedIndex].value +'${extension}'; }" />
 				</form>
 			</td>
 		</tr>
