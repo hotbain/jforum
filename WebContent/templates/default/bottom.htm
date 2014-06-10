@@ -2,12 +2,6 @@
 </tr>
 	<tr>
 		<td align="center">
-			<#if session?exists && session.isAdmin()><a id="adminpanel" class="btn btn-medium btn-danger " href='${JForumContext.encodeURL("/admBase/login")}'><i class=" glyphicon glyphicon-wrench  glyphicon-white"></i>&nbsp;${I18n.getMessage("ForumBase.admin")}</a></#if>
-		</td>
-	</tr>
-
-	<tr>
-		<td align="center">
 			<span class="copyright">Powered by <a class="copyright" href="http://www.jforum.net/" target="_blank">JForum ${version}</a> &copy; <a class="copyright" href="http://www.jforum.net/team.jsp" target="_blank">JForum Team</a></span>
 		</td>
 	</tr>
@@ -62,6 +56,7 @@
 				  				<div class="page-header">
 				  					<p><#--${I18n.getMessage("Logout_Here_Msg")}--></p>
 				  				</div>
+		  							<#if session?exists && session.isAdmin()><a id="adminpanel" class="btn btn-block btn-success " href='${JForumContext.encodeURL("/admBase/login")}'><i class=" glyphicon glyphicon-wrench  glyphicon-white"></i>&nbsp;${I18n.getMessage("ForumBase.admin")}</a></#if>
 				  					<a id="logout"  class="btn  btn-danger btn-block" href="${JForumContext.encodeURL("/user/logout")}"><i class="glyphicon glyphicon-off"></i>&nbsp;${I18n.getMessage("ForumBase.logout")} [${session.username}] </a>
 				  				
 				  				
