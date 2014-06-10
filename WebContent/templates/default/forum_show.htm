@@ -69,7 +69,7 @@
 					<td  valign="middle" align="left" colspan="${colspan?default("")}">
 						 <div class="form-group">
 							    <div class="col-sm-5">
-										<input type="search"  required placeholder="${I18n.getMessage("Search.Input.Required.placeHodler")}"  name="search_keywords" class="form-control"/>
+										<input type="search"  required placeholder="${I18n.getMessage("Search.Input.Required.placeHodler_Spec")}"  name="search_keywords" class="form-control"/>
 							    </div>
 							     <div class="col-sm-2">
 							     		<button type="submit" class="btn btn-success btn-medium" ><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>
@@ -204,21 +204,43 @@
 						</#if>
 					</#if>
 
-					<tr class="bg_small_yellow">
+					<tr class="bg_small_yellow"><#---2(Í¨¸æ) 1 ÖÃ¶¥ 0 ÆÕÍ¨-->
 						<td ${class1} valign="middle"  align="center" width="20"><@presentation.folderImage topic/></td>
 						<td ${class1} width="100%">
-							<#if topic.hasAttach() && attachmentsEnabled><img src="${contextPath}/templates/${templateName}/images/icon_clip.gif" align="middle" alt="[Clip]" /></#if>
+							<#--
+							<#if topic.hasAttach() && attachmentsEnabled><img src="${contextPath}/templates/${templateName}/images/icon_clip.gif" align="middle" alt="[Clip]" />
+							</#if>
+							-->
 							<span class="topictitle">
 							<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}">
-							<#if topic.vote>[<div class="glyphicon glyphicon-star glyphicon-red"></div><span class="label label-danger">${I18n.getMessage("ForumListing.pollLabel")}</span></div>]</#if>
+							
 							<#if (topic.title?length == 0)>
 								No Subject
 							<#else>
 								${topic.title?html}
 							</#if>
+							<#if topic.vote>[<span class="label label-danger"><div class="glyphicon glyphicon-star glyphicon-red"></div>${I18n.getMessage("ForumListing.pollLabel")}</span></div>]
+							</#if>
 							</a>
 							</span>
-
+									<#if  topic.type ==2 >
+									<span>
+							[<span class="label label-danger"><div class="glyphicon glyphicon-thumbs-up"></div>${I18n.getMessage("Topic_Type_Tooltip_Announcement")}</span>]
+							</#if>
+							<#if  topic.type ==1 >
+							<span>
+							[<span class="label label-success"><div class="glyphicon glyphicon-thumbs-up"></div>${I18n.getMessage("Topic_Type_Tooltip_Top")}</span>]
+							</span>
+							</#if>
+							</span>
+							<#if topic.hasAttach() && attachmentsEnabled>
+								<span >
+									[
+									<span class="label label-primary">${I18n.getMessage("Topic_Type_Tooltip_Attachment")}<div class="glyphicon glyphicon-file"></div></span>
+									]
+									
+								</span>
+							</#if>
 							<#if topic.paginate>
 								<span class="gensmall">
 								<br />
