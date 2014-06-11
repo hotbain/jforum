@@ -103,11 +103,10 @@
 							<td class="row1 gensmall" align="left" width="100%">
 								${I18n.getMessage("ForumListing.totalMessagesInfo", [ totalMessages ])}<br />
 								${I18n.getMessage("ForumListing.registeredUsers", [ totalRegisteredUsers ])}<br />
-								<#--
-									移除最新注册会员
+								<#if session?exists && session.isAdmin()>
 									${I18n.getMessage("ForumListing.newestUser")} <a href="${JForumContext.encodeURL("/user/profile/${lastUser.id}")}">${lastUser.username}</a>
 									
-								-->
+								</#if>
 							</td>
 						</tr>
 		
