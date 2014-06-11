@@ -9,20 +9,25 @@
 	<div class="action">
 		<#if karmaEnabled>
 			<script type="text/javascript">writeStars(${post.karma.karmaPoints}, ${post.id});</script>
+			&nbsp;
 		</#if>
 
 		<#if topic.status != STATUS_LOCKED && !readonly>
-			<a href="${JForumContext.encodeURL("/posts/quote/${start}/${post.id}")}" rel="nofollow" class="icon_quote"><img src="${contextPath}/images/transp.gif" alt="" /></a>
+			<a href="${JForumContext.encodeURL("/posts/quote/${start}/${post.id}")}" rel="nofollow" class="icon_quote"><div class="btn btn-xs btn-success">${I18n.getMessage("Post_list_Quote_Msg")}</div></a>
+			&nbsp;
 		</#if>
-
+		
 		<#if (canEditCurrentMessage)>
-			<a href="${JForumContext.encodeURL("/jforum${extension}?module=${moduleName}&amp;action=edit&amp;post_id=${post.id}&amp;start=${start}","")}" rel="nofollow" class="icon_edit"><img src="${contextPath}/images/transp.gif" alt="" /></a>  
+			<a href="${JForumContext.encodeURL("/jforum${extension}?module=${moduleName}&amp;action=edit&amp;post_id=${post.id}&amp;start=${start}","")}" rel="nofollow" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span>${I18n.getMessage("Post_list_Edit_Msg")}</a>  
+			&nbsp;
 		</#if>
 
 		<#if canRemove>
 			<a href="${JForumContext.encodeURL("/jforum${extension}?module=${moduleName}&amp;action=delete&amp;post_id=${post.id}&amp;start=${start}","")}" id="delete${post.id}" onclick="return confirmDelete(${post.id});"><img src="${contextPath}/templates/${templateName}/images/icon_delete.gif" alt="[Delete]" /></a>  
 		</#if>
 
-		<a class="nav" href="#top"><img src="${contextPath}/templates/${templateName}/images/icon_up.gif" alt="[Up]" /></a>
 	</div>
+	<span class="action">
+			<a class="nav" href="#top"><img src="${contextPath}/templates/${templateName}/images/icon_up.gif" alt="[Up]" /></a>
+	</span>
 </div>
