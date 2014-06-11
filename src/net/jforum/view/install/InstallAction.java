@@ -101,7 +101,7 @@ public class InstallAction extends Command
 {
 	private static Logger logger = Logger.getLogger(InstallAction.class);
 
-    private static final String POOLED_CONNECTION = net.jforum.PooledConnection.class.getName();
+    private static final String POOLED_CONNECTION = net.jforum.DruidPooledConnection.class.getName();
     private static final String SIMPLE_CONNECTION = net.jforum.SimpleConnection.class.getName();
     private static final String DATASOURCE_CONNECTION = net.jforum.DataSourceConnection.class.getName();
 

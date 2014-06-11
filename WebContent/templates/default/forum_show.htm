@@ -21,7 +21,9 @@
 					<td valign="bottom" align="left" colspan="2">
 						<a class="maintitle" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a> &raquo;
 						<a class="maintitle" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name?html}</a>
-
+						<#if readonly>
+							<div class="label label-danger">${I18n.getMessage("Forum.List.Msg.ReadOnly")}</div>
+						</#if>
 						<#if rssEnabled>
 							<a href="${JForumContext.encodeURL("/rss/forumTopics/${forum.id}")}"><img src="${contextPath}/templates/${templateName}/images/xml_button.gif" border="0" alt="[XML]" /></a>
 							<br />

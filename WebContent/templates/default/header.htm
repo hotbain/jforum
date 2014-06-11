@@ -113,16 +113,18 @@
 		<li>
 				<a id="register" class="" href="${JForumContext.encodeURL("/user/insert")}"><i class="glyphicon glyphicon-map-marker"></i>&nbsp; ${I18n.getMessage("ForumBase.register")}</a>&nbsp;/&nbsp;</span>
 		</li>				
-		<li>			
+				<#--
+					<li>			
 				<a id="login" class="" href="${JForumContext.encodeURL("/user/login")}"><i class="glyphicon glyphicon-circle-arrow-up"></i>&nbsp; ${I18n.getMessage("ForumBase.login")}</a>&nbsp; </span>
-		</li>				
+		</li>
+				-->		
 		</#if>
 		
       </ul>
       
        <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" required class="form-control" placeholder="${I18n.getMessage("Header.Search.All.PlaceHolder")}">
       </div>
       <button type="submit" class="btn btn-success btn-small"><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>
     </form>

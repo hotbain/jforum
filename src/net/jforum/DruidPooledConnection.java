@@ -8,7 +8,6 @@ import net.jforum.util.preferences.ConfigKeys;
 import net.jforum.util.preferences.SystemGlobals;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.mchange.v2.c3p0.DataSources;
 
 public class DruidPooledConnection extends DBConnection {
 
@@ -100,7 +99,7 @@ public class DruidPooledConnection extends DBConnection {
 
 	@Override
 	public void realReleaseAllConnections() throws Exception {
-		DataSources.destroy(ds);
+		ds.close();
 	}
 
 }

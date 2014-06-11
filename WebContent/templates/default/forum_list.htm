@@ -91,54 +91,63 @@
 				<!-- END OF FORUM LISTING -->
 			</table>
 		
-			<table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
-				<tr>
-					<td align="left"><span class="gensmall"><a class="gensmall" href="">&nbsp;</a></span><span class="gensmall">&nbsp;</span></td>
-				</tr>
-			</table>
 		
-			<table class="forumline" cellspacing="1" cellpadding="3" width="100%" border="0">
-				<tr>
-					<td class="cathead" colspan="2" height="28"><span class="cattitle">${I18n.getMessage("ForumListing.whoIsOnline")}</span></td>
-				</tr>
-
-				<tr>
-					<td class="row1" valign="middle" align="center" rowspan="2"><img src="${contextPath}/templates/${templateName}/images/whosonline.gif" alt="[Who's Online]"/></td>
-					<td class="row1 gensmall" align="left" width="100%">
-						${I18n.getMessage("ForumListing.totalMessagesInfo", [ totalMessages ])}<br />
-						${I18n.getMessage("ForumListing.registeredUsers", [ totalRegisteredUsers ])}<br />
-						${I18n.getMessage("ForumListing.newestUser")} <a href="${JForumContext.encodeURL("/user/profile/${lastUser.id}")}">${lastUser.username}</a>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="row1 gensmall" align="left">
-						<#assign adminColor = "class='admin'"/>
-						<#assign moderatorColor = "class='moderator'"/>
-						<#assign color = ""/>
-
-						${I18n.getMessage("ForumListing.numberOfUsersOnline", [ totalOnlineUsers, totalRegisteredOnlineUsers, totalAnonymousUsers ])}&nbsp;&nbsp;
 			
-						[ <span ${adminColor}>${I18n.getMessage("Administrator")}</span> ]&nbsp;[ <span ${moderatorColor}>${I18n.getMessage("Moderator")}</span> ]
-						<br />
-						${I18n.getMessage("ForumListing.mostUsersEverOnline", [ mostUsersEverOnline.getTotal(), mostUsersEverOnline.getDate()?string ])}									
-						<br />
-						${I18n.getMessage("ForumListing.connectedUsers")}: 
-			
-						<#list userSessions as us>
-							<#if us.isAdmin()>
-								<#assign color = adminColor/>
-							<#elseif us.isModerator()>
-								<#assign color = moderatorColor/>
-							<#else>
+						<table class="forumline" cellspacing="1" cellpadding="3" width="100%" border="0">
+						<tr>
+							<td class="cathead" colspan="2" height="28"><span class="cattitle">${I18n.getMessage("ForumListing.whoIsOnline")}</span></td>
+						</tr>
+		
+						<tr>
+							<td class="row1" valign="middle" align="center" rowspan="2"><img src="${contextPath}/templates/${templateName}/images/whosonline.gif" alt="[Who's Online]"/></td>
+							<td class="row1 gensmall" align="left" width="100%">
+								${I18n.getMessage("ForumListing.totalMessagesInfo", [ totalMessages ])}<br />
+								${I18n.getMessage("ForumListing.registeredUsers", [ totalRegisteredUsers ])}<br />
+								<#--
+									移除最新注册会员
+									${I18n.getMessage("ForumListing.newestUser")} <a href="${JForumContext.encodeURL("/user/profile/${lastUser.id}")}">${lastUser.username}</a>
+									
+								-->
+							</td>
+						</tr>
+		
+						<tr>
+							<td class="row1 gensmall" align="left">
+								<#assign adminColor = "class='admin'"/>
+								<#assign moderatorColor = "class='moderator'"/>
 								<#assign color = ""/>
-							</#if>
-
-								<a href="${JForumContext.encodeURL("/user/profile/${us.userId}")}"><span ${color}>${us.username}</span></a>&nbsp;
-						</#list>			
-					</td>
-				</tr>
-			</table>
+		
+								${I18n.getMessage("ForumListing.numberOfUsersOnline", [ totalOnlineUsers, totalRegisteredOnlineUsers, totalAnonymousUsers ])}&nbsp;&nbsp;
+					
+								[ <span ${adminColor}>${I18n.getMessage("Administrator")}</span> ]&nbsp;[ <span ${moderatorColor}>${I18n.getMessage("Moderator")}</span> ]
+								<br />
+								<#--
+								最高在线人数 2 人 [ 记录时间 :: 07/06/2014 22:30:56 ] 
+									${I18n.getMessage("ForumListing.mostUsersEverOnline", [ mostUsersEverOnline.getTotal(), mostUsersEverOnline.getDate()?string ])}									
+								<br />
+								
+								-->
+								
+					
+								
+								
+					<#if session?exists && session.isAdmin()>
+								${I18n.getMessage("ForumListing.connectedUsers")}: 
+								<#list userSessions as us>
+										<#if us.isAdmin()>
+											<#assign color = adminColor/>
+										<#elseif us.isModerator()>
+											<#assign color = moderatorColor/>
+										<#else>
+											<#assign color = ""/>
+										</#if>
+										<a href="${JForumContext.encodeURL("/user/profile/${us.userId}")}"><span ${color}>${us.username}</span></a>&nbsp;
+								</#list>			
+					</#if>
+							</td>
+						</tr>
+					</table>
+			
 			
 			<br />
         
