@@ -84,6 +84,7 @@ public class ConfigKeys
 	public static final String DATABASE_AUTO_KEYS = "database.support.autokeys";
 	public static final String DATABASE_SUPPORT_SUBQUERIES = "database.support.subqueries";
 	public static final String C3P0_EXTRA_PARAMS = "c3p0.extra.params";
+	public static final String DRUID_EXTRA_PARAMS = "druid.extra.params";
 	
 	public static final String AUTHENTICATION_TYPE = "authentication.type";
 	public static final String SSO_IMPLEMENTATION = "sso.implementation";
