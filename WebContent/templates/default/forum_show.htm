@@ -179,7 +179,7 @@
 				<input type="hidden" name="log_description">
 			</#if>
 
-			<table class="table table-hover table-striped table-bordered" cellspacing="1" cellpadding="4" width="100%" border="0">
+			<table class="table table-hover  table-bordered" cellspacing="1" cellpadding="4" width="100%" border="0">
 				<tr class="success">
 					<th class="" nowrap="nowrap" align="center" colspan="2" height="25">&nbsp;${I18n.getMessage("ForumIndex.topics")}&nbsp;</th>
 					<th class="" nowrap="nowrap" align="center" width="50">&nbsp;${I18n.getMessage("ForumIndex.answers")}&nbsp;</th>
@@ -260,14 +260,20 @@
 						<td ${class3} valign="middle"  nowrap="nowrap" align="center">
 							<#if (topic.lastPostTime?length > 0)>
 								<span class="postdetails">${topic.lastPostTime}<br />
-								<a href="${JForumContext.encodeURL("/user/profile/${topic.lastPostBy.id}")}">${topic.lastPostBy.username}</a>
-
-								<#assign startPage = ""/>
-								<#if (topic.totalReplies + 1 > postsPerPage?number)>
-									<#assign startPage = ((topic.totalReplies / postsPerPage?number)?int * postsPerPage?number) +"/"/>
-								</#if>
-
-								<a href="${JForumContext.encodeURL("/posts/list/${startPage}${topic.id}")}#${topic.lastPostId}"><img src="${contextPath}/templates/${templateName}/images/icon_latest_reply.gif" border="0" alt="[Latest Reply]" /></a></span>
+									<a href="${JForumContext.encodeURL("/user/profile/${topic.lastPostBy.id}")}">${topic.lastPostBy.username}</a>
+	
+									<#assign startPage = ""/>
+									<#if (topic.totalReplies + 1 > postsPerPage?number)>
+										<#assign startPage = ((topic.totalReplies / postsPerPage?number)?int * postsPerPage?number) +"/"/>
+									</#if>
+	
+									<a href="${JForumContext.encodeURL("/posts/list/${startPage}${topic.id}")}#${topic.lastPostId}">
+										<i class="glyphicon glyphicon-circle-arrow-right"></i>
+										<#--
+											<img src="${contextPath}/templates/${templateName}/images/icon_latest_reply.gif" border="0" alt="[Latest Reply]" />
+										-->
+									</a>
+								</span>
 							</#if>
 						</td>
 

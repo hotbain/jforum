@@ -79,7 +79,12 @@
 								</#if>
 					
 								<#assign url = JForumContext.encodeURL("/posts/list/${startPage}${lpi.topicId}") + "#" + lpi.postId/>
-								<a href="${url}"><img src="${contextPath}/templates/${templateName}/images/icon_latest_reply.gif" border="0" alt="[Latest Reply]" /></a>
+								<a href="${url}">
+									<i class="glyphicon glyphicon-circle-arrow-right"></i>
+								<#--
+									<img src="${contextPath}/templates/${templateName}/images/icon_latest_reply.gif" border="0" alt="[Latest Reply]" />
+								-->
+								</a>
 							<#else>
 								${I18n.getMessage("ForumListing.noMessages")}
 							</#if>		

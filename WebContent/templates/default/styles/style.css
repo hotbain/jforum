@@ -1,5 +1,5 @@
 img { border: 0px; }
-font, th, td, p { font-family: verdana, arial, helvetica, sans-serif; }
+font, th, p { font-family: verdana, arial, helvetica, sans-serif; }
 
 /* Links */
 a:link { color: #01336b; text-decoration: none; }

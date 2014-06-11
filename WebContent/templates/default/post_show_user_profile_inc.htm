@@ -1,8 +1,13 @@
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 <tr>
 	<td valign="middle" nowrap="nowrap"> 
-		<a href="${JForumContext.encodeURL("/user/profile/${user.id}")}" class="icon_profile"><img src="${contextPath}/images/transp.gif" alt="" /></a>
-		<a href="${JForumContext.encodeURL("/pm/sendTo/${user.id}")}" class="icon_pm"><img src="${contextPath}/images/transp.gif" alt="" /></a>
+		<a href="${JForumContext.encodeURL("/user/profile/${user.id}")}">
+			<span class="glyphicon glyphicon-list-alt"></span>
+		</a>&nbsp;&nbsp;&nbsp;
+		<a href="${JForumContext.encodeURL("/pm/sendTo/${user.id}")}" id="sendMsg_${user.id}">
+			<span class="glyphicon glyphicon-envelope"></span>
+		</a>
+
 
 		<#if (user.isViewEmailEnabled() && user.email?exists && user.email?length > 0)>
 			<#assign e = user.email.split("@")/>
