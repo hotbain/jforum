@@ -1,22 +1,28 @@
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 <tr>
 	<td valign="middle" nowrap="nowrap"> 
-		<a href="${JForumContext.encodeURL("/user/profile/${user.id}")}">
-			<span class="glyphicon glyphicon-list-alt"></span>
+		<#--查看资料-->
+		<a href="${JForumContext.encodeURL("/user/profile/${user.id}")}" class="btn btn-default btn-xs">
+			<span class="glyphicon glyphicon-list-alt"></span>&nbsp;${I18n.getMessage("Post_list_Profile_Msg")}
 		</a>&nbsp;&nbsp;&nbsp;
-		<a href="${JForumContext.encodeURL("/pm/sendTo/${user.id}")}" id="sendMsg_${user.id}">
-			<span class="glyphicon glyphicon-envelope"></span>
-		</a>
+		<#--发送私信-->
+		<a href="${JForumContext.encodeURL("/pm/sendTo/${user.id}")}" id="sendMsg_${user.id}" class="btn btn-warning btn-xs">
+			<span class="glyphicon glyphicon-send"></span>&nbsp;${I18n.getMessage("Post_list_Send_Msg")}
+		</a>&nbsp;&nbsp;&nbsp;
 
-
+		<#--发送邮件-->
 		<#if (user.isViewEmailEnabled() && user.email?exists && user.email?length > 0)>
 			<#assign e = user.email.split("@")/>
 
 			<#if e?size == 2>
-				<a href="javascript:sendEmail('${e[0]}', '${e[1]}');"><img src="${contextPath}/templates/${templateName}/images/icon_email.gif" alt="[Email]" /></a>
+				<a href="javascript:sendEmail('${e[0]}', '${e[1]}');"  class="btn btn-default btn-xs" >
+					<#--<img src="${contextPath}/templates/${templateName}/images/icon_email.gif" alt="[Email]" />-->
+					<span class="glyphicon glyphicon-envelope"></span>
+					&nbsp;${I18n.getMessage("Post_list_Email_Msg")}
+				</a>
 			</#if>
 		</#if>
-		
+		<#--查看对应站点-->
 		<#if (user.webSite?exists && user.webSite?length > 0)>
 			<a href="${user.webSite?html}" target="_new"><img src="${contextPath}/templates/${templateName}/images/icon_www.gif" alt="[WWW]"/></a>
 		</#if>
