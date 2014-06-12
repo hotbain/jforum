@@ -59,9 +59,16 @@
     <session-config>
     	<session-timeout>10</session-timeout>
     </session-config>
-    
+    <error-page>
+    	<error-code>500</error-code>
+    	<location>/forums/list.page?err_code=500</location>
+    </error-page>
+    <error-page>
+    	<error-code>404</error-code>
+    	<location>/forums/list.page?err_code=404</location>
+    </error-page>
 	<welcome-file-list>
-		<welcome-file>forums/list.page</welcome-file>
+		<welcome-file>/forums/list.page</welcome-file>
 	</welcome-file-list>
 
 	<!-- SSO -->
