@@ -11,15 +11,13 @@
 <link href="${contextPath}/templates/${templateName}/styles/bootstrap.css" rel="stylesheet">
 <link href="${contextPath}/templates/${templateName}/styles/bootstrap-theme.css" rel="stylesheet">
 
-<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/style.css?${startupTime} );</style>
-<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/${language}.css?${startupTime} );</style>
 
 <#if hasCodeBlock>
 	<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/SyntaxHighlighter.css?${startupTime} );</style>
 </#if>
 
-<script src="${contextPath}/templates/${templateName}/js/jquery.js?${startupTime}"></script>
-<script src="${contextPath}/templates/${templateName}/js/bootstrap.min.js?${startupTime}"></script>
+<script src="${contextPath}/templates/${templateName}/js/jquery.js"></script>
+<script src="${contextPath}/templates/${templateName}/js/bootstrap.min.js"></script>
 
 
 <title>${pageTitle?default("JForum")?html}</title>

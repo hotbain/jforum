@@ -1,4 +1,7 @@
 <#include "header.htm"/>
+<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/style.css?${startupTime} );</style>
+<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/${language}.css?${startupTime} );</style>
+
 <form accept-charset="${encoding}" action="${JForumContext.encodeURL("/jforum")}" method="get" id="formSearch" name="formSearch">
 	<input type="hidden" name="module" value="${moduleName}" />
 	<input type="hidden" name="action" value="search" />
