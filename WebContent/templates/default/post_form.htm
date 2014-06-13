@@ -28,6 +28,7 @@ function newCaptcha()
 
 function validatePostForm(f)
 {
+	//验证主题是否为空	
 	<#if setType?default(true)>
 	if (f.subject.value == "") {
 		alert("${I18n.getMessage("PostForm.subjectEmpty")}");
@@ -37,6 +38,7 @@ function validatePostForm(f)
 	}
 	</#if>
 	
+	//验证内容是否为空	
 	if (f.message.value.replace(/^\s*|\s*$/g, "").length == 0) {
 		alert("${I18n.getMessage("PostForm.textEmpty")}");
 		f.message.focus();
@@ -44,6 +46,18 @@ function validatePostForm(f)
 		return false;
 	}
 
+	//验证用户是否登录	
+	var goon=false;
+	$.ajax({"url":"${contextPath}/jforum${extension}","async":false,"method":"post","dataType":"json","data":{"module":"user","action":"isLogged"},"success":function(msg){
+		goon=msg.state;
+		if(!msg.state){
+			$("#log_in_msg").css("display","inline");
+		}
+	}});
+	if(!goon){
+		return goon;
+	}
+	
 	<#if !forum?exists>
 	if (f.toUsername.value == "") {
 		alert("${I18n.getMessage("PrivateMessage.toUserIsEmpy")}");
@@ -424,13 +438,26 @@ function smiliePopup()
 				
 				<tr>
 					<td align="center" height="28" colspan="2" class="catbottom">
-						<button id="btnPreview" tabindex="5" class="btn btn-success btn-sx" type="button" onclick="previewMessage();" >
-							<i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("PostForm.preview")}
-						</button>
-						<button id="btnSubmit" accesskey="s" tabindex="6" type="submit" class="btn btn-success btn-sx"  name="post" onclick="previewMessage();" >
-							<i class="glyphicon glyphicon-send"></i>&nbsp;${I18n.getMessage("PostForm.submit")}
-						</button>
-						<img src="${contextPath}/images/transp.gif" id="icon_saving">
+						<div class="container">
+										<div class="row">
+											<div class="col-md-3"></div>
+											<div  class="col-md-5" >
+												<button id="btnPreview" tabindex="5" class="btn btn-success btn-sx" type="button" onclick="previewMessage();" >
+														<i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("PostForm.preview")}
+												</button>
+												<button id="btnSubmit" accesskey="s" tabindex="6" type="submit" class="btn btn-success btn-sx"  name="post" onclick="previewMessage();" >
+														<i class="glyphicon glyphicon-send"></i>&nbsp;${I18n.getMessage("PostForm.submit")}
+												</button>
+												<img src="${contextPath}/images/transp.gif" id="icon_saving">
+											</div>
+											<div class="col-md-4">
+												<div class="alert alert-danger" id="log_in_msg" style="display:none">
+						  								<strong>Warning!</strong>&nbsp;&nbsp;${I18n.getMessage("Post_list_isNotLoggged_Msg")} <a class="alert-link" href="#">${I18n.getMessage("Login.enter")}</a>
+												</div>
+											</div>
+										</div>
+						</div>
+									
 					</td>
 				</tr>
 			</table>
