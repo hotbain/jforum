@@ -212,14 +212,13 @@ public class JForum extends JForumBaseServlet
 	private Writer processCommand(Writer out, RequestContext request, ResponseContext response, 
 			String encoding, SimpleHash context, String moduleClass) throws Exception
 	{
-		// Here we go, baby
+		// Here we go, baby，创建一个commmand对象
 		Command c = this.retrieveCommand(moduleClass);
 		Template template = c.process(request, response, context);
-
 		if (JForumExecutionContext.getRedirectTo() == null) {
 			String contentType = JForumExecutionContext.getContentType();
 			
-			if (contentType == null) {
+			if (contentType == null) {//如果没有设置内容类型的话，则默认设置为html
 				contentType = "text/html; charset=" + encoding;
 			}
 			
@@ -232,7 +231,7 @@ public class JForum extends JForumBaseServlet
 				out = new BufferedWriter(new OutputStreamWriter(response.getOutputStream(), encoding));
 				//使用jforum command类返回的template的处理结果----
 				template.process(JForumExecutionContext.getTemplateContext(), out);
-				out.flush();
+				out.flush();//刷出结果
 			}
 		}
 		

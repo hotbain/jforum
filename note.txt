@@ -15,3 +15,5 @@
 14、header页面标题要做成bootstrap浮动的，每一个项目都会作为一个选项列出来，搜索框最好做出有选项的哪种类型
 16、将所有的按钮的改成<button></button>--------------------------------------------更改按钮的灵敏度
 17、淘宝druid数据源配置: https://github.com/alibaba/druid/wiki/DruidDataSource%E9%85%8D%E7%BD%AE
+18、http://freemarker.org/docs/dgui_misc_userdefdir.html#docgen_afterTheTOC
+19、jforum实例网站: http://www.eeqee.com/jforum/forums/list.page

@@ -1,0 +1,73 @@
+<html>
+	<script type="text/javascript">
+		console.info("helloworld")
+	</script>
+	<body>
+		<a href="#">${name}</a>
+		moduleName:${request.getParameter("module")}</br>
+		action:${request.getParameter("action")}
+		${names[0]}
+		<br/>
+		123=${"${pwd}"}<br/>
+		${names[1]}
+		<#if pwd=="123">
+			pwd=123
+		<#else>
+			pwd=2342342
+		</#if>
+		<#list users as user>
+			name:${user.name}</br>code:${user.code}</br>
+		</#list>
+		<#if true>
+			true</br>
+		</#if>
+		<#macro greet name>
+			hello ${name}<br/>
+		</#macro>
+		<@greet name="${name}"></@greet>
+		<@greet name="beijing"></@greet>
+		<@greet name="shandong"></@greet>
+		<#assign  lmt="gongzheng" tmp=234 />
+		lmt= ${lmt}</br>
+		tmp=${tmp}</br>
+		<#assign block>
+			<code> code here</code></br>
+		</#assign>
+		${block}
+		${block}
+		${block}
+		<#assign codes=["a","b"] />
+		<#list codes as code>
+			${code}<br/>
+		</#list>
+		<#assign num=1/>
+		num=${num}</br>
+		<#assign num=num+2/>
+		num=${num}</br>
+		<#assign
+			gongzheng="24324"
+			province="shandong"
+		/>
+		gongzheng=${gongzheng}</br>
+		province=${province}</br>
+		<#macro myMacro>foo</#macro>
+<#assign x>
+  <#list 1..3 as n>
+    ${n} <@myMacro />
+  </#list>
+</#assign>
+Number of words: ${x?word_list?size}
+${x}  
+ <#assign  hellogongzheng >
+ 	hello ${gongzheng}
+ </#assign>
+ ${hellogongzheng}<br/>
+ 
+ <#assign jforum="jforum"/>
+ <#include "nest.htm"  parse=false />
+	
+
+	</body>
+	
+	
+</html>
