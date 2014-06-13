@@ -307,8 +307,7 @@
 										<div class="row">
 											<div class="col-md-4"></div>
 											<div class="col-md-4" id="log_in_msg" style="display:none">
-													<div class="alert alert-danger alert-dismissable">
-													  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+													<div class="alert alert-danger">
 													  <strong>Warning!</strong>&nbsp;&nbsp;${I18n.getMessage("Post_list_isNotLoggged_Msg")} <a class="alert-link" href="#">${I18n.getMessage("Login.enter")}</a>
 													</div>
 											</div>
@@ -320,7 +319,7 @@
 							</tr>
 							<tr>
 								<td align="center">
-									<span class="btn btn-success btn-small"><a href="javascript:activateQuickReply()"><i class="glyphicon glyphicon-pencil"></i>&nbsp;${I18n.getMessage("PostForm.quickReply")}</a></span>
+									<a href="javascript:activateQuickReply()"><span class="btn btn-success btn-small"><i class="glyphicon glyphicon-pencil"></i>&nbsp;${I18n.getMessage("PostForm.quickReply")}</span></a>
 								</td>
 							</tr>
 						</table>
