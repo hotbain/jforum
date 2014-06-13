@@ -30,21 +30,21 @@
 				<!-- START FORUM LISTING -->
 				<#list allCategories as category>
 					<tr>
-						<td class="catleft" colspan="5" height="28"><span class="cattitle">${category.name}</span></td>
+						<td class="catleft success" colspan="5" height="28"><span class="cattitle">${category.name}</span></td>
 						<#--<td class="catright" align="right" colspan="3">&nbsp;</td>-->
 					</tr>
 
 					<#list category.getForums() as forum>
 					<#assign lpi = forumRepository.getLastPostInfo(forum.id)/>
-					<tr>
-						<td class="row1" valign="middle" align="center" height="50">
+					<tr class="warning">
+						<td class="" valign="middle" align="center" height="50">
 							<#if forum.unread>
 								<img src="${contextPath}/templates/${templateName}/images/folder_new_big.gif" alt="[New Folder]" />
 							<#else>
 								<img src="${contextPath}/templates/${templateName}/images/folder_big.gif" alt="[Folder]" />
 							</#if>
 						</td>
-						<td class="row1" width="100%" height="50">
+						<td class="" width="100%" height="50">
 							<span class="forumlink"><a class="forumlink" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name?html}</a></span><br />
 							<span class="genmed">
 								${forum.description?default("")}
@@ -57,17 +57,17 @@
 								</#if>
 							</span>
 						</td>
-						<td class="text-center">
+						<td class="">
 							<span class="label label-danger">${forum.totalTopics}</span>
 						</td>
-						<td class="text-center">
+						<td class="">
 							<#assign total = forum.totalPosts/>
 							<#if (total == 0 && forum.totalTopics > 0)>
 								<#assign total = forum.totalTopics/>
 							</#if>
 							<span <#if (total > 0)>class="label label-success">${total}<#else>class="label label-danger">${I18n.getMessage("ForumListing.noMessages")}</#if></span>
 						</td>
-						<td class="row2" valign="middle" nowrap="nowrap" align="center" height="50">
+						<td class="" valign="middle" nowrap="nowrap" align="center" height="50">
 							<span class="postdetails">
 							<#if (lpi.postTimeMillis > 0)>
 								${lpi.postDate}<br />
