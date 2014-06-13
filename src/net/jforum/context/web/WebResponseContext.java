@@ -139,4 +139,10 @@ public class WebResponseContext implements ResponseContext
 	{
 		response.addHeader(name, value);
 	}
+
+	@Override
+	public void setCharacterEncoding(String charsetName) {
+		response.setCharacterEncoding(charsetName);
+		
+	}
 }

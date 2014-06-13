@@ -47,6 +47,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -61,6 +62,7 @@ import net.jforum.context.RequestContext;
 import net.jforum.dao.DataAccessDriver;
 import net.jforum.dao.UserDAO;
 import net.jforum.dao.UserSessionDAO;
+import net.jforum.dto.Message;
 import net.jforum.entities.Bookmark;
 import net.jforum.entities.User;
 import net.jforum.entities.UserSession;
@@ -83,6 +85,8 @@ import net.jforum.view.forum.common.ViewCommon;
 
 import org.apache.log4j.Logger;
 
+import com.google.gson.Gson;
+
 /**
  * @author Rafael Steil
  * @version $Id: UserAction.java,v 1.94 2007/09/21 17:26:09 rafaelsteil Exp $
@@ -103,6 +107,22 @@ public class UserAction extends Command
 		return canEdit;
 	}
 	
+	
+	public void isLogged(){
+		boolean isLogged =SessionFacade.isLogged();
+		Message message  =new Message(isLogged, isLogged?"µÇÂ¼³É¹¦":"Äú»¹Î´µÇÂ¼,Çë");
+		Gson gson =new Gson();
+		try {
+			this.response.setCharacterEncoding("UTF-8");
+			PrintWriter writer =this.response.getWriter();
+			writer.write(gson.toJson(message));
+			this.response.setContentType("application/json");
+			JForumExecutionContext.enableCustomContent(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	public void edit()
 	{
 		if (this.canEdit()) {

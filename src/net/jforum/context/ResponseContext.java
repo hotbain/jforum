@@ -129,6 +129,8 @@ public interface ResponseContext
 	 * 
 	 */
 	public String getCharacterEncoding();
+	
+	public void setCharacterEncoding(String charsetName);
 
 	/**
 	 * Sends a temporary redirect response to the client using the specified redirect location URL.
