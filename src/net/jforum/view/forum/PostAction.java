@@ -941,6 +941,7 @@ public class PostAction extends Command
 
 	public void insertSave()
 	{
+		//得到一个当前正处于的论坛Id
 		int forumId = this.request.getIntParameter("forum_id");
 		boolean firstPost = false;
 
@@ -950,9 +951,9 @@ public class PostAction extends Command
 		
 		Topic t = new Topic(-1);
 		t.setForumId(forumId);
-
+		//如果没有topic_id那么就认为是一个新的topic
 		boolean newTopic = (this.request.getParameter("topic_id") == null);
-		
+		//判断是否i可以针对当前的forum发布一个该topic
 		if (!TopicsCommon.isTopicAccessible(t.getForumId())
 				|| this.isForumReadonly(t.getForumId(), newTopic)) {
 			return;
@@ -992,11 +993,11 @@ public class PostAction extends Command
 		// We don't use "else if" here because there is a possibility of the
 		// checking above set the newTopic var to true
 		if (newTopic) {
-			if (this.isReplyOnly(forumId)) {
+			if (this.isReplyOnly(forumId)) {//判断是否在一个只允许回复的forum里发表topic
 				this.replyOnly();
 				return;
 			}
-			
+			//获取topic_Type参数
 			if (this.request.getParameter("topic_type") != null) {
 				t.setType(this.request.getIntParameter("topic_type"));
 				
@@ -1009,7 +1010,7 @@ public class PostAction extends Command
 		
 		UserSession us = SessionFacade.getUserSession();
 		User u = DataAccessDriver.getInstance().newUserDAO().selectById(us.getUserId());
-		
+		//判断是否为快速回复
 		if ("1".equals(this.request.getParameter("quick")) && SessionFacade.isLogged()) {
 			this.request.addParameter("notify", u.isNotifyOnMessagesEnabled() ? "1" : null);
 			this.request.addParameter("attach_sig", u.getAttachSignatureEnabled() ? "1" : "0");
@@ -1027,7 +1028,7 @@ public class PostAction extends Command
 			return;
 		}
 		
-		// Check the elapsed time since the last post from the user
+		// Check the elapsed time since the last post from the user -----检验是否过快发送信息
 		int delay = SystemGlobals.getIntValue(ConfigKeys.POSTS_NEW_DELAY);
 		
 		if (delay > 0) {
@@ -1045,7 +1046,7 @@ public class PostAction extends Command
 		}
 		
 		p.setForumId(this.request.getIntParameter("forum_id"));
-		
+		//
 		if (StringUtils.isBlank(p.getSubject())) {
 			p.setSubject(t.getTitle());
 		}
@@ -1087,14 +1088,14 @@ public class PostAction extends Command
 			PermissionControl pc = SecurityRepository.get(us.getUserId());
 
 			// Moderators and admins don't need to have their messages moderated
-			boolean moderate = (forum.isModerated() 
+			boolean moderate = (forum.isModerated() //验证修改权限
 				&& !pc.canAccess(SecurityConstants.PERM_MODERATION)
 				&& !pc.canAccess(SecurityConstants.PERM_ADMINISTRATION));
 			
 			if (newTopic) {
 				t.setTime(new Date());
 				t.setTitle(this.request.getParameter("subject"));
-				t.setModerated(moderate);
+				t.setModerated(moderate);//设置是否为修改的
 				t.setPostedBy(u);
 				t.setFirstPostTime(ViewCommon.formatDate(t.getTime()));
 

@@ -291,6 +291,7 @@ public class GenericPostDAO extends AutoKeys implements net.jforum.dao.PostDAO
 			this.addNewPostText(post);
 
 			// Search
+			//ËÑË÷ÒıÇæÌí¼ÓË÷Òı
 			SearchFacade.create(post);
 			
 			return post.getId();
