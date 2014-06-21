@@ -89,7 +89,7 @@ public class JForumBaseServlet extends HttpServlet
 			ConfigLoader.createLoginAuthenticator();
 			ConfigLoader.loadDaoImplementation();
 			ConfigLoader.listenForChanges();
-			ConfigLoader.startSearchIndexer();
+//			ConfigLoader.startSearchIndexer();
 			ConfigLoader.startSummaryJob();
 		}
 		catch (Exception e) {

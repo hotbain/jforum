@@ -337,4 +337,6 @@ public interface TopicDAO
 	 * @return
 	 */
 	public SearchResult findTopicsByDateRange(SearchArgs args);
+
+	public List<Integer> getAllFirstPostIds();
 }

@@ -1202,4 +1202,29 @@ public class GenericTopicDAO extends AutoKeys implements TopicDAO
 			DbUtils.close(rs, p);
 		}
 	}
+
+	@Override
+	public List<Integer> getAllFirstPostIds() {
+
+		String sql = SystemGlobals.getSql("TopicModel.getAllFirstPostIds");
+
+		PreparedStatement p = null;
+		ResultSet rs = null;
+		List<Integer> result =new ArrayList<Integer>();
+		try {
+			p = JForumExecutionContext.getConnection().prepareStatement(sql);
+			rs = p.executeQuery();
+			while(rs.next()){
+				result.add(rs.getInt("topic_first_post_id"));
+			}
+			return result;
+		}
+		catch (SQLException e) {
+			throw new DatabaseException(e);
+		}
+		finally {
+			DbUtils.close(rs,p);
+		}
+	
+	}
 }

@@ -328,6 +328,9 @@ TopicModel.selectAllByForumByLimit = SELECT t.*, p.user_id AS last_user_id, p.po
 	ORDER BY t.topic_type DESC, t.topic_last_post_id DESC \
 	LIMIT ?, ?
 
+TopicModel.getAllFirstPostIds 	= SELECT topic_first_post_id \
+	FROM jforum_topics 
+	
 TopicModel.topicPosters = SELECT user_id, username, user_karma, user_avatar, user_allowavatar, user_regdate, user_posts, user_icq, \
 	user_from, user_email, rank_id, user_sig, user_attachsig, user_viewemail, user_msnm, user_yim, user_website, user_sig, user_aim \
 	FROM jforum_users \

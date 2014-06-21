@@ -43,25 +43,19 @@
  */
 package net.jforum.view.admin;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 import net.jforum.context.RequestContext;
 import net.jforum.context.ResponseContext;
-import net.jforum.exceptions.ForumException;
-import net.jforum.repository.ForumRepository;
-import net.jforum.search.LuceneManager;
 import net.jforum.search.LuceneReindexArgs;
-import net.jforum.search.LuceneReindexer;
 import net.jforum.search.LuceneSettings;
+import net.jforum.search.SearchFacade;
 import net.jforum.util.preferences.ConfigKeys;
 import net.jforum.util.preferences.SystemGlobals;
 import net.jforum.util.preferences.TemplateKeys;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.lucene.index.IndexReader;
 
 import freemarker.template.SimpleHash;
 import freemarker.template.Template;
@@ -77,6 +71,8 @@ public class LuceneStatsAction extends AdminCommand
 	 */
 	public void list()
 	{
+		/**
+		 * 
 		IndexReader reader = null;
 		
 		try {
@@ -114,24 +110,37 @@ public class LuceneStatsAction extends AdminCommand
 				catch (Exception e) {}
 			}
 		}
+	
+		 * */
 	}
 	
-	public void createIndexDirectory() throws Exception
-	{
-		this.settings().createIndexDirectory(
-			SystemGlobals.getValue(ConfigKeys.LUCENE_INDEX_WRITE_PATH));
-		this.list();
-	}
+//	public void createIndexDirectory() throws Exception
+//	{
+//		this.settings().createIndexDirectory(
+//			SystemGlobals.getValue(ConfigKeys.LUCENE_INDEX_WRITE_PATH));
+//		this.list();
+//	}
 	
 	public void reconstructIndexFromScratch()
 	{
-		LuceneReindexArgs args = this.buildReindexArgs();
+//		LuceneReindexArgs args = this.buildReindexArgs();
 		boolean recreate = "recreate".equals(this.request.getParameter("indexOperationType"));
 		
-		LuceneReindexer reindexer = new LuceneReindexer(this.settings(), args, recreate);
-		reindexer.startBackgroundProcess();
+//		LuceneReindexer reindexer = new LuceneReindexer(this.settings(), args, recreate);
+//		reindexer.startBackgroundProcess();
+		if(recreate){
+			Thread t  =new Thread(new Runnable() {
+				@Override
+				public void run() {
+					SearchFacade.reindex();
+				}
+			});
+			t.setDaemon(true);
+			t.start();
+			
+			this.list();
+		}
 		
-		this.list();
 	}
 	
 	public void cancelIndexing()
@@ -157,9 +166,10 @@ public class LuceneStatsAction extends AdminCommand
 	
 	private boolean isSearchEngineLucene()
 	{
-		return LuceneManager.class.getName()
-			.equals(SystemGlobals.getValue(ConfigKeys.SEARCH_INDEXER_IMPLEMENTATION))
-			|| this.settings() == null;
+//		return LuceneManager.class.getName()
+//			.equals(SystemGlobals.getValue(ConfigKeys.SEARCH_INDEXER_IMPLEMENTATION))
+//			|| this.settings() == null;
+		return true;
 	}
 	
 	private LuceneSettings settings()

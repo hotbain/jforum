@@ -4,6 +4,7 @@ package net.jforum.search;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -15,10 +16,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PayloadAttribute;
@@ -50,6 +56,7 @@ import org.apache.lucene.search.highlight.InvalidTokenOffsetsException;
 import org.apache.lucene.search.highlight.QueryScorer;
 import org.apache.lucene.search.highlight.Scorer;
 import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
 import org.apache.lucene.util.Version;
 import org.lionsoul.jcseg.core.JcsegTaskConfig;
@@ -60,42 +67,37 @@ import org.lionsoul.jcseg.lucene.JcsegAnalyzer4X;
 
 
 import net.jforum.dao.DataAccessDriver;
+import net.jforum.dao.PostDAO;
+import net.jforum.dao.TopicDAO;
 import net.jforum.entities.Post;
+import net.jforum.repository.TopicRepository;
 
 
 public class Lucene4XManager implements SearchManager {
-	private static Map<String, Post> processiongMap =new ConcurrentHashMap<String, Post>();
-	private static AtomicInteger unprocessingCounter = new AtomicInteger(0);
-	private static int count = 1;
-	private static Lock lock =new ReentrantLock();
-	private static  Analyzer analyzer =null;
-	private static IndexWriter indexWriter =null;
-	private static IndexSearcher searcher =null;
-	private static IndexReader indexReader =null;
+	private  Map<String, Post> processiongMap =new ConcurrentHashMap<String, Post>();
+	private  AtomicInteger unprocessingCounter = new AtomicInteger(0);
+	private  int count = 1;
+	private  ReadWriteLock readWriteLock =new ReentrantReadWriteLock();
+	private  Analyzer analyzer =null;
+	private  IndexWriter indexWriter =null;
+	private  IndexSearcher searcher =null;
+	private  IndexReader indexReader =null;
+	private  Directory directory =null;
+	private static Lucene4XManager INSTANCE= new Lucene4XManager();
+	private ExecutorService threadPool =Executors.newCachedThreadPool();
+	
 	static{
-		analyzer = new JcsegAnalyzer4X(JcsegTaskConfig.COMPLEX_MODE);
-		IndexWriterConfig indexWriterConfig =new IndexWriterConfig(Version.LUCENE_46, analyzer);
-		indexWriterConfig.setMaxBufferedDocs(4);
-		indexWriterConfig.setUseCompoundFile(true);
-		indexWriterConfig.setOpenMode(OpenMode.APPEND);
-		try {
-			Directory directory =new SimpleFSDirectory(new File("C:\\index"));
-			indexWriter =new IndexWriter(directory, indexWriterConfig);
-			indexReader=DirectoryReader.open( directory);
-			searcher =new IndexSearcher(indexReader, Executors.newCachedThreadPool());
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
 		
 	}
-	public static void main(String[] args) throws IOException {
+	public  void main(String[] args) throws IOException {
 //		aaaa();
 		Lucene4XManager manager =new Lucene4XManager();
-//		manager.create(getPost());
-//		manager.create(getPost());
-//		manager.create(getPost());
-//		manager.create(getPost());
-//		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.indexWriter.commit();
 		SearchArgs searchArgs =new SearchArgs();
 		searchArgs.setKeywords("quote");
 		searchArgs.setForumId(1);
@@ -111,19 +113,18 @@ public class Lucene4XManager implements SearchManager {
 //		for(java.util.Map.Entry<String, String> entry : entries){
 //			System.out.println(entry.getKey());
 //		}
-		
 	}
 	private static Post getPost() {
 		Post post =new Post();
 		post.setForumId(123);
-		post.setText("这里是内容");
-		post.setSubject("这个是标题");
+		post.setText("宫政");
+		post.setSubject("我是中国人我在窝窝团工作郭德纲");
 		post.setTopicId(333);
 		post.setId(111);
 		post.setTime(new Date());
 		return post;
 	}
-	private static void aaaa() throws IOException{
+	private  void aaaa() throws IOException{
 
 		System.out.println("hello world");
 		TokenStream tokenStream =analyzer.tokenStream("xxxx", new StringReader("我是中国人我在窝窝团工作郭德纲"));
@@ -147,36 +148,63 @@ public class Lucene4XManager implements SearchManager {
 				}
 			}
 		}
+	}
 	
+	public static Lucene4XManager getInstance(){
+		return INSTANCE;
 	}
 	@Override
 	public void init() {
+
+		analyzer = new JcsegAnalyzer4X(JcsegTaskConfig.SIMPLE_MODE);
+		IndexWriterConfig indexWriterConfig =new IndexWriterConfig(Version.LUCENE_46, analyzer);
+		indexWriterConfig.setMaxBufferedDocs(4);
+		indexWriterConfig.setUseCompoundFile(true);
+//		indexWriterConfig.setOpenMode(OpenMode.APPEND);
+		indexWriterConfig.setOpenMode(OpenMode.CREATE);
 		
+		try {
+			directory =new SimpleFSDirectory(new File("C:\\index"));
+//			Directory directory =new RAMDirectory();
+			indexWriter =new IndexWriter(directory, indexWriterConfig);
+			System.out.println("初始化完毕222222222222");
+		} catch (IOException e) {
+			e.printStackTrace();
+
+			if(indexWriter!=null){
+				try {
+					indexWriter.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 		
+			throw new RuntimeException(e);
+		}finally {}
+		
+	
 	}
 
 	@Override
 	public void create(Post post) {
-		lock.lock();
 		try {
 			int c =unprocessingCounter.addAndGet(1);
 			
 			processiongMap.put("create"+c, post);
 
 			if(c>=count){
-				processAll();
 				unprocessingCounter.set(0);
+				processAll();
 				processiongMap.clear();
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally{
-			lock.unlock();
 		}
 	}
 
 	private void doCreate(Post post){
-		ensureWriterOpen();
 		Document d = new Document();
 		
 		int forumId =post.getForumId();
@@ -211,30 +239,42 @@ public class Lucene4XManager implements SearchManager {
 		
 		try {
 			indexWriter.addDocument(d);
+			//添加文档成功
+			System.out.println("添加文档成功");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	
 	}
-	private void ensureWriterOpen() {
-	}
-	private void processAll(){
-		Set<java.util.Map.Entry<String, Post>> entries =processiongMap.entrySet();
-		for(java.util.Map.Entry<String, Post> entry : entries){
-			String operation=entry.getKey();
-			if(operation.contains("create")){
-				doCreate(entry.getValue());
-			}
-		}
+
+	
+	private void processAll(){//每一次的processAll的过程中搜索都是中断的。
+		
 		try {
+			Set<java.util.Map.Entry<String, Post>> entries =processiongMap.entrySet();
+			for(java.util.Map.Entry<String, Post> entry : entries){
+				String operation=entry.getKey();
+				if(operation.contains("create")){
+					doCreate(entry.getValue());
+				}
+			}
 			indexWriter.commit();
-//			indexWriter.close();
-			System.out.println("顺利关闭");
-			//TODO 通知search,将索引重新载入
+		} catch (IOException e) {
+			e.printStackTrace();
+
+			try {
+				indexWriter.rollback();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		
+		}finally{}
+		try {//只要进入processAll就会进行重新打开reader，否则
+			reOpenReader();
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	private FieldType getFieldType(boolean indexed, boolean stored, boolean tokenized,
@@ -248,21 +288,52 @@ public class Lucene4XManager implements SearchManager {
 	}
 	@Override
 	public void update(Post post) {
-
-//		lock.lock();
 		try {
 			indexWriter.deleteDocuments(new Term(SearchFields.Keyword.POST_ID, String.valueOf(post.getId())));
-			create(post);
 		} catch (Exception e) {
 			e.printStackTrace();
+			if(indexWriter!=null){
+				try {
+					indexWriter.rollback();
+				} catch (IOException e2) {
+					e2.printStackTrace();
+				}
+			}
 		}finally{
-//			lock.unlock();
+			
 		}
+		create(post);
+	}
+	@SuppressWarnings("deprecation")
+	/**
+			1、 读取锁允许多个reader线程同时持有, 而写入锁最多只能有一个writter线程持有.
+		   	2、 读写锁的使用场合: 读取共享数据的频率远大于修改共享数据的频率. 在上述场合下, 使用读写锁控制共享资源的访问, 可以提高并发性能.
+		    3、如果一个线程已经持有了写入锁, 则可以再持有读写锁. 相反, 如果一个线程已经持有了读取锁, 则在释放该读取锁之前, 不能再持有写入锁.
+		    4、可以调用写入锁的newCondition()方法获取与该写入锁绑定的Condition对象, 此时与普通的互斥锁并没有什么区别. 但是调用读取锁的newCondition()方法将抛出异常. 
+	 **/
+	private void reOpenReader() throws Exception{
+		readWriteLock.writeLock().lock();//再打开读取的过程中是不允许搜索的
+		try {
+			if(indexReader!=null){//程序第一次启动
+				indexReader.close();
+			}
+			indexReader = null;
+			indexReader=IndexReader.open(directory);
+			searcher = new IndexSearcher(indexReader, threadPool);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException("error occur when lucene4xmanger init method"+ e.getMessage());
+		}finally{
+			readWriteLock.writeLock().unlock();
+		}
+		
 	}
 
 	@Override
 	public SearchResult search(SearchArgs args) {
-		SearchResult searchResult = null;
+		ensureSearcherExist();//防止死锁----获得读锁的时候，还要获得写锁，就会出现问题。
+		Lock  readLock =readWriteLock.readLock();
+		readLock.lock();
 		try {
 			StringBuffer criteria = new StringBuffer(256);
 			this.filterByForum(args, criteria);
@@ -298,16 +369,30 @@ public class Lucene4XManager implements SearchManager {
 //			}
 //			else {
 //			}
-			System.out.println("顺利返回");
+			System.out.println("顺利返回 " + docs.scoreDocs.length + "; acctual count =" + post_ids.length);
 			return new SearchResult(retrieveRealPosts(post_ids, query), docs.totalHits);
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally{
+			readLock.lock();
 		}
 		return new SearchResult(new ArrayList(), 0);	
 	}
 
 
+	private void ensureSearcherExist() {
+		if(searcher!=null){
+			return ;
+		}
+		try {
+			reOpenReader();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e.getMessage());
+		}
+		searcher =new IndexSearcher(indexReader,threadPool );
+	}
 	private List retrieveRealPosts(int[] postIds, Query query) throws Exception
 	{
 		List posts = DataAccessDriver.getInstance().newLuceneDAO().getPostsData(postIds);
@@ -414,9 +499,18 @@ public class Lucene4XManager implements SearchManager {
 //		lock.lock();
 		try {
 			indexWriter.deleteDocuments(new Term(SearchFields.Keyword.POST_ID, String.valueOf(p.getId())));
+			indexWriter.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
+			if(indexWriter!=null){
+				try {
+					indexWriter.rollback();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 //			lock.unlock();
 		}
 	
@@ -425,8 +519,21 @@ public class Lucene4XManager implements SearchManager {
 	public void destroy(){
 		try {
 			indexWriter.close();
+			indexReader.close();
+			threadPool.shutdownNow();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	@Override
+	public void reIndex() {
+		TopicDAO topicDAO =DataAccessDriver.getInstance().newTopicDAO();
+		PostDAO  postDAO = DataAccessDriver.getInstance().newPostDAO();
+		//TODO 清空以前的索引----删除锁文件、清空目录;
+		List<Integer> postIds =topicDAO.getAllFirstPostIds();
+		for(Integer postId : postIds){
+			Post post =postDAO.selectById(postId);
+			create(post);
 		}
 	}
 	

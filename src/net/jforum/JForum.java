@@ -67,6 +67,7 @@ import net.jforum.repository.ModulesRepository;
 import net.jforum.repository.RankingRepository;
 import net.jforum.repository.SecurityRepository;
 import net.jforum.repository.SmiliesRepository;
+import net.jforum.search.SearchFacade;
 import net.jforum.util.I18n;
 import net.jforum.util.preferences.ConfigKeys;
 import net.jforum.util.preferences.SystemGlobals;
@@ -312,6 +313,8 @@ public class JForum extends JForumBaseServlet
 		try {
 			DBConnection.getImplementation().realReleaseAllConnections();
 			ConfigLoader.stopCacheEngine();
+			System.out.println("Destroying JForum searchEngine，，，，，，");
+			SearchFacade.destroy();
 		}
 		catch (Exception e) { }
 	}

@@ -59,4 +59,11 @@ public interface SearchManager
 	public SearchResult search(SearchArgs args);
 
 	public void delete(Post p);
+	
+	/**
+	 * 重新构建创建索引。内部不需要进行判断是否应该重建索引
+	 */
+	public void reIndex();
+	
+	public void destroy();
 }

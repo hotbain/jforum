@@ -51,6 +51,7 @@ import net.jforum.util.preferences.SystemGlobals;
 
 import org.apache.log4j.Logger;
 
+
 /**
  * @author Rafael Steil
  * @version $Id: SearchFacade.java,v 1.8 2007/09/09 22:53:35 rafaelsteil Exp $
@@ -59,30 +60,35 @@ public class SearchFacade
 {
 	private static SearchManager searchManager;
 	private static Logger logger = Logger.getLogger(SearchFacade.class);
-	
-	public static void init()
-	{
+	static{
+
 		if (!isSearchEnabled()) {
 			logger.info("Search indexing is disabled. Will try to create a SearchManager "
 				+ "instance for runtime configuration changes");
 		}
+//		String clazz = SystemGlobals.getValue(ConfigKeys.SEARCH_INDEXER_IMPLEMENTATION);
+//		System.out.println("ÊÕµ½µÄsearchManager="+ clazz);
+//		if (clazz == null || "".equals(clazz)) {
+//			logger.info(ConfigKeys.SEARCH_INDEXER_IMPLEMENTATION + " is not defined. Skipping.");
+//		}
+//		else {
+//			try {
+//				searchManager = (SearchManager)Class.forName(clazz).newInstance();
+//			}
+//			catch (Exception e) {
+//				logger.warn(e.toString(), e);
+//				throw new SearchInstantiationException("Error while tring to start the search manager: " + e);
+//			}
+//			
+//			searchManager.init();
+//		}
+		searchManager =Lucene4XManager.getInstance();
+		searchManager.init();
+	
+	}
+	public static void init()
+	{
 		
-		String clazz = SystemGlobals.getValue(ConfigKeys.SEARCH_INDEXER_IMPLEMENTATION);
-		
-		if (clazz == null || "".equals(clazz)) {
-			logger.info(ConfigKeys.SEARCH_INDEXER_IMPLEMENTATION + " is not defined. Skipping.");
-		}
-		else {
-			try {
-				searchManager = (SearchManager)Class.forName(clazz).newInstance();
-			}
-			catch (Exception e) {
-				logger.warn(e.toString(), e);
-				throw new SearchInstantiationException("Error while tring to start the search manager: " + e);
-			}
-			
-			searchManager.init();
-		}
 	}
 	
 	public static void create(Post post)
@@ -121,5 +127,13 @@ public class SearchFacade
 	public static SearchManager manager()
 	{
 		return searchManager;
+	}
+	
+	public static void  reindex(){
+		searchManager.reIndex();
+	}
+	
+	public static void destroy(){
+		searchManager.destroy();
 	}
 }

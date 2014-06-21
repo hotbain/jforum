@@ -105,14 +105,14 @@ public class LuceneManager implements SearchManager
 	
 	public void removeLockFile()
 	{
-		try {
-			if (IndexReader.isLocked(this.settings.directory())) {
-				IndexReader.unlock(this.settings.directory());
-			}
-		}
-		catch (IOException e) {
-			throw new ForumException(e);
-		}
+//		try {
+////			if (IndexReader.isLocked(this.settings.directory())) {
+////				IndexReader.unlock(this.settings.directory());
+////			}
+//		}
+//		catch (IOException e) {
+//			throw new ForumException(e);
+//		}
 	}
 	
 	/**
@@ -145,5 +145,11 @@ public class LuceneManager implements SearchManager
 	public void delete(Post p)
 	{
 		this.indexer.delete(p);
+	}
+
+	@Override
+	public void reIndex() {
+		// TODO Auto-generated method stub
+		
 	}
 }

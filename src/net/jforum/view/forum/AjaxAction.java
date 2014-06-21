@@ -59,7 +59,7 @@ import net.jforum.entities.User;
 import net.jforum.repository.PostRepository;
 import net.jforum.repository.SecurityRepository;
 import net.jforum.repository.TopicRepository;
-import net.jforum.search.LuceneManager;
+import net.jforum.search.Lucene4XManager;
 import net.jforum.search.SearchFacade;
 import net.jforum.security.SecurityConstants;
 import net.jforum.util.SafeHtml;
@@ -177,8 +177,8 @@ public class AjaxAction extends Command
 
 		this.setTemplateName(TemplateKeys.AJAX_IS_POST_INDEXED);
 		
-		LuceneManager manager = (LuceneManager)SearchFacade.manager();
-		Document doc = manager.luceneSearch().findDocumentByPostId(postId);
+		Lucene4XManager manager = (Lucene4XManager)SearchFacade.manager();
+		Document doc = null;//manager.luceneSearch().findDocumentByPostId(postId);
 		
 		this.context.put("doc", doc);
 	}
