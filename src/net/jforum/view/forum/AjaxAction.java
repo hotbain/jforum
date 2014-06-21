@@ -51,11 +51,14 @@ import net.jforum.Command;
 import net.jforum.SessionFacade;
 import net.jforum.dao.DataAccessDriver;
 import net.jforum.dao.PostDAO;
+import net.jforum.dao.TopicDAO;
 import net.jforum.entities.ModerationLog;
 import net.jforum.entities.Post;
+import net.jforum.entities.Topic;
 import net.jforum.entities.User;
 import net.jforum.repository.PostRepository;
 import net.jforum.repository.SecurityRepository;
+import net.jforum.repository.TopicRepository;
 import net.jforum.search.LuceneManager;
 import net.jforum.search.SearchFacade;
 import net.jforum.security.SecurityConstants;
@@ -193,7 +196,7 @@ public class AjaxAction extends Command
 	{
 		PostDAO postDao = DataAccessDriver.getInstance().newPostDAO();
 		Post post = postDao.selectById(this.request.getIntParameter("id"));
-		
+		TopicDAO topicDAO =DataAccessDriver.getInstance().newTopicDAO();
 		String originalMessage = post.getText();
 		
 		if (!PostCommon.canEditPost(post)) {
@@ -201,8 +204,9 @@ public class AjaxAction extends Command
 		}
 		else {
 			post.setText(this.request.getParameter("value"));
-			postDao.update(post);
-			SearchFacade.update(post);
+			Topic topic =topicDAO.selectById(post.getTopicId());
+			boolean is_first_post = topic.getFirstPostId()==post.getId();
+			postDao.update(post,is_first_post);
 			post = PostCommon.preparePostForDisplay(post);
 		}
 		

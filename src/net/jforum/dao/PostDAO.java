@@ -141,4 +141,8 @@ public interface PostDAO
 	public List selectLatestByForumForRSS(int forumId, int limit);
 	
 	public List selectHotForRSS(int limit);
+
+	public int addNew(Post p, boolean newTopic);
+
+	public void update(Post post, boolean is_firt_potst);
 }

@@ -106,7 +106,7 @@ public class LuceneContentCollector implements LuceneResultCollector
 			Highlighter highlighter = new Highlighter(scorer);
 			
 			TokenStream tokenStream = this.settings.analyzer().tokenStream(
-				SearchFields.Indexed.CONTENTS, new StringReader(post.getText()));
+				SearchFields.Indexed.ALL, new StringReader(post.getText()));
 
 			String fragment = highlighter.getBestFragment(tokenStream, post.getText());
 			post.setText(fragment != null ? fragment : post.getText());

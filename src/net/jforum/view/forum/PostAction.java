@@ -592,8 +592,10 @@ public class PostAction extends Command
 			this.context.put("message", I18n.getMessage("CannotEditPost"));
 		}
 		else {
+			//*Repository都是和缓存有关系的，
 			Topic topic = TopicRepository.getTopic(new Topic(p.getTopicId()));
-				
+			
+			//
 			if (topic == null) {
 				topic = DataAccessDriver.getInstance().newTopicDAO().selectRaw(p.getTopicId());
 			}
@@ -804,7 +806,8 @@ public class PostAction extends Command
 				return;
 			}
 
-			postDao.update(post);
+			boolean is_firt_potst = t.getFirstPostId()==post.getId();
+			postDao.update(post,is_firt_potst);
 			
 			// Attachments
 			attachments.editAttachments(post.getId(), post.getForumId());
@@ -964,7 +967,7 @@ public class PostAction extends Command
 		PollDAO poolDao = DataAccessDriver.getInstance().newPollDAO();
 		ForumDAO forumDao = DataAccessDriver.getInstance().newForumDAO();
 
-		if (!newTopic) {
+		if (!newTopic) {//如果不是新的话题的话，那么就从缓存或者数据库中查询出想要的数据
 			int topicId = this.request.getIntParameter("topic_id");
 			
 			t = TopicRepository.getTopic(new Topic(topicId));
@@ -1020,7 +1023,7 @@ public class PostAction extends Command
 			u.setUsername(us.getUsername());
 		}
 
-		// Set the Post
+		// 填充必要的post字段
 		Post p = PostCommon.fillPostFromRequest();
 		
 		if (p.getText() == null || p.getText().trim().equals("")) {
@@ -1028,7 +1031,7 @@ public class PostAction extends Command
 			return;
 		}
 		
-		// Check the elapsed time since the last post from the user -----检验是否过快发送信息
+		// 检验是否过快发送信息
 		int delay = SystemGlobals.getIntValue(ConfigKeys.POSTS_NEW_DELAY);
 		
 		if (delay > 0) {
@@ -1044,10 +1047,10 @@ public class PostAction extends Command
 				}
 			}
 		}
-		
+		//设置post属于那个forum
 		p.setForumId(this.request.getIntParameter("forum_id"));
-		//
-		if (StringUtils.isBlank(p.getSubject())) {
+		//如果post的主题是空的的话，那么就这是当前post的subject为其topic的title
+		if (StringUtils.isBlank(p.getSubject())) {//如果post的主题为空的话，那么就将post的主题设置成与topic的title相同
 			p.setSubject(t.getTitle());
 		}
 		
@@ -1068,7 +1071,7 @@ public class PostAction extends Command
 
 		boolean preview = "1".equals(this.request.getParameter("preview"));
 		
-		if (!preview) {
+		if (!preview) {//保存
 			AttachmentCommon attachments = new AttachmentCommon(this.request, forumId);
 			
 			try {
@@ -1092,14 +1095,14 @@ public class PostAction extends Command
 				&& !pc.canAccess(SecurityConstants.PERM_MODERATION)
 				&& !pc.canAccess(SecurityConstants.PERM_ADMINISTRATION));
 			
-			if (newTopic) {
+			if (newTopic) {//新话题
 				t.setTime(new Date());
 				t.setTitle(this.request.getParameter("subject"));
 				t.setModerated(moderate);//设置是否为修改的
 				t.setPostedBy(u);
 				t.setFirstPostTime(ViewCommon.formatDate(t.getTime()));
 
-				int topicId = topicDao.addNew(t);
+				int topicId = topicDao.addNew(t);//将话题保存到数据库
 				t.setId(topicId);
 				firstPost = true;
 			}
@@ -1113,7 +1116,7 @@ public class PostAction extends Command
 			if (this.request.getParameter("notify") != null) {
 				this.watch(topicDao, t.getId(), u.getId());
 			}
-
+			//设置post所属的话题
 			p.setTopicId(t.getId());
 
 			// add a poll
@@ -1137,23 +1140,25 @@ public class PostAction extends Command
 				poolDao.addNew(poll);
 				t.setVoteId(poll.getId());
 			}
-
+			/**************************************************important starts********************************************************************/
 			// Save the remaining stuff
 			p.setModerate(moderate);
-			int postId = postDao.addNew(p);
+			//保存一个新的post实体
+			int postId = postDao.addNew(p,newTopic);
 
-			if (newTopic) {
+			if (newTopic) {//如果是新的话题的话，那么就是设置当前的话题的第一个post设置当前的postId
 				t.setFirstPostId(postId);
 			}
 			
-			if (!moderate) {
+			if (!moderate) {//如果不是修改的话，那么也要修改话题的部分信息
 				t.setLastPostId(postId);
 				t.setLastPostBy(u);
 				t.setLastPostDate(p.getTime());
 				t.setLastPostTime(p.getFormatedTime());
 			}
-			
+			//更新当前的topic的时间
 			topicDao.update(t);
+			/**************************************************important ends********************************************************************/
 			
 			attachments.insertAttachments(p);
 			

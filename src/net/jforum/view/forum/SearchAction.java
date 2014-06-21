@@ -42,9 +42,11 @@
  */
 package net.jforum.view.forum;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 import net.jforum.Command;
+import net.jforum.JForumExecutionContext;
 import net.jforum.context.RequestContext;
 import net.jforum.context.ResponseContext;
 import net.jforum.repository.ForumRepository;
@@ -97,6 +99,7 @@ public class SearchAction extends Command
 	{
 		SearchArgs args = this.buildSearchArgs();
 		
+		System.out.println(args);
 		int start = args.startFrom();
 		int recordsPerPage = SystemGlobals.getIntValue(ConfigKeys.TOPICS_PER_PAGE);
 		

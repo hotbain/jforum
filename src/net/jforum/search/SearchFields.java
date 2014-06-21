@@ -63,6 +63,8 @@ public final class SearchFields
 	
 	public static final class Indexed
 	{
-		public static final String CONTENTS = "contents";
+		public static final String CONTENT = "content";
+		public static final String SUBJECT = "subject";
+		public static final String ALL = "all";
 	}
 }

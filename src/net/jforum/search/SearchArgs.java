@@ -181,4 +181,14 @@ public class SearchArgs
 	{
 		return this.orderBy;
 	}
+
+	@Override
+	public String toString() {
+		return "SearchArgs [keywords=" + keywords + ", author=" + author
+				+ ", orderDir=" + orderDir + ", orderBy=" + orderBy
+				+ ", matchAllKeywords=" + matchAllKeywords + ", forumId="
+				+ forumId + ", initialRecord=" + initialRecord + ", fromDate="
+				+ fromDate + ", toDate=" + toDate + ", matchType=" + matchType
+				+ "]";
+	}
 }

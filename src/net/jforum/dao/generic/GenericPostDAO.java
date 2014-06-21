@@ -292,7 +292,7 @@ public class GenericPostDAO extends AutoKeys implements net.jforum.dao.PostDAO
 
 			// Search
 			//搜索引擎添加索引
-			SearchFacade.create(post);
+			//SearchFacade.create(post);
 			
 			return post.getId();
 		}
@@ -556,6 +556,38 @@ public class GenericPostDAO extends AutoKeys implements net.jforum.dao.PostDAO
 		post.setTime(new Date(rs.getTimestamp("post_time").getTime()));
 		
 		return post;
+	}
+
+	@Override 
+	public int addNew(Post post, boolean newTopic) {
+		//当创建第一个话题的时候，仅仅对其第一个post创建索引，别的post都不予以考虑---当然更新的时候会考虑
+		try {
+			this.addNewPost(post);
+			this.addNewPostText(post);
+
+			// Search
+			//搜索引擎添加索引
+			if(newTopic){//当刚刚创建的topic时，才会对该post进行创建索引，其余针对该topic创建的post都会省略
+				SearchFacade.create(post);
+			}
+			
+			return post.getId();
+		}
+		catch (Exception e) {
+			throw new DatabaseException(e);
+		}
+	
+	}
+
+	@Override
+	public void update(Post post, boolean is_firt_potst) {
+		this.updatePostsTable(post);
+		this.updatePostsTextTable(post);
+
+		if(is_firt_potst){//是否为第一篇文章
+			SearchFacade.update(post);
+		}
+		
 	}
 }
 
