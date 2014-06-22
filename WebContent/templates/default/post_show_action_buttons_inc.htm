@@ -1,12 +1,18 @@
-<div class="postinfo">
-	<div class="date">
+<div class="">
+	<div class="pull-left"><b>${I18n.getMessage("PostShow.subject")}:</b> <a name="${post.id}">${post.subject?default("")?html}</a></div>
+	<span class="pull-right">
+			<a class="nav" href="#top"><img src="${contextPath}/templates/${templateName}/images/icon_up.gif" alt="[Up]" /></a>
+	</span>
+	<div class="pull-left">
 		<#assign startStr = ""/>
 		<#if (start > 0)><#assign startStr = "${start}/"/></#if>
 		<a href="${JForumContext.encodeURL("/posts/list/${startStr}${post.topicId}")}#${post.id}">
-		<img src="${contextPath}/templates/${templateName}/images/icon_minipost_new.gif" alt="[Post New]" /></a>${post.formatedTime}
+		<img src="${contextPath}/templates/${templateName}/images/icon_minipost_new.gif" alt="[Post New]" /></a>
+		&nbsp;&nbsp;&nbsp;${I18n.getMessage("Search.postedAt")}
+		${post.formatedTime}
 	</div>
-	<div class="subject">&nbsp;&nbsp; &nbsp;<b>${I18n.getMessage("PostShow.subject")}:</b> <a name="${post.id}">${post.subject?default("")?html}</a></div>
-	<div class="action">
+	
+	<div class="pull-right">
 		<#if karmaEnabled>
 			<script type="text/javascript">writeStars(${post.karma.karmaPoints}, ${post.id});</script>
 			&nbsp;
@@ -27,7 +33,5 @@
 		</#if>
 
 	</div>
-	<span class="action">
-			<a class="nav" href="#top"><img src="${contextPath}/templates/${templateName}/images/icon_up.gif" alt="[Up]" /></a>
-	</span>
+	
 </div>

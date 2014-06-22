@@ -1,5 +1,5 @@
 <#include "header.htm"/>
-<#import "../macros/pagination.ftl" as pagination/>
+<#import "../macros/post_list_pagination.ftl" as pagination/>
 <#import "../macros/presentation.ftl" as presentation/>
 
 <#assign canEditSomeMessage = false/>
@@ -50,15 +50,10 @@
 	<script type="text/JavaScript" src="${JForumContext.encodeURL("/js/list/moderation")}"></script>
 </#if>
 
-<table cellspacing="0" cellpadding="10" width="100%" align="center" border="0">
-	<tr>
-		<td class="bodyline">
-			<table cellspacing="2" cellpadding="2" width="100%" border="0">
-				<tr>
-					<#if !readonly>
-					<td width="8%" align="left" valign="bottom" nowrap="nowrap">
-					</#if>
-						<#if topic.status == STATUS_LOCKED>
+<#assign paginationData><@pagination.doPagination "list", topic.id/></#assign>
+			<div>
+				<div class="pull-left">
+					<#if topic.status == STATUS_LOCKED>
 							<span class="icon_reply_locked"><img src="${contextPath}/images/transp.gif" alt="" /></span>
 						<#else>
 							<#if !readonly>
@@ -67,10 +62,9 @@
 								<#assign colspan = "2"/>
 							</#if>
 						</#if>
-					</td>
-
-					<td valign="middle" align="left" colspan="${colspan?default("0")}">
-						<span class="">
+				</div>
+				<div class="pull-left">
+					<span class="">
 						<a class="" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")} </a> 
             			&raquo; <a class="" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name} </a>
             			&raquo;<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}" name="top" class="maintitle" id="top">${topic.title?html}</a>
@@ -78,10 +72,11 @@
 						&nbsp;<a href="${contextPath}/rss/topicPosts/${topic.id}${extension}"><img src="${contextPath}/templates/${templateName}/images/xml_button.gif" border="0" alt="XML" /></a>
 						</#if>
             			</span>
-					</td>
-					<td valign="middle" align="right"><#assign paginationData><@pagination.doPagination "list", topic.id/></#assign>${paginationData}</td>
-				</tr>
-			</table>
+				</div>
+				<div class="pull-right">
+					${paginationData}
+				</div>
+			</div>
 
 			<table class="forumline" cellspacing="1" cellpadding="3" width="100%" border="0">
 				<#if poll?exists>
@@ -211,37 +206,33 @@
 					</td>
 				</tr>
 			</table>
-		
-			<table cellspacing="2" cellpadding="2" width="100%" align="center" border="0">
-				<tr>
-					<#if !readonly>
-					<td width="8%" align="left" valign="bottom" nowrap="nowrap">
-					</#if>
+			<br/>
+			<div>
+				<div class="pull-left">
 					<#if topic.status == STATUS_LOCKED>
-						<span class="icon_reply_locked"><img src="${contextPath}/images/transp.gif" alt="" /></span>
-					<#else>
-						<#if !readonly>
-								<a href="${JForumContext.encodeURL("/posts/reply/${start}/${topic.id}")}" rel="nofollow" class=" btn btn-small btn-success"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;${I18n.getMessage("Post.Add")} </a>
+							<span class="icon_reply_locked"><img src="${contextPath}/images/transp.gif" alt="" /></span>
 						<#else>
-							<#assign colspan = "2"/>
+							<#if !readonly>
+								<a href="${JForumContext.encodeURL("/posts/reply/${start}/${topic.id}")}" rel="nofollow" class=" btn btn-small btn-success"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;${I18n.getMessage("Post.Add")} </a>
+							<#else>
+								<#assign colspan = "2"/>
+							</#if>
 						</#if>
-		  			</#if>
-					</td>
-					
-					<td valign="middle" align="left" colspan="${colspan?default("0")}">
-						<span class="">
+				</div>
+				<div class="pull-left">
+					<span class="">
 						<a class="" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")} </a> 
             			&raquo; <a class="" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name} </a>
             			&raquo;<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}" name="top" class="maintitle" id="top">${topic.title?html}</a>
             			<#if rssEnabled>
 						&nbsp;<a href="${contextPath}/rss/topicPosts/${topic.id}${extension}"><img src="${contextPath}/templates/${templateName}/images/xml_button.gif" border="0" alt="XML" /></a>
 						</#if>
-						</span>
-					</td>
-
-					<td valign="middle" align="right">${paginationData}</td>
-				</tr>
-			</table>
+            			</span>
+				</div>
+				<div class="pull-right">
+					${paginationData}
+				</div>
+			</div>
 			
 			<table width="100%" align="center">
 				
@@ -401,9 +392,6 @@
 					<td align="right"><@presentation.forumsComboTable/></td>
 				</tr>
 			</table>
-		</td>
-	</tr>
-</table>
 
 <a name="quick"></a>
 
