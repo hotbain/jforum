@@ -46,7 +46,7 @@
 				</tr>
 			</table>
 
-			<table class="forumline" cellspacing="2" cellpadding="5" width="100%" border="0">
+			<table class="table table-hover table-bordered" cellspacing="2" cellpadding="5" width="100%" border="0">
 				<#if results.size() == 0>
 					<tr>
 						<td class="gen">
@@ -55,7 +55,7 @@
 					</tr>
 				<#else>
 					<#list results as post>
-						<tr>
+						<tr class="success">
 							<td class="postinfo">
 								<#assign postUrl = JForumContext.encodeURL("/posts/preList/${post.topicId}/${post.id}")/>
 
@@ -72,7 +72,7 @@
 							</td>
 						</tr>
 
-						<tr>
+						<tr class="warning">
 							<td class="row1 gen">
 								${post.text}
 								<br />
