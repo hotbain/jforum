@@ -15,8 +15,8 @@
 	<#if (totalRecords > recordsPerPage)>
 		<#assign baseUrl = contextPath +"/jforum" + extension + "?module=search&amp;action=search"/>
 		<#assign baseUrl = baseUrl + moderationParams()/>
-
-		<div class="pagination">
+	<div class="btn-group">
+		<ul class="pagination">
 		<#assign link = ""/>
 
 		<#-- ------------- -->
@@ -24,7 +24,7 @@
 		<#-- ------------- -->
 		<#if (thisPage > 1)>
 			<#assign start = (thisPage - 2) * recordsPerPage/>
-			<a href="${baseUrl}&amp;start=${start}">&#9668;</a>
+			<li><a href="${baseUrl}&amp;start=${start}">&#9668;</a></li>
 		</#if>
 
 		<#if (totalPages > 10)>
@@ -81,19 +81,23 @@
 		<#-- ------------- -->
 		<#if (thisPage < totalPages)>
 			<#assign start = thisPage * recordsPerPage/>
-			<a href="${baseUrl}&amp;start=${start}">&#9658;</a>
+			<li><a href="${baseUrl}&amp;start=${start}">&#9658;</a></li>
 		</#if>
 
-		<a href="#goto" onClick="return overlay(this, 'goToBox', 'rightbottom');">${I18n.getMessage("ForumIndex.goToGo")}</a>
-		<div id="goToBox">
-			<div class="title">${I18n.getMessage("goToPage")}...</div>
-			<div class="form">
-				<input type="text" style="width: 50px;" id="pageToGo">
-				<input type="button" value=" ${I18n.getMessage("ForumIndex.goToGo")} " onClick="goToAnotherPageSearch(${totalPages}, ${recordsPerPage}, '${baseUrl}');">
-				<input type="button" value="${I18n.getMessage("cancel")}" onClick="document.getElementById('goToBox').style.display = 'none';">
-			</div>
-		</div>
+		<#--
+					<a href="#goto" onClick="return overlay(this, 'goToBox', 'rightbottom');">${I18n.getMessage("ForumIndex.goToGo")}</a>
+				<div id="goToBox">
+					<div class="title">${I18n.getMessage("goToPage")}...</div>
+					<div class="form">
+						<input type="text" style="width: 50px;" id="pageToGo">
+						<input type="button" value=" ${I18n.getMessage("ForumIndex.goToGo")} " onClick="goToAnotherPageSearch(${totalPages}, ${recordsPerPage}, '${baseUrl}');">
+						<input type="button" value="${I18n.getMessage("cancel")}" onClick="document.getElementById('goToBox').style.display = 'none';">
+					</div>
+				</div>
+		-->
 
+		</ul>
+		
 		</div>
 	</#if>
 </#macro>
@@ -101,9 +105,13 @@
 <#macro pageLink page baseUrl>
 	<#assign start = recordsPerPage * (page - 1)/>
 	<#if page != thisPage>
-		<#assign link><a href="${baseUrl}&amp;start=${start}">${page}</a></#assign>
+		<#assign link>
+			<li><a href="${baseUrl}&amp;start=${start}">${page}</a></li>
+		</#assign>
 	<#else>
-		<#assign link><span class="current">${page}</span></#assign>
+		<#assign link>
+			<li class="active"><a href="#" >${page}<span class="sr-only">(current)</span></a></li>
+		</#assign>
 	</#if>
 
 	${link}
