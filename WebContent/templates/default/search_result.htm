@@ -56,19 +56,21 @@
 				<#else>
 					<#list results as post>
 						<tr class="success">
-							<td class="postinfo">
+							<td class="">
 								<#assign postUrl = JForumContext.encodeURL("/posts/preList/${post.topicId}/${post.id}")/>
-
-								<span class="gen">
-									<img class="icon_folder" src="${contextPath}/images/transp.gif" alt=""/>
-
+								<div >
+									
 									<strong>
 										<a href="${postUrl}">${post.subject?html}</a>
-									</strong>, 
-									${I18n.getMessage("Search.postedOn")} <a href="${JForumContext.encodeURL("/forums/show/${post.forum.id}")}">${post.forum.name}</a>, 
-									${I18n.getMessage("Search.postedAt")} ${post.time?datetime}, 
-									${I18n.getMessage("Search.postedBy")} <a href="${JForumContext.encodeURL("/user/profile/${post.userId}")}">${post.postUsername}</a>									
-								</span>
+									</strong>
+									<div class="pull-right" >
+										${I18n.getMessage("Search.postedOn")} <a href="${JForumContext.encodeURL("/forums/show/${post.forum.id}")}">${post.forum.name}</a>, 
+										${I18n.getMessage("Search.postedAt")} <span class="badge">${post.time?date}</span>, 
+										${I18n.getMessage("Search.postedBy")} <a href="${JForumContext.encodeURL("/user/profile/${post.userId}")}"><label class="label label-success">${post.postUsername}</label></a>					
+									</div>
+													
+								</div>
+								
 							</td>
 						</tr>
 
@@ -80,9 +82,13 @@
 							</td>
 						</tr>
 
+						<#--
 						<tr>
-							<td height="1" colspan="2" class="spacerow"><img width="1" height="1" alt="" src="${contextPath}/templates/${templateName}/images/spacer.gif"/></td>
+							<td height="3" colspan="2" class="spacerow"><img width="1" height="1" alt="" src="${contextPath}/templates/${templateName}/images/spacer.gif"/>
+									<div align="left"><a href="${postUrl}">${postUrl}</a></div>
+							</td>
 						</tr>
+						-->
 					</#list>
 				</#if>
 			</table>
