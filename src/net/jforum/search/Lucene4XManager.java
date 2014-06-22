@@ -78,7 +78,7 @@ import net.jforum.util.preferences.SystemGlobals;
 public class Lucene4XManager implements SearchManager {
 	private  Map<String, Post> processiongMap =new ConcurrentHashMap<String, Post>();
 	private  AtomicInteger unprocessingCounter = new AtomicInteger(0);
-	private  int count = 1;//SystemGlobals.getIntValue(ConfigKeys.INDEX_COUNT_THREOLD);
+	private  int count = SystemGlobals.getIntValue(ConfigKeys.INDEX_COUNT_THREOLD);
 	private  ReadWriteLock readWriteLock =new ReentrantReadWriteLock();
 	private  Analyzer analyzer =null;
 	private  IndexWriter indexWriter =null;
