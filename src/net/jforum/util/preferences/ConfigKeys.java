@@ -251,6 +251,7 @@ public class ConfigKeys
 	public static final String QUARTZ_CONTEXT = "org.quartz.context.";
 	public static final String SEARCH_INDEXING_ENABLED = "search.indexing.enabled";
 	public static final String SEARCH_INDEXER_IMPLEMENTATION = "search.indexer.implementation";
+	public static final String SEARCH_FETCH_ALL_COUNT="search_fetch_all_count";
 	public static final String SEARCH_INDEXER_CRON_EXPRESSON = "indexer.cron.expression";
 	public static final String EXTENSION_FIELD = "extension.field";
 	
@@ -301,6 +302,8 @@ public class ConfigKeys
 	public static final String REDIRECT_BASE_URL = "redirect.base.url";
     
 	public static final String FREEMARKER_EXTRA_TEMPLATE_PATH = "freemarker.extra.template.path";
+	
+	public static final String INDEX_COUNT_THREOLD="index_count_threold";
 
 	private ConfigKeys() {}
 }

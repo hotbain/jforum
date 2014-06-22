@@ -105,7 +105,7 @@ public class SearchAction extends Command
 		
 		SearchResult searchResult = operation.performSearch(args);
 		operation.prepareForDisplay();
-		
+		System.err.println("即将返回到页面上显示的数量为 "+ searchResult.records().size());
 		this.setTemplateName(operation.viewTemplate());
 		
 		this.context.put("results", operation.filterResults(operation.results()));

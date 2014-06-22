@@ -93,6 +93,7 @@ public class SearchArgs
 	public int fetchCount()
 	{
 		return SystemGlobals.getIntValue(ConfigKeys.TOPICS_PER_PAGE);
+//		return 5;
 	}
 	
 	public void startFetchingAtRecord(int initialRecord)

@@ -71,12 +71,14 @@ import net.jforum.dao.PostDAO;
 import net.jforum.dao.TopicDAO;
 import net.jforum.entities.Post;
 import net.jforum.repository.TopicRepository;
+import net.jforum.util.preferences.ConfigKeys;
+import net.jforum.util.preferences.SystemGlobals;
 
 
 public class Lucene4XManager implements SearchManager {
 	private  Map<String, Post> processiongMap =new ConcurrentHashMap<String, Post>();
 	private  AtomicInteger unprocessingCounter = new AtomicInteger(0);
-	private  int count = 1;
+	private  int count = 1;//SystemGlobals.getIntValue(ConfigKeys.INDEX_COUNT_THREOLD);
 	private  ReadWriteLock readWriteLock =new ReentrantReadWriteLock();
 	private  Analyzer analyzer =null;
 	private  IndexWriter indexWriter =null;
@@ -89,21 +91,45 @@ public class Lucene4XManager implements SearchManager {
 	static{
 		
 	}
-	public  void main(String[] args) throws IOException {
+	public static  void main(String[] args) throws IOException {
 //		aaaa();
 		Lucene4XManager manager =new Lucene4XManager();
+		manager.init();
+		
 		manager.create(getPost());
 		manager.create(getPost());
 		manager.create(getPost());
 		manager.create(getPost());
 		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		manager.create(getPost());
+		
 		manager.indexWriter.commit();
 		SearchArgs searchArgs =new SearchArgs();
-		searchArgs.setKeywords("quote");
+		searchArgs.setKeywords("窝窝团");
 		searchArgs.setForumId(1);
+		searchArgs.startFetchingAtRecord(0);
 		manager.search(searchArgs);
 		
-		indexWriter.close();
+		manager.destroy();
 		
 //		Map<String, String> map =new ConcurrentHashMap<String, String>();
 //		map.put("a", "a");
@@ -116,11 +142,11 @@ public class Lucene4XManager implements SearchManager {
 	}
 	private static Post getPost() {
 		Post post =new Post();
-		post.setForumId(123);
-		post.setText("宫政");
-		post.setSubject("我是中国人我在窝窝团工作郭德纲");
-		post.setTopicId(333);
-		post.setId(111);
+		post.setForumId(1);
+		post.setText("我是中国人我在窝窝团工作郭德纲quote");
+		post.setSubject("娃哈哈");
+		post.setTopicId(12);
+		post.setId(35);
 		post.setTime(new Date());
 		return post;
 	}
@@ -312,19 +338,23 @@ public class Lucene4XManager implements SearchManager {
 		    4、可以调用写入锁的newCondition()方法获取与该写入锁绑定的Condition对象, 此时与普通的互斥锁并没有什么区别. 但是调用读取锁的newCondition()方法将抛出异常. 
 	 **/
 	private void reOpenReader() throws Exception{
-		readWriteLock.writeLock().lock();//再打开读取的过程中是不允许搜索的
+//		readWriteLock.writeLock().lock();//再打开读取的过程中是不允许搜索的
 		try {
 			if(indexReader!=null){//程序第一次启动
 				indexReader.close();
+				System.out.println("关闭程序");
 			}
+			threadPool.shutdownNow();
+			threadPool =Executors.newCachedThreadPool();
 			indexReader = null;
 			indexReader=IndexReader.open(directory);
 			searcher = new IndexSearcher(indexReader, threadPool);
 		} catch (IOException e) {
 			e.printStackTrace();
-			throw new RuntimeException("error occur when lucene4xmanger init method"+ e.getMessage());
+			throw new RuntimeException("error occur when lucene4xmanger reOpenReader method"+ e.getMessage());
 		}finally{
-			readWriteLock.writeLock().unlock();
+			System.out.println("释放了读锁");
+//			readWriteLock.writeLock().unlock();
 		}
 		
 	}
@@ -332,8 +362,8 @@ public class Lucene4XManager implements SearchManager {
 	@Override
 	public SearchResult search(SearchArgs args) {
 		ensureSearcherExist();//防止死锁----获得读锁的时候，还要获得写锁，就会出现问题。
-		Lock  readLock =readWriteLock.readLock();
-		readLock.lock();
+//		Lock  readLock =readWriteLock.readLock();
+//		readLock.lock();
 		try {
 			StringBuffer criteria = new StringBuffer(256);
 			this.filterByForum(args, criteria);
@@ -349,20 +379,31 @@ public class Lucene4XManager implements SearchManager {
 
 //			qr.setBoost(5f);
 //			TopDocs docs = searcher.search(qr,getFilter(),12,getSort());
-			TopDocs docs = searcher.search(query,null,12,Sort.RELEVANCE);
-			System.out.println("docs count="+ docs.totalHits);
-			//与getSumDocFreq功能相同
-			int[] post_ids =new int[docs.totalHits];
-			int  index = 0;
+//			TopDocs docs = searcher.search(query,null,SystemGlobals.getIntValue(ConfigKeys.SEARCH_FETCH_ALL_COUNT),Sort.RELEVANCE);
+			TopDocs docs = searcher.search(query,null,SystemGlobals.getIntValue(ConfigKeys.SEARCH_FETCH_ALL_COUNT),Sort.RELEVANCE);
+
+			System.err.println("docs count="+ docs.totalHits);
 			
-			for (ScoreDoc doc : docs.scoreDocs) {
-				
-				Document document = searcher.doc(doc.doc);
-				System.out.println("docId="+ doc.doc+" score="+ doc.score);
-//				Terms terms =indexReader.getTermVector(doc.doc, "hobby");
-				parseDocument(document);
-				post_ids[index]= Integer.parseInt(document.getField(SearchFields.Keyword.POST_ID).stringValue());
+			
+			int pageCount =args.fetchCount();
+			int start = args.startFrom();
+			int index = start;
+			int end	=0;
+			if(docs.scoreDocs.length>=1){
+				end= start+ pageCount-1> docs.scoreDocs.length-1?  docs.scoreDocs.length-1: start+pageCount-1;
 			}
+			
+			System.out.println("start="+ start+";end="+ end);
+			int[] post_ids =new int[end-start+1];
+			for(;start<=end;start++){
+				Document document = searcher.doc(docs.scoreDocs[start].doc);
+//				System.out.println("docId="+ docs.scoreDocs[start].doc+" score="+ docs.scoreDocs[start].score);
+//				Terms terms =indexReader.getTermVector(doc.doc, "hobby");
+//				parseDocument(document);
+				post_ids[start-index]= Integer.parseInt(document.getField(SearchFields.Keyword.POST_ID).stringValue());
+			
+			}
+
 		
 //			if (hits != null && hits.length() > 0) {
 ////				return  new SearchResult(resultCollector.collect(args, hits, query), hits.length());
@@ -370,12 +411,12 @@ public class Lucene4XManager implements SearchManager {
 //			else {
 //			}
 			System.out.println("顺利返回 " + docs.scoreDocs.length + "; acctual count =" + post_ids.length);
-			return new SearchResult(retrieveRealPosts(post_ids, query), docs.totalHits);
-
+			return new SearchResult(retrieveRealPosts(post_ids, query), docs.scoreDocs.length);
+//			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
-			readLock.lock();
+//			readLock.lock();
 		}
 		return new SearchResult(new ArrayList(), 0);	
 	}
