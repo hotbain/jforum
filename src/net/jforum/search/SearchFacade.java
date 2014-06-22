@@ -84,6 +84,7 @@ public class SearchFacade
 //		}
 		searchManager =Lucene4XManager.getInstance();
 		searchManager.init();
+		searchManager.reIndex();
 	
 	}
 	public static void init()
