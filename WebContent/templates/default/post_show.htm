@@ -3,7 +3,10 @@
 <#import "../macros/presentation.ftl" as presentation/>
 
 <#assign canEditSomeMessage = false/>
+<#--
 <style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/style.css?${startupTime} );</style>
+
+-->
 <style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/${language}.css?${startupTime} );</style>
 
 <script type="text/javascript" src="${contextPath}/templates/${templateName}/js/jquery.js?${startupTime}"></script>
@@ -78,7 +81,7 @@
 				</div>
 			</div>
 
-			<table class="forumline" cellspacing="1" cellpadding="3" width="100%" border="0">
+			<table class="table table-bordered table-striped" cellspacing="1" cellpadding="3" width="100%" border="0">
 				<#if poll?exists>
 					<tr>
 						<td class="cathead cattitle" align="center" colspan="2" nowrap="nowrap" width="100%">${I18n.getMessage("PostShow.pollTitle")}</td>
@@ -111,9 +114,9 @@
 					</tr>
 				</#if>
 				
-				<tr>
-					<th class="thleft" nowrap="nowrap" width="150" height="26">${I18n.getMessage("PostShow.author")}</th>
-					<th class="thright" nowrap="nowrap" width="100%">${I18n.getMessage("PostShow.messageTitle")}</th>
+				<tr class="danger">
+					<th class="text-center" nowrap="nowrap" width="150" height="26">${I18n.getMessage("PostShow.author")}</th>
+					<th class="text-center" nowrap="nowrap" width="100%">${I18n.getMessage("PostShow.messageTitle")}</th>
 				</tr>
 
 				<!-- POST LISTING --> 
@@ -127,7 +130,7 @@
 	
 					<#assign user = users.get(post.userId)/>
 					<#assign canEditCurrentMessage = (post.canEdit && topic.status != STATUS_LOCKED) || moderatorCanEdit/>
-					<tr>
+					<tr class="success">
 						<td colspan="2">
 							<#include "post_show_action_buttons_inc.htm"/>
 						</td>

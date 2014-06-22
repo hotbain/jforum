@@ -4304,6 +4304,62 @@ textarea.input-group-sm > .input-group-btn > .btn {
   clear: both;
 }
 
+
+blockquote {
+	
+	background:#E1EBF2 none no-repeat scroll 6px 8px;
+	
+	border:1px dashed #DBDBDB;
+	
+	font-size:0.95em;
+	
+	margin:0.5em 10px 0pt 10px;
+	
+	overflow:hidden;
+	
+	padding:5px;
+	
+
+}
+
+
+
+blockquote {
+	
+	background-color:#E1EBF2;
+	
+	background-image:url(../images/quote.gif);
+	
+	border-color:#DBDBCE;
+	
+
+}
+
+
+
+blockquote cite {
+	
+	display:block;
+	
+	font-size:0.9em;
+	
+	font-style:normal;
+	
+	font-weight:bold;
+	
+	margin-left:20px;
+	
+
+}
+
+
+
+blockquote.uncited {
+	
+	padding-top:25px;
+	
+
+}
 @media (min-width: 768px) {
   .navbar {
     border-radius: 4px;
@@ -7056,4 +7112,6 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+  
+  
 }
