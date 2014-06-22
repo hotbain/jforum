@@ -1755,7 +1755,7 @@ table th[class*="col-"] {
 .table-hover > tbody > tr > th.warning:hover,
 .table-hover > tbody > tr.warning:hover > td,
 .table-hover > tbody > tr.warning:hover > th {
-  background-color: #faf2cc;
+  background-color: #E3ECDE;
 }
 
 @media (max-width: 767px) {
