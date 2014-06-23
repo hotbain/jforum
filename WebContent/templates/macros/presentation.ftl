@@ -6,18 +6,18 @@
 		<#if topic.read>
 			<#if topic.status == STATUS_UNLOCKED>
 				<#if topic.type == TOPIC_ANNOUNCE>
-					<img class="icon_folder_announce" src="${contextPath}/images/transp.gif" alt="" />
+					<i class="glyphicon glyphicon-volume-up"></i>
 				<#elseif topic.type == TOPIC_STICKY>
-					<img class="icon_folder_sticky" src="${contextPath}/images/transp.gif" alt="" />
+					<i class="glyphicon glyphicon-bookmark"></i>
 				<#else>
 					<#if topic.isHot()>
-						<img class="icon_folder_hot" src="${contextPath}/images/transp.gif" alt="" />
+						<i class="glyphicon glyphicon-fire"></i>
 					<#else>
-						<img class="icon_folder" src="${contextPath}/images/transp.gif" alt="" />
+					<i class="glyphicon glyphicon-bookmark"></i>
 					</#if>
 				</#if>
 			<#else>
-				<img class="icon_folder_lock" src="${contextPath}/images/transp.gif" alt="" />
+				<i class="glyphicon glyphicon-lock"></i>
 			</#if>
 		<#else>
 			<#if topic.status == STATUS_UNLOCKED>

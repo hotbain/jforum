@@ -36,7 +36,7 @@
 
 					<#list category.getForums() as forum>
 					<#assign lpi = forumRepository.getLastPostInfo(forum.id)/>
-					<tr class="warning">
+					<tr class="">
 						<td class="" valign="middle" align="center" height="50">
 							<#if forum.unread>
 								<img src="${contextPath}/templates/${templateName}/images/folder_new_big.gif" alt="[New Folder]" />

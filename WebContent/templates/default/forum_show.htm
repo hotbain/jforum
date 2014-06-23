@@ -206,8 +206,9 @@
 						</#if>
 					</#if>
 
-					<tr class="warning"><#---2(通告) 1 置顶 0 普通-->
-						<td ${class1} valign="middle"  align="center" width="20"><@presentation.folderImage topic/></td>
+					<tr class=""><#---2(通告) 1 置顶 0 普通-->
+						<td ${class1} valign="middle"  align="center" width="30">
+						<@presentation.folderImage topic/></td>
 						<td ${class1} width="100%">
 							<#--
 							<#if topic.hasAttach() && attachmentsEnabled><img src="${contextPath}/templates/${templateName}/images/icon_clip.gif" align="middle" alt="[Clip]" />
@@ -250,7 +251,7 @@
 							</#if>
 						</td>
 
-						<td ${class2} valign="middle"  align="center"><span class="postdetails">${topic.totalReplies}</span></td>
+						<td ${class2} valign="middle" width="20" align="center"><span class="postdetails">${topic.totalReplies}</span></td>
 						<td ${class3} valign="middle"  align="center">
 							<span class="name"><a href="${JForumContext.encodeURL("/user/profile/${topic.postedBy.id}")}">${topic.postedBy.username}</a></span>
 						</td>
@@ -276,6 +277,7 @@
 							</#if>
 						</td>
 
+						<!-- 管理项是否开启 -->
 						<#if moderator && openModeration?default(false)>
 							<td ${class2} valign="middle" align="center">
 								<input type="checkbox" <#if topic.movedId != 0 && topic.forumId != forum.id>disabled="disabled"</#if> name="topic_id" value="${topic.id}" onclick="changeTrClass(this, ${topic_index});"/>
