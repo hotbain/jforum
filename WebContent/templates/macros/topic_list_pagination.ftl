@@ -1,5 +1,7 @@
 <#macro littlePostPagination topicId postsPerPage totalReplies>
-	[ <img class="icon_latest_reply" src="${contextPath}/images/transp.gif" alt="" /> ${I18n.getMessage("goToPage")}: 
+	[ 
+	<#--<img class="icon_latest_reply" src="${contextPath}/images/transp.gif" alt="" />-->
+	 ${I18n.getMessage("goToPage")}: 
 
 	<#assign totalPostPages = ((totalReplies + 1) / postsPerPage)?int/>
 
@@ -21,7 +23,7 @@
 	<#list 1 .. minTotal as page>
 		<#assign start = postsPerPage * (page - 1)/>
 
-		<#assign link>${link}<a class="label label-primary" href="${contextPath}/posts/list<#if (start>0)>/${start}</#if>/${topicId}${extension}">${page}</a></#assign>
+		<#assign link>${link}<a class="badge" href="${contextPath}/posts/list<#if (start>0)>/${start}</#if>/${topicId}${extension}">${page}</a></#assign>
 		<#if (page < minTotal)><#assign link>${link}, </#assign></#if>		
 	</#list>
 
@@ -49,7 +51,7 @@
 <#macro doPagination action id=-1>
 	<#if (totalRecords > recordsPerPage)>
 		<div class="btn-group">
-					<ul class="pagination">
+					<ul class="pagination pagination-sm">
 						<#assign link = ""/>
 				
 						<#-- ------------- -->

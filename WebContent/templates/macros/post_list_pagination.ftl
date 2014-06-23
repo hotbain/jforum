@@ -49,7 +49,7 @@
 <#macro doPagination action id=-1>
 	<#if (totalRecords > recordsPerPage)>
 		<div class="btn-group">
-			<ul class="pagination">
+			<ul class="pagination pagination-sm">
 						<#assign link = ""/>
 				
 						<#-- ------------- -->

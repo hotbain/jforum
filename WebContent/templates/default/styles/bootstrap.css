@@ -1,4 +1,3 @@
-/*!
  * Bootstrap v3.0.1 by @fat and @mdo
  * Copyright 2013 Twitter, Inc.
  * Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -5211,8 +5210,8 @@ blockquote.uncited {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #999999;
-  border-radius: 10px;
+  background-color: rgba(4, 79, 164, 1);
+  border-radius: 15px;
 }
 
 .badge:empty {

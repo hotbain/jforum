@@ -16,7 +16,7 @@
 		<#assign baseUrl = contextPath +"/jforum" + extension + "?module=search&amp;action=search"/>
 		<#assign baseUrl = baseUrl + moderationParams()/>
 	<div class="btn-group">
-		<ul class="pagination">
+		<ul class="pagination pagination-sm">
 		<#assign link = ""/>
 
 		<#-- ------------- -->
