@@ -24,128 +24,105 @@
 
 </head>
 <body class="${language}" style="background-color:rgba(234, 234, 234, 1);">
-  <header class="navbar navbar-inverse  "  role="banner">
-  <div class="container">
-    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-    	
-      <ul class="nav navbar-nav">
-      	
-      	<li>
-          		<a id="backtosite"  href="${JForumContext.encodeURL("/forums/list")}"><i class="glyphicon glyphicon-home"></i>&nbsp;${I18n.getMessage("ForumBase.backToSite")}</a>
-        </li>
-        
-       <#--
-       	搜索
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>
+            	<a id="backtosite"  href="${JForumContext.encodeURL("/forums/list")}"><i class="glyphicon glyphicon-home"></i>&nbsp;${I18n.getMessage("ForumBase.backToSite")}</a>
+            </li>
+             <#--
+       	 SAERCH PAGE 
        	 <li>
 			<a id="search"  href="${JForumContext.encodeURL("/search/filters")}"><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</a> 
         </li>
        -->
-        <#--最新主题
+        <#--最新主题 NEWEST TOPIC
         	<li class="active">
 				<a id="latest" href="${JForumContext.encodeURL("/recentTopics/list")}"><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.recentTopics")}</a> 
         </li>
         
         -->
        
-       	<#-- 将最热主题置为不可显示
+       	<#-- HOTEST TOPIC
        		 <li>
 				<a id="hottest" href="${JForumContext.encodeURL("/hottestTopics/list")}"><i class="glyphicon glyphicon-fire"></i>&nbsp;${I18n.getMessage("ForumBase.hottestTopics")}</a> 
         </li>
        	-->
-        <#--将用户列表置为不可显示-->
-        <#--
-        -->
-        
-        	<#if logged>
-		 <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${I18n.getMessage("Header_Operation")} <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-		
-		<li>
-					<a id="myprofile" class="" href="${JForumContext.encodeURL("/user/edit/${session.userId}")}"><i class="glyphicon glyphicon-file"></i>&nbsp; ${I18n.getMessage("ForumBase.profile")}</a>&nbsp; 
-		</li>
-		
-		<#if session?exists && session.isAdmin()>
-			<li>
-				<a id="adminpanel"href='${JForumContext.encodeURL("/admBase/login")}'>
-						<i class=" glyphicon glyphicon-wrench  glyphicon-white"></i>&nbsp;${I18n.getMessage("ForumBase.admin")}
-				</a>
-			</li>
-		</#if>
-		
-					
-							
-										<#if (session.privateMessages > 0)>
+            <#if logged>
+            <li class="dropdown">
+               <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">${I18n.getMessage("Header_Operation")} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="">
+                  <a id="myprofile" target="_blank" class="" href="${JForumContext.encodeURL("/user/edit/${session.userId}")}"><i class="glyphicon glyphicon-file"></i>&nbsp; ${I18n.getMessage("ForumBase.profile")}</a>
+                </li>
+                <#if (session.privateMessages > 0)>
 											<li>
-								<a id="privatemessages" class="" href="${JForumContext.encodeURL("/pm/inbox")}"><i class=" glyphicon glyphicon-envelope"></i>&nbsp;
+								<a id="privatemessages" class="" href="${JForumContext.encodeURL("/pm/inbox")}"><i class=" glyphicon glyphicon-envelope"></i>
+									${I18n.getMessage("ForumBase.newPm")}: (${session.privateMessages})
 								</a>
 							</li>
-											${I18n.getMessage("ForumBase.newPm")}: (${session.privateMessages})
-										<#else>
-											<#--临时删除：${I18n.getMessage("ForumBase.privateMessages")}-->
-										</#if>
-								
-
-					
-					
-		</#if>
-         <#--
-         	 <#if bookmarksEnabled>
-          	<li class="divider"></li>
-          	<li>
-					<a class="" href="${JForumContext.encodeURL("/bookmarks/list/${session.userId}")}"><i class="glyphicon glyphicon-flag"></i>&nbsp;${I18n.getMessage("Bookmarks.myBag")}</a>
-			</li>
-			</#if>
-         -->
-          <li class="divider"></li>
-          <#if canAccessModerationLog?default(false)>
-        		<#if session?exists && session.isAdmin()>
-			        <li>
-							<a id="moderationlog"  href="${JForumContext.encodeURL("/moderation/showActivityLog")}"><i class=" glyphicon glyphicon-envelope"></i>&nbsp;${I18n.getMessage("ModerationLog.moderationLog")}</a> 
-					</li>
-		        	<li>
-						<a id="latest2" href="${JForumContext.encodeURL("/user/list")}"><i class="glyphicon glyphicon-list"></i>&nbsp;${I18n.getMessage("ForumBase.usersList")}</a> 
-		        </li>
+											
+				<#else>
+					<li><a id="privatemessages" class="" href="${JForumContext.encodeURL("/pm/inbox")}"><i class=" glyphicon glyphicon-envelope"></i>&nbsp;<${I18n.getMessage("ForumBase.privateMessages")}</a></li>
 				</#if>
+             <#if bookmarksEnabled>
+	          	<li>
+						<a class="" href="${JForumContext.encodeURL("/bookmarks/list/${session.userId}")}"><i class="glyphicon glyphicon-flag"></i>&nbsp;${I18n.getMessage("Bookmarks.myBag")}</a>
+				</li>
 			</#if>
-          
-          <#if logged>
-			<#if !sso>
-							<li>
-								<a id="logout" class="" href="${JForumContext.encodeURL("/user/logout")}"><i class="glyphicon glyphicon-off"></i>&nbsp;${I18n.getMessage("ForumBase.logout")} [${session.username}] </a></span>
+			
+                <li class="divider"></li>
+                 <#if canAccessModerationLog?default(false)>
+	        		<#if session?exists && session.isAdmin()>
+					        <li>
+								<a id="moderationlog"  href="${JForumContext.encodeURL("/moderation/showActivityLog")}"><i class=" glyphicon glyphicon-envelope"></i>&nbsp;${I18n.getMessage("ModerationLog.moderationLog")}</a> 
 							</li>
-							
+				        	<li>
+								<a id="latest2" href="${JForumContext.encodeURL("/user/list")}"><i class="glyphicon glyphicon-list"></i>&nbsp;${I18n.getMessage("ForumBase.usersList")}</a> 
+				       		</li>
+					</#if>
+				</#if>
+               <#if session?exists && session.isAdmin()>
+					<li>
+						<a id="adminpanel" target="_blank" href='${JForumContext.encodeURL("/admBase/login")}'>
+								<i class=" glyphicon glyphicon-wrench  glyphicon-white"></i>&nbsp;${I18n.getMessage("ForumBase.admin")}
+						</a>
+					</li>
+				</#if>
+                 <#if logged>
+						<#if !sso>
+								<li>
+									<a id="logout" class="" href="${JForumContext.encodeURL("/user/logout")}"><i class="glyphicon glyphicon-off"></i>&nbsp;${I18n.getMessage("ForumBase.logout")} [${session.username}] </a></span>
+								</li>
+						</#if>
+				</#if>
+              </ul>
+            </li>
+            </#if>
+            <#if !logged && !sso>
+				<li>
+					<a id="register" class="" href="${JForumContext.encodeURL("/user/insert")}"><i class="glyphicon glyphicon-map-marker"></i>&nbsp; ${I18n.getMessage("ForumBase.register")}</a>
+				</li>				
+				<li>			
+					<a id="login" class="" href="${JForumContext.encodeURL("/user/login")}"><i class="glyphicon glyphicon-circle-arrow-up"></i>&nbsp; ${I18n.getMessage("ForumBase.login")}</a>
+				</li>
 			</#if>
-		
-        </ul>
-      </li>
-      </#if>
-		<#if !logged && !sso>
-		<li>
-				<a id="register" class="" href="${JForumContext.encodeURL("/user/insert")}"><i class="glyphicon glyphicon-map-marker"></i>&nbsp; ${I18n.getMessage("ForumBase.register")}</a>&nbsp;/&nbsp;</span>
-		</li>				
-					<li>			
-				<a id="login" class="" href="${JForumContext.encodeURL("/user/login")}"><i class="glyphicon glyphicon-circle-arrow-up"></i>&nbsp; ${I18n.getMessage("ForumBase.login")}</a>&nbsp; </span>
-		</li>
-		</#if>
-		
-      </ul>
-      
-       <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" required class="form-control" placeholder="${I18n.getMessage("Header.Search.All.PlaceHolder")}">
+          </ul>
+       	<ul class="nav navbar-nav navbar-right">
+	        <li>
+	          		<a id="backtosite"  href="${JForumContext.encodeURL("/forums/list")}"><i class="glyphicon glyphicon-home"></i>&nbsp;${I18n.getMessage("ForumBase.backToSite")}</a>
+	        </li>
+      	</ul>
+       <form class="navbar-form navbar-right" role="search">
+	      <div class="form-group">
+	        <input type="text" required class="form-control" placeholder="${I18n.getMessage("Header.Search.All.PlaceHolder")}">
+	      </div>
+	      <button type="submit" class="btn btn-success btn-small"><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>
+    	</form>
+        </div>
       </div>
-      <button type="submit" class="btn btn-success btn-small"><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>
-    </form>
-      
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          		<a id="backtosite"  href="${JForumContext.encodeURL("/forums/list")}"><i class="glyphicon glyphicon-home"></i>&nbsp;${I18n.getMessage("ForumBase.backToSite")}</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    </div>
 
 
 	
