@@ -18,3 +18,5 @@
 18、http://freemarker.org/docs/dgui_misc_userdefdir.html#docgen_afterTheTOC
 19、jforum实例网站: http://www.eeqee.com/jforum/forums/list.page
 20、升级表情注意事项：   -----查看 :  net.jforum.util.SmilesInsertSqlUtils
+
+navbar-fixed-top

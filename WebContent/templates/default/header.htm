@@ -24,7 +24,7 @@
 
 </head>
 <body class="${language}" style="background-color:rgba(234, 234, 234, 1);">
-  <header class="navbar navbar-inverse navbar-fixed-top "  role="banner">
+  <header class="navbar navbar-inverse  "  role="banner">
   <div class="container">
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
     	
@@ -56,14 +56,23 @@
         <#--
         -->
         
-        	
+        	<#if logged>
 		 <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">${I18n.getMessage("Header_Operation")} <b class="caret"></b></a>
         <ul class="dropdown-menu">
-		<#if logged>
+		
 		<li>
 					<a id="myprofile" class="" href="${JForumContext.encodeURL("/user/edit/${session.userId}")}"><i class="glyphicon glyphicon-file"></i>&nbsp; ${I18n.getMessage("ForumBase.profile")}</a>&nbsp; 
 		</li>
+		
+		<#if session?exists && session.isAdmin()>
+			<li>
+				<a id="adminpanel"href='${JForumContext.encodeURL("/admBase/login")}'>
+						<i class=" glyphicon glyphicon-wrench  glyphicon-white"></i>&nbsp;${I18n.getMessage("ForumBase.admin")}
+				</a>
+			</li>
+		</#if>
+		
 					
 							
 										<#if (session.privateMessages > 0)>
@@ -80,12 +89,14 @@
 					
 					
 		</#if>
-          <#if bookmarksEnabled>
+         <#--
+         	 <#if bookmarksEnabled>
           	<li class="divider"></li>
           	<li>
 					<a class="" href="${JForumContext.encodeURL("/bookmarks/list/${session.userId}")}"><i class="glyphicon glyphicon-flag"></i>&nbsp;${I18n.getMessage("Bookmarks.myBag")}</a>
 			</li>
 			</#if>
+         -->
           <li class="divider"></li>
           <#if canAccessModerationLog?default(false)>
         		<#if session?exists && session.isAdmin()>
@@ -103,19 +114,19 @@
 							<li>
 								<a id="logout" class="" href="${JForumContext.encodeURL("/user/logout")}"><i class="glyphicon glyphicon-off"></i>&nbsp;${I18n.getMessage("ForumBase.logout")} [${session.username}] </a></span>
 							</li>
+							
 			</#if>
-		</#if>
+		
         </ul>
       </li>
+      </#if>
 		<#if !logged && !sso>
 		<li>
 				<a id="register" class="" href="${JForumContext.encodeURL("/user/insert")}"><i class="glyphicon glyphicon-map-marker"></i>&nbsp; ${I18n.getMessage("ForumBase.register")}</a>&nbsp;/&nbsp;</span>
 		</li>				
-				<#--
 					<li>			
 				<a id="login" class="" href="${JForumContext.encodeURL("/user/login")}"><i class="glyphicon glyphicon-circle-arrow-up"></i>&nbsp; ${I18n.getMessage("ForumBase.login")}</a>&nbsp; </span>
 		</li>
-				-->		
 		</#if>
 		
       </ul>
@@ -137,21 +148,21 @@
 </header>
 
 
-
-
-<div class="jumbotron">
-	<div class="container">
-	  <h1>Hello, world!</h1>
-	  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-	  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+	
+<div class="container">
+	<div class="row">
+		<div class="col-md-11"></div>
+		<div class="col-md-110">
+			<div class="alert alert-success text-center">
+					<div class="alert-link">Login Here</div>
+			</div>
+		</div>
+		<div class="col-md-11"></div>
 	</div>
 </div>
 
-
-
-
 <div class="container" style="width: 100%">
-            <div class="row clearfix">
+            <div class="row">
                 <div class="col-md-12 column">
                 	<!--
                 		<div class="row clearfix text-center">
@@ -160,7 +171,7 @@
                 		</div>
 					</div>
                 	 -->
-                	<div class="row clearfix">
+                	<div class="row">
                         <div class="col-md-2 column">
                            
                         </div>
