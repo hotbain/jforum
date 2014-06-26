@@ -456,7 +456,10 @@ function smiliePopup()
 											</div>
 											<div class="col-md-4">
 												<div class="alert alert-danger" id="log_in_msg" style="display:none">
-						  								<strong>Warning!</strong>&nbsp;&nbsp;${I18n.getMessage("Post_list_isNotLoggged_Msg")} <a class="alert-link" href="#">${I18n.getMessage("Login.enter")}</a>
+						  								<strong>Warning!</strong>&nbsp;&nbsp;${I18n.getMessage("Post_list_isNotLoggged_Msg")} 
+						  								<a class="alert-link" href="${JForumContext.encodeURL("/user/login")}"><i class="glyphicon glyphicon-circle-arrow-up"></i>&nbsp;${I18n.getMessage("ForumBase.login")}</a>
+						  								&nbsp;|
+						  								<a class="alert-link" href="${JForumContext.encodeURL("/user/insert")}"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;${I18n.getMessage("ForumBase.register")}</a>
 												</div>
 											</div>
 										</div>
