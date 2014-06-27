@@ -15,16 +15,20 @@
 						</div>
 						<div>
 					<#list category.getForums() as forum>
-						<div class="col-sm-6 col-md-3" >
+						<div class="col-sm-6" >
 						    <div class="thumbnail" style="background-color: #F5F5F5;">
 						      <div class="caption">
-						        <a href="${JForumContext.encodeURL("/forums/show/${forum.id}")}"><h3>${forum.name?html}</h3></a>
+						        <span>
+						        	<h3>
+						        		<a href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name?html}</a>
+						        		<span class="label label-danger pull-right">${forum.totalTopics}</span>
+						        	</h3>
+						        </span>
 						        
-						        <p><span class="label label-danger">${forum.totalTopics}</span></p>
-						        <div style="padding-bottom:10px;">
-						        	${forum.description?default("")}
-						        </div>
-						       <strong><p><a href="${JForumContext.encodeURL("/forums/show/${forum.id}")}" class="btn btn-success btn-medium" role="button">Go</a></p></strong>
+						        <span style="padding-bottom:10px;">
+						        	${forum.description?default("")}&nbsp;
+						        </span>
+						       
 						      </div>
 						    </div>
   						</div>
