@@ -15,7 +15,7 @@
 
 	<filter-mapping>
 		<filter-name>clickstream-jforum</filter-name>
-		<url-pattern>*.page</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
     
     <listener>
@@ -52,7 +52,7 @@
 
 	<servlet-mapping>
     	<servlet-name>jforum</servlet-name>
-    	<url-pattern>*.page</url-pattern>
+    	<url-pattern>*.do</url-pattern>
     </servlet-mapping>
     
     <!-- SESSION -->
@@ -61,14 +61,14 @@
     </session-config>
     <error-page>
     	<error-code>500</error-code>
-    	<location>/forums/list.page?err_code=500</location>
+    	<location>/forums/list.do?err_code=500</location>
     </error-page>
     <error-page>
     	<error-code>404</error-code>
-    	<location>/forums/list.page?err_code=404</location>
+    	<location>/forums/list.do?err_code=404</location>
     </error-page>
 	<welcome-file-list>
-		<welcome-file>/forums/list.page</welcome-file>
+		<welcome-file>/forums/list.do</welcome-file>
 	</welcome-file-list>
 
 	<!-- SSO -->
