@@ -5,62 +5,7 @@
 	<#include "highlighter_js.htm"/>
 </#if>
 
-   </div>
-                        <div class="col-md-2 column">
-                        	<!-- 
-                        		<div class="row">
-                        		<div  class="col-md-2"></div>
-                        		<div class="col-md-6">
-                        		
-                        		<#if !logged && !sso>
-                        			<form name="formlogin"  role="form" accept-charset="${encoding}" class=" " action="${JForumContext.encodeURL("/jforum")}" method="post">
-								
-								<input type="hidden" name="module" value="user" />
-								<input type="hidden" name="action" value="validateLogin" />
-								<input type="hidden" name="redirect" value=""/>
-								                        			
-<fieldset><legend contenteditable="true">${I18n.getMessage("Login_Here_Msg")}</legend>
-									<div class="form-group">
-									    <label for="inputName" class="col-sm-4 control-label">${I18n.getMessage("Login.user")}:</label>
-									    <div class="col-sm-8">
-									      <input type="text" name="username" required class="form-control" id="inputName" placeholder="name required">
-									    </div>
-				  					</div>
-				  				 	<div class="form-group">
-									    <label for="inputPassword" class="col-sm-4 control-label">${I18n.getMessage("Login.password")}:</label>
-									    <div class="col-sm-8">
-									      <input type="password" name="password" required class="form-control" id="inputPassword" placeholder="password required">
-									    </div>
-				  					</div>
-					  				<#if autoLoginEnabled>
-					  				<div class="form-group">
-										 <label for="autologin" class="col-sm-10 control-label">${I18n.getMessage("Login.autoLogon")}</label>
-										<div class="col-sm-2">
-											<input type="checkbox" name="autologin" id="autologin"/>
-									    </div>
-					  				</div>
-									</#if>
-					  				<div class="form-group">
-									    <div class="col-sm-12">
-											<input class="btn btn-primary btn-medium" type="submit" value="${I18n.getMessage("Login.enter")}" name="login" />
-										</div>
-					  				</div>
-					  				</fieldset>
-				  				</form>
-				  				<#else>
-				  				<div class="page-header">
-				  					<p><#--${I18n.getMessage("Logout_Here_Msg")}--></p>
-				  				</div>
-		  							<#if session?exists && session.isAdmin()><a id="adminpanel" class="btn btn-block btn-success " href='${JForumContext.encodeURL("/admBase/login")}'><i class=" glyphicon glyphicon-wrench  glyphicon-white"></i>&nbsp;${I18n.getMessage("ForumBase.admin")}</a></#if>
-				  					<a id="logout"  class="btn  btn-danger btn-block" href="${JForumContext.encodeURL("/user/logout")}"><i class="glyphicon glyphicon-off"></i>&nbsp;${I18n.getMessage("ForumBase.logout")} [${session.username}] </a>
-				  				
-				  				
-                        	</#if>
-                        		</div>
-                        		<div  class="col-md-4"></div>
-                        	</div>
-                        	 -->
-                        </div>
+  
                     </div>
                     </div>
               </div>

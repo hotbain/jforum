@@ -8,19 +8,19 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 ">
-								<div class="alert alert-success" role="alert">
-								 	<div class="alert-link">${category.name}</div>
+								<div id="" class="alert alert-success" role="alert">
+								 	<div class="alert-link"><i  id="forum_${category.id}" class="glyphicon glyphicon-chevron-left"></i>${category.name}</div>
 								</div>
 							</div>
 						</div>
 						<div>
 					<#list category.getForums() as forum>
-						<div class="col-sm-6" >
+						<div class="col-sm-12" >
 						    <div class="thumbnail" style="background-color: #F5F5F5;">
 						      <div class="caption">
 						        <span>
 						        	<h3>
-						        		<a href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name?html}</a>
+						        		<a id="topics_${forum.id}" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name?html}</a>
 						        		<span class="label label-danger pull-right">${forum.totalTopics}</span>
 						        	</h3>
 						        </span>
@@ -37,5 +37,30 @@
 					</div>
 				</#list>
 				
-
+ </div>
+ <!-- 左侧导航列开始-->
+                        <div class="col-md-3 ">
+                        	<div class="well sidebar-nav affix" role="complementary">
+	                        	<ul class="nav nav-list">
+		                        	<#list allCategories as category>
+		                        			<li class="nav-divider"></li>
+											<li class="nav-header">
+											  <a href="#forum_${category.id}"><i class="glyphicon glyphicon-chevron-left"></i>&nbsp;&nbsp;${category.name}</a>
+											</li>
+											<#list category.getForums() as forum>
+											<li style="padding-left:40px;">
+												<i>
+													<a href="#topics_${forum.id}" ><i class="glyphicon glyphicon-chevron-left"></i>&nbsp;&nbsp;${forum.name?html}</a>
+												<a class="pull-right target="_blank" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}"><i class="glyphicon glyphicon-share-alt"></i></a>
+												</i>
+											</li>	
+											</#list>
+											
+		                        	</#list>
+	         					</ul>
+          					</div>
+                       </div>
+                   
+ <!-- 左侧导航列结束-->                      
 <#include "bottom.htm"/>
+
