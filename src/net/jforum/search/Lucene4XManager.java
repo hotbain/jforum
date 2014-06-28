@@ -59,6 +59,7 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
 import org.apache.lucene.util.Version;
+import org.jgroups.tests.UnicastTest.StartData;
 import org.lionsoul.jcseg.core.JcsegTaskConfig;
 import org.lionsoul.jcseg.lucene.JcsegAnalyzer4X;
 
@@ -71,6 +72,7 @@ import net.jforum.dao.PostDAO;
 import net.jforum.dao.TopicDAO;
 import net.jforum.entities.Post;
 import net.jforum.repository.TopicRepository;
+import net.jforum.search.analyzer.EnhancedJcsegAnalyzer;
 import net.jforum.util.preferences.ConfigKeys;
 import net.jforum.util.preferences.SystemGlobals;
 
@@ -182,7 +184,8 @@ public class Lucene4XManager implements SearchManager {
 	@Override
 	public void init() {
 
-		analyzer = new JcsegAnalyzer4X(JcsegTaskConfig.SIMPLE_MODE);
+//		analyzer = new JcsegAnalyzer4X(JcsegTaskConfig.SIMPLE_MODE);
+		analyzer = new EnhancedJcsegAnalyzer(Version.LUCENE_46);
 		IndexWriterConfig indexWriterConfig =new IndexWriterConfig(Version.LUCENE_46, analyzer);
 		indexWriterConfig.setMaxBufferedDocs(4);
 		indexWriterConfig.setUseCompoundFile(true);
@@ -369,7 +372,6 @@ public class Lucene4XManager implements SearchManager {
 			this.filterByForum(args, criteria);
 			this.filterByKeywords(args, criteria);
 //			this.filterByDateRange(args, criteria);
-			System.out.println(criteria.toString());
 //			Query query = new QueryParser("", new StandardAnalyzer()).parse(criteria.toString());
 			Query query = new QueryParser(Version.LUCENE_46, "hobby", analyzer).parse(criteria.toString());
 //			if (logger.isDebugEnabled()) {
@@ -386,33 +388,21 @@ public class Lucene4XManager implements SearchManager {
 			
 			
 			int pageCount =args.fetchCount();
-			int start = args.startFrom();
-			int index = start;
-			int end	=0;
-			if(docs.scoreDocs.length>=1){
-				end= start+ pageCount-1> docs.scoreDocs.length-1?  docs.scoreDocs.length-1: start+pageCount-1;
-			}
 			
-			System.out.println("start="+ start+";end="+ end);
-			int[] post_ids =new int[end-start+1];
-			for(;start<=end;start++){
-				Document document = searcher.doc(docs.scoreDocs[start].doc);
-//				System.out.println("docId="+ docs.scoreDocs[start].doc+" score="+ docs.scoreDocs[start].score);
-//				Terms terms =indexReader.getTermVector(doc.doc, "hobby");
-//				parseDocument(document);
-				post_ids[start-index]= Integer.parseInt(document.getField(SearchFields.Keyword.POST_ID).stringValue());
 			
+			int beginIndex = args.startFrom();//inclusive
+			int totalPageNum = docs.scoreDocs.length/pageCount+1;
+			int currentPageNum= beginIndex/pageCount+1;
+			int endIndex = beginIndex+ pageCount-1;//inclusive
+			if(currentPageNum==totalPageNum){
+				endIndex =docs.scoreDocs.length-1;
 			}
-
-		
-//			if (hits != null && hits.length() > 0) {
-////				return  new SearchResult(resultCollector.collect(args, hits, query), hits.length());
-//			}
-//			else {
-//			}
-			System.out.println("Ë³Àû·µ»Ø " + docs.scoreDocs.length + "; acctual count =" + post_ids.length);
+			int[] post_ids =new int[endIndex-beginIndex+1];
+			for(int index = beginIndex;index<= endIndex;index++){
+				Document document = searcher.doc(docs.scoreDocs[index].doc);
+				post_ids[index]= Integer.parseInt(document.getField(SearchFields.Keyword.POST_ID).stringValue());
+			}
 			return new SearchResult(retrieveRealPosts(post_ids, query), docs.scoreDocs.length);
-//			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
