@@ -1,26 +1,36 @@
 <#include "header.htm"/>
 <!-- <link rel="alternate" type="application/rss+xml" title="RSS" href="${contextPath}/rss/forums${extension}" />
  -->
-
+<style>
+	div.thumbnail:hover{
+		border-color:#428BCA;
+		padding-top:10px;
+		cursor:pointer;
+	}
+</style>
 <!-- START FORUM LISTING -->
 				<#list allCategories as category>
 					
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 ">
-								<div id="" class="alert alert-success" role="alert">
-								 	<div class="alert-link"><i  id="forum_${category.id}" class="glyphicon glyphicon-chevron-left"></i>${category.name}</div>
+								<div id="forum_${category.id}" class="alert alert-success" role="alert">
+								 	<div class="alert-link">
+									 	<i   class="glyphicon glyphicon-chevron-left"></i>
+									 	<i   class="glyphicon glyphicon-chevron-left"></i>
+									 	${category.name}
+									 </div>
 								</div>
 							</div>
 						</div>
-						<div>
+					<div>
 					<#list category.getForums() as forum>
-						<div class="col-sm-12" >
-						    <div class="thumbnail" style="background-color: #F5F5F5;">
+						<div class="col-sm-12" id="topics_${forum.id}" >
+						    <div class="thumbnail" style="background-color: #F5F5F5;margin-bottom: 5px;">
 						      <div class="caption">
 						        <span>
 						        	<h3>
-						        		<a id="topics_${forum.id}" href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">${forum.name?html}</a>
+						        		<a  href="${JForumContext.encodeURL("/forums/show/${forum.id}")}" target="_blank" >${forum.name?html}</a>
 						        		<span class="label label-danger pull-right">${forum.totalTopics}</span>
 						        	</h3>
 						        </span>
@@ -33,8 +43,8 @@
 						    </div>
   						</div>
 					</#list>
-						</div>
 					</div>
+				</div>
 				</#list>
 				
  </div>
