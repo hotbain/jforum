@@ -4,6 +4,7 @@ package net.jforum.search;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -15,11 +16,16 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PayloadAttribute;
@@ -31,28 +37,42 @@ import org.apache.lucene.document.FieldType;
 import org.apache.lucene.document.IntField;
 import org.apache.lucene.document.FieldType.NumericType;
 import org.apache.lucene.document.LongField;
+import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.index.IndexableFieldType;
+import org.apache.lucene.index.Terms;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.queryparser.classic.QueryParser;
+import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.NumericRangeQuery;
 import org.apache.lucene.search.Query;
+import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.TermQuery;
+import org.apache.lucene.search.TermRangeQuery;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.highlight.Highlighter;
+import org.apache.lucene.search.highlight.InvalidTokenOffsetsException;
 import org.apache.lucene.search.highlight.QueryScorer;
 import org.apache.lucene.search.highlight.Scorer;
 import org.apache.lucene.search.highlight.SimpleHTMLFormatter;
+import org.apache.lucene.search.vectorhighlight.FieldQuery;
 import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.util.BytesRef;
 import org.apache.lucene.util.Version;
+import org.hsqldb.lib.HashMap;
+import org.jgroups.tests.UnicastTest.StartData;
+import org.lionsoul.jcseg.core.JcsegTaskConfig;
+import org.lionsoul.jcseg.lucene.JcsegAnalyzer4X;
 
 
 
@@ -62,6 +82,7 @@ import net.jforum.dao.DataAccessDriver;
 import net.jforum.dao.PostDAO;
 import net.jforum.dao.TopicDAO;
 import net.jforum.entities.Post;
+import net.jforum.repository.TopicRepository;
 import net.jforum.search.analyzer.EnhancedJcsegAnalyzer;
 import net.jforum.util.preferences.ConfigKeys;
 import net.jforum.util.preferences.SystemGlobals;
@@ -70,7 +91,7 @@ import net.jforum.util.preferences.SystemGlobals;
 public class Lucene4XManager implements SearchManager {
 	private  Map<String, Post> processiongMap =new ConcurrentHashMap<String, Post>();
 	private  AtomicInteger unprocessingCounter = new AtomicInteger(0);
-	private  int count = SystemGlobals.getIntValue(ConfigKeys.INDEX_COUNT_THREOLD);
+	private  int count = 12;
 	private  ReadWriteLock readWriteLock =new ReentrantReadWriteLock();
 	private  Analyzer analyzer =null;
 	private  IndexWriter indexWriter =null;
@@ -207,7 +228,6 @@ public class Lucene4XManager implements SearchManager {
 
 	@Override
 	public void create(Post post) {
-		System.out.println("´´½¨Ë÷Òý");
 		try {
 			int c =unprocessingCounter.addAndGet(1);
 			
@@ -362,7 +382,7 @@ public class Lucene4XManager implements SearchManager {
 			StringBuffer criteria = new StringBuffer(256);
 //			this.filterByForum(args, criteria);
 			for(String kw : args.getKeywords()){
-				criteria=criteria.append(""+kw+" ");
+				criteria=criteria.append("content:"+kw+" ");
 			}
 //			this.filterByKeywords(args, criteria);
 //			this.filterByDateRange(args, criteria);
@@ -370,16 +390,11 @@ public class Lucene4XManager implements SearchManager {
 //			if(args.getForumId()>0){
 //				criteria =criteria.append(" +"+SearchFields.Keyword.FORUM_ID+":"+args.getForumId() );
 //			}
-			Query contentquery = new QueryParser(Version.LUCENE_46, SearchFields.Keyword.CONTENT , analyzer).parse(criteria.toString());
-			contentquery.setBoost(SystemGlobals.getFloatValue(ConfigKeys.SAERCH_TOPIC_CONTENT_BOOST));
-			
-			Query subjectQuery = new QueryParser(Version.LUCENE_46, SearchFields.Keyword.SUBJECT , analyzer).parse(criteria.toString());
-			subjectQuery.setBoost(SystemGlobals.getFloatValue(ConfigKeys.SAERCH_TOPIC_SUBJECT_BOOST));
-			
+			Query query = new QueryParser(Version.LUCENE_46, SearchFields.Keyword.CONTENT , analyzer).parse(criteria.toString());
+//			
+			query.setBoost(1f);
 			BooleanQuery booleanQuery =new BooleanQuery();
-			
-			booleanQuery.add(contentquery,Occur.SHOULD);
-			booleanQuery.add(subjectQuery,Occur.SHOULD);
+			booleanQuery.add(query,Occur.SHOULD);
 			
 			if(args.getForumId()>0){
 				NumericRangeQuery<Integer> forumNumericRangeQuery =NumericRangeQuery.newIntRange(SearchFields.Keyword.FORUM_ID, args.getForumId(), args.getForumId()+1, true,false);
@@ -420,7 +435,7 @@ public class Lucene4XManager implements SearchManager {
 				parseDocument(document);
 				linkedList.add(Integer.parseInt(document.getField(SearchFields.Keyword.POST_ID).stringValue()));
 			}
-			return new SearchResult(retrieveRealPosts(linkedList, contentquery), docs.scoreDocs.length);
+			return new SearchResult(retrieveRealPosts(linkedList, query), docs.scoreDocs.length);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
@@ -455,19 +470,12 @@ public class Lucene4XManager implements SearchManager {
 			SimpleHTMLFormatter simpleHTMLFormatter = new SimpleHTMLFormatter(SystemGlobals.getValue(ConfigKeys.SEARCH_DECORATION_PREFIX), SystemGlobals.getValue(ConfigKeys.SEARCH_DECORATION_POSTFIX));  
 			Highlighter highlighter = new Highlighter(simpleHTMLFormatter, scorer);
 			
-			TokenStream contentts = analyzer.tokenStream(
+			TokenStream tokenStream = analyzer.tokenStream(
 				SearchFields.Indexed.CONTENT, new StringReader(post.getText()));
 			
-			String fragment = highlighter.getBestFragment(contentts, post.getText());
+			String fragment = highlighter.getBestFragment(tokenStream, post.getText());
 			post.setText(fragment != null ? fragment : post.getText());
-			
-			TokenStream subjectts = analyzer.tokenStream(
-					SearchFields.Indexed.SUBJECT, new StringReader(post.getSubject()));
-			String subjectFragment = highlighter.getBestFragment(subjectts, post.getSubject());
-			post.setSubject(subjectFragment != null ? subjectFragment : post.getSubject());
-				
 			tempContainer.put(new Integer(post.getId()).toString(), post);
-			
 		}
 		for(Integer i : postIds){
 			orderedPosts.add(tempContainer.get(i.toString()));

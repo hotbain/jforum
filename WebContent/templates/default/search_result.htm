@@ -61,7 +61,7 @@
 								<div >
 									
 									<strong>
-										<a href="${postUrl}">${post.subject}</a>
+										<a href="${postUrl}">${post.subject?html}</a>
 									</strong>
 									<div class="pull-right" >
 										${I18n.getMessage("Search.postedOn")} <a href="${JForumContext.encodeURL("/forums/show/${post.forum.id}")}">${post.forum.name}</a>, 
