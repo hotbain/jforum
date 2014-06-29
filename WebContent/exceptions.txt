@@ -1,0 +1,2227 @@
+六月 29, 2014 11:22:09 上午 org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/jforum] is completed
+11:22:14,707  INFO [JForumBaseServlet   ] Starting JForum. Debug mode is true
+11:22:14,714  INFO [ConfigLoader        ] Using cache engine: net.jforum.cache.DefaultCacheEngine
+11:22:14,718  INFO [ConfigLoader        ] Creating an instance of net.jforum.repository.BBCodeRepository
+11:22:14,720  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RankingRepository
+11:22:14,721  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SmiliesRepository
+11:22:14,722  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.ForumRepository
+11:22:14,724  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.TopicRepository
+11:22:14,726  INFO [ConfigLoader        ] Creating an instance of  net.jforum.SessionFacade
+11:22:14,726  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.PostRepository
+11:22:14,727  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.Tpl
+11:22:14,728  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RolesRepository
+11:22:14,729  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SecurityRepository
+11:22:14,730  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.BanlistRepository
+11:22:14,781  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/languages/zh_CN.properties
+11:22:14,796  INFO [ConfigLoader        ] Loading JDBC driver net.jforum.dao.mysql.MysqlDataAccessDriver
+11:22:14,835  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/generic/generic_queries.sql
+11:22:14,835  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/mysql/mysql.sql
+11:22:14,836  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/SystemGlobals.properties
+log4j:WARN No appenders could be found for logger (com.alibaba.druid.pool.DruidDataSource).
+log4j:WARN Please initialize the log4j system properly.
+11:22:15,058  INFO [ConfigLoader        ] Loading clickstream config from D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/clickstream-jforum.xml
+SearchArgs [keywords=gdg, author=0, orderDir=null, orderBy=null, matchAllKeywords=true, forumId=1, initialRecord=0, fromDate=null, toDate=null, matchType=all]
+初始化完毕222222222222
+45634563的同义词为[]
+56456的同义词为[]
+添加文档成功
+3452345234523452的同义词为[]
+4535345的同义词为[]
+添加文档成功
+hotbain@126.com的同义词为[hotbaincom]
+hotbain@sina.com的同义词为[hotbainsinacom]
+添加文档成功
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+公正=gz
+公正的同义词为[gz, gongzheng]
+添加文档成功
+43523452452的同义词为[]
+435435234524的同义词为[]
+添加文档成功
+345234523的同义词为[]
+345345243的同义词为[]
+添加文档成功
+我的=wd
+我的的同义词为[wode, wd, wodi]
+名字=mz
+名字的同义词为[mingzi, mz]
+叫=j
+叫的同义词为[jiao, j]
+公正=gz
+公正的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+测试=cs
+测试的同义词为[ceshi, cs]
+自己=zj
+自己的同义词为[ziji, zj]
+索引=sy
+索引的同义词为[suoyin, sy]
+功能=gn
+功能的同义词为[gn, gongneng]
+能=n
+能的同义词为[neng, n]
+咋=z
+咋的同义词为[ze, za, z, zha]
+样=y
+样的同义词为[yang, y]
+添加文档成功
+18的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+2342342的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+admbase/login.page的同义词为[admbaseloginpage]
+http://www.jforum.net/community.jsp的同义词为[httpwwwjforumnetcommunityjsp]
+http://www.jforum.net/doc的同义词为[httpwwwjforumnetdoc]
+http://www.jforum.net/doc/team的同义词为[httpwwwjforumnetdocteam]
+添加文档成功
+3234234的同义词为[]
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+添加文档成功
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+哈哈=hh
+哈哈的同义词为[kaka, haka, haha, hh, kaha]
+gz1050774532@gmail.com的同义词为[gzgmailcom]
+我们=wm
+我们的同义词为[wm, women]
+共产党人=gcdr
+共产党人的同义词为[gcdr, gongchandangren]
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+添加文档成功
+释放了读锁
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+添加文档成功
+2323423的同义词为[]
+234234的同义词为[]
+添加文档成功
+添加文档成功
+22222222222的同义词为[]
+2222222的同义词为[]
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+555的同义词为[]
+添加文档成功
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+添加文档成功
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+添加文档成功
+添加文档成功
+13123123123的同义词为[]
+2123131231的同义词为[]
+添加文档成功
+2014年的同义词为[nian]
+6月的同义词为[yue]
+21日的同义词为[ri]
+一场=yc
+一场的同义词为[yc, yichang]
+名为=mw
+名为的同义词为[mingwei, mw]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+跑步=pb
+跑步的同义词为[pb, paobu]
+比赛=bs
+比赛的同义词为[bisai, bs]
+深圳=sz
+深圳的同义词为[shenzhen, sz]
+海上=hs
+海上的同义词为[hs, haishang]
+世界=sj
+世界的同义词为[shijie, sj]
+举行=jx
+举行的同义词为[jx, juxing, juhang, juheng]
+众多=zd
+众多的同义词为[zd, zhongduo]
+男=n
+男的同义词为[nan, n]
+选手=xs
+选手的同义词为[xuanshou, xs]
+报名=bm
+报名的同义词为[bm, baoming]
+参赛=cs
+参赛的同义词为[cansai, censai, shensai, cs]
+穿上=cs
+穿上的同义词为[chuanshang, cs]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+50米的同义词为[mi]
+直道=zd
+直道的同义词为[zhidao, zd]
+尽情=jq
+尽情的同义词为[jinqing, jq]
+冲刺=cc
+冲刺的同义词为[chongci, cc]
+释放=sf
+释放的同义词为[shifang, sf]
+自己=zj
+自己的同义词为[ziji, zj]
+奔跑=bp
+奔跑的同义词为[bp, benpao]
+现场=xc
+现场的同义词为[xianchang, xc]
+鞋子=xz
+鞋子的同义词为[xiezi, xz]
+翻飞=ff
+翻飞的同义词为[fanfei, ff]
+令=l
+令的同义词为[l, ling]
+观众=gz
+观众的同义词为[gz, guanzhong]
+选手=xs
+选手的同义词为[xuanshou, xs]
+笑=x
+笑的同义词为[xiao, x]
+翻天=ft
+翻天的同义词为[fantian, ft]
+最终=zz
+最终的同义词为[zuizhong, zz]
+来自=lz
+来自的同义词为[laizi, lz]
+英格兰=ygl
+英格兰的同义词为[ygl, yinggelan]
+夺得=dd
+夺得的同义词为[dd, duodei, duode]
+冠军=gj
+冠军的同义词为[gj, guanjun]
+活动=hd
+活动的同义词为[huodong, hd]
+主办=zb
+主办的同义词为[zhuban, zb]
+方为=fw
+方为的同义词为[fw, fangwei]
+此次=cc
+此次的同义词为[cici, cc]
+新奇=xq
+新奇的同义词为[xq, xinji, xinqi]
+独特=dt
+独特的同义词为[dt, dute]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+跑步=pb
+跑步的同义词为[pb, paobu]
+比赛=bs
+比赛的同义词为[bisai, bs]
+取=q
+取的同义词为[q, qu]
+一个=yg
+一个的同义词为[yg, yige]
+好听=ht
+好听的同义词为[haoting, ht, haoyin]
+名字=mz
+名字的同义词为[mingzi, mz]
+犀利=xl
+犀利的同义词为[xl, xili]
+跑=p
+跑的同义词为[p, pao]
+寓意=yy
+寓意的同义词为[yuyi, yy]
+犀利=xl
+犀利的同义词为[xl, xili]
+”的同义词为[]
+态度=td
+态度的同义词为[taiduo, td, taidu]
+包含=bh
+包含的同义词为[baohan, bh]
+”的同义词为[]
+趣味=qw
+趣味的同义词为[cuwei, qw, quwei]
+图为=tw
+图为的同义词为[tuwei, tw]
+跑步=pb
+跑步的同义词为[pb, paobu]
+现场=xc
+现场的同义词为[xianchang, xc]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+添加文档成功
+关闭程序
+释放了读锁
+content:gdg +forumId:[1 TO 2}^0.1    ;docs count=24
+forumId(stored)---1
+postId(stored)---34
+topicId(stored)---11
+userId(stored)---2
+date(stored)---1403319013000
+subject(stored,indexed,tokenized)---我是郭德纲
+forumId(stored)---1
+postId(stored)---6
+topicId(stored)---5
+userId(stored)---2
+date(stored)---1403085541000
+subject(stored,indexed,tokenized)---56456
+forumId(stored)---1
+postId(stored)---2
+topicId(stored)---2
+userId(stored)---2
+date(stored)---1403080643000
+subject(stored,indexed,tokenized)---4535345
+forumId(stored)---1
+postId(stored)---35
+topicId(stored)---12
+userId(stored)---2
+date(stored)---1403319454000
+subject(stored,indexed,tokenized)---hotbain@sina.com
+forumId(stored)---1
+postId(stored)---9
+topicId(stored)---8
+userId(stored)---2
+date(stored)---1403189870000
+subject(stored,indexed,tokenized)---我是公正
+forumId(stored)---1
+postId(stored)---3
+topicId(stored)---3
+userId(stored)---2
+date(stored)---1403080907000
+subject(stored,indexed,tokenized)---435435234524
+forumId(stored)---1
+postId(stored)---8
+topicId(stored)---7
+userId(stored)---2
+date(stored)---1403086807000
+subject(stored,indexed,tokenized)---345345243
+forumId(stored)---1
+postId(stored)---32
+topicId(stored)---10
+userId(stored)---2
+date(stored)---1403265484000
+subject(stored,indexed,tokenized)---我在测试自己索引功能能咋样
+forumId(stored)---1
+postId(stored)---1
+topicId(stored)---1
+userId(stored)---2
+date(stored)---1104829194000
+subject(stored,indexed,tokenized)---Welcome to JForum
+forumId(stored)---1
+postId(stored)---5
+topicId(stored)---4
+userId(stored)---2
+date(stored)---1403083580000
+subject(stored,indexed,tokenized)---3234234
+forumId(stored)---1
+postId(stored)---36
+topicId(stored)---13
+userId(stored)---2
+date(stored)---1403354118000
+subject(stored,indexed,tokenized)---我在北京上班啊
+forumId(stored)---1
+postId(stored)---30
+topicId(stored)---9
+userId(stored)---1
+date(stored)---1403237461000
+subject(stored,indexed,tokenized)---新的话题开始了
+forumId(stored)---1
+postId(stored)---45
+topicId(stored)---22
+userId(stored)---2
+date(stored)---1403357316000
+subject(stored,indexed,tokenized)---Hello world
+forumId(stored)---1
+postId(stored)---38
+topicId(stored)---15
+userId(stored)---2
+date(stored)---1403354157000
+subject(stored,indexed,tokenized)---我在北京上班啊quote
+forumId(stored)---1
+postId(stored)---55
+topicId(stored)---29
+userId(stored)---2
+date(stored)---1403791103000
+subject(stored,indexed,tokenized)---234234
+forumId(stored)---1
+postId(stored)---54
+topicId(stored)---28
+userId(stored)---2
+date(stored)---1403790476000
+subject(stored,indexed,tokenized)---admin action yemian 
+forumId(stored)---1
+postId(stored)---49
+topicId(stored)---25
+userId(stored)---2
+date(stored)---1403435398000
+subject(stored,indexed,tokenized)---2222222
+forumId(stored)---1
+postId(stored)---39
+topicId(stored)---16
+userId(stored)---2
+date(stored)---1403354176000
+subject(stored,indexed,tokenized)---我在北京上班啊555
+forumId(stored)---1
+postId(stored)---48
+topicId(stored)---24
+userId(stored)---2
+date(stored)---1403435382000
+subject(stored,indexed,tokenized)---公告
+forumId(stored)---1
+postId(stored)---53
+topicId(stored)---27
+userId(stored)---2
+date(stored)---1403530637000
+subject(stored,indexed,tokenized)---qqqqq
+18的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+2342342的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+admbase/login.page的同义词为[admbaseloginpage]
+http://www.jforum.net/community.jsp的同义词为[httpwwwjforumnetcommunityjsp]
+http://www.jforum.net/doc的同义词为[httpwwwjforumnetdoc]
+http://www.jforum.net/doc/team的同义词为[httpwwwjforumnetdocteam]
+3452345234523452的同义词为[]
+43523452452的同义词为[]
+45634563的同义词为[]
+345234523的同义词为[]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+哈哈=hh
+哈哈的同义词为[kaka, haka, haha, hh, kaha]
+gz1050774532@gmail.com的同义词为[gzgmailcom]
+我们=wm
+我们的同义词为[wm, women]
+共产党人=gcdr
+共产党人的同义词为[gcdr, gongchandangren]
+我的=wd
+我的的同义词为[wode, wd, wodi]
+名字=mz
+名字的同义词为[mingzi, mz]
+叫=j
+叫的同义词为[jiao, j]
+公正=gz
+公正的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+hotbain@126.com的同义词为[hotbaincom]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+22222222222的同义词为[]
+2323423的同义词为[]
+即将返回到页面上显示的数量为 20
+六月 29, 2014 11:24:19 上午 org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/jforum] has started
+Destroying JForum...
+Destroying JForum searchEngine······
+六月 29, 2014 11:24:19 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+SEVERE: The web application [/jforum] registered the JDBC driver [com.alibaba.druid.proxy.DruidDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+六月 29, 2014 11:24:19 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+SEVERE: The web application [/jforum] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+六月 29, 2014 11:24:19 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/jforum] appears to have started a thread named [Timer-18] but has failed to stop it. This is very likely to create a memory leak.
+六月 29, 2014 11:24:19 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/jforum] appears to have started a thread named [Timer-23] but has failed to stop it. This is very likely to create a memory leak.
+六月 29, 2014 11:24:20 上午 org.apache.catalina.loader.WebappClassLoader validateJarFile
+INFO: validateJarFile(D:\Java\apache-tomcat-7.0.53\webapps\jforum\WEB-INF\lib\servlet-api.jar) - jar not loaded. See Servlet Spec 3.0, section 10.7.2. Offending class: javax/servlet/Servlet.class
+六月 29, 2014 11:24:21 上午 org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/jforum] is completed
+11:24:25,308  INFO [JForumBaseServlet   ] Starting JForum. Debug mode is true
+11:24:25,315  INFO [ConfigLoader        ] Using cache engine: net.jforum.cache.DefaultCacheEngine
+11:24:25,316  INFO [ConfigLoader        ] Creating an instance of net.jforum.repository.BBCodeRepository
+11:24:25,318  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RankingRepository
+11:24:25,319  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SmiliesRepository
+11:24:25,320  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.ForumRepository
+11:24:25,322  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.TopicRepository
+11:24:25,324  INFO [ConfigLoader        ] Creating an instance of  net.jforum.SessionFacade
+11:24:25,324  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.PostRepository
+11:24:25,325  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.Tpl
+11:24:25,327  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RolesRepository
+11:24:25,329  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SecurityRepository
+11:24:25,330  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.BanlistRepository
+11:24:25,397  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/languages/zh_CN.properties
+11:24:25,417  INFO [ConfigLoader        ] Loading JDBC driver net.jforum.dao.mysql.MysqlDataAccessDriver
+11:24:25,463  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/generic/generic_queries.sql
+11:24:25,463  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/mysql/mysql.sql
+11:24:25,464  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/SystemGlobals.properties
+log4j:WARN No appenders could be found for logger (com.alibaba.druid.pool.DruidDataSource).
+log4j:WARN Please initialize the log4j system properly.
+11:24:25,734  INFO [ConfigLoader        ] Loading clickstream config from D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/clickstream-jforum.xml
+SearchArgs [keywords=gdg, author=0, orderDir=null, orderBy=null, matchAllKeywords=true, forumId=1, initialRecord=0, fromDate=null, toDate=null, matchType=all]
+初始化完毕222222222222
+45634563的同义词为[]
+56456的同义词为[]
+添加文档成功
+3452345234523452的同义词为[]
+4535345的同义词为[]
+添加文档成功
+hotbain@126.com的同义词为[hotbaincom]
+hotbain@sina.com的同义词为[hotbainsinacom]
+添加文档成功
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+公正=gz
+公正的同义词为[gz, gongzheng]
+添加文档成功
+43523452452的同义词为[]
+435435234524的同义词为[]
+添加文档成功
+345234523的同义词为[]
+345345243的同义词为[]
+添加文档成功
+我的=wd
+我的的同义词为[wode, wd, wodi]
+名字=mz
+名字的同义词为[mingzi, mz]
+叫=j
+叫的同义词为[jiao, j]
+公正=gz
+公正的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+测试=cs
+测试的同义词为[ceshi, cs]
+自己=zj
+自己的同义词为[ziji, zj]
+索引=sy
+索引的同义词为[suoyin, sy]
+功能=gn
+功能的同义词为[gn, gongneng]
+能=n
+能的同义词为[neng, n]
+咋=z
+咋的同义词为[ze, za, z, zha]
+样=y
+样的同义词为[yang, y]
+添加文档成功
+18的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+2342342的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+admbase/login.page的同义词为[admbaseloginpage]
+http://www.jforum.net/community.jsp的同义词为[httpwwwjforumnetcommunityjsp]
+http://www.jforum.net/doc的同义词为[httpwwwjforumnetdoc]
+http://www.jforum.net/doc/team的同义词为[httpwwwjforumnetdocteam]
+添加文档成功
+3234234的同义词为[]
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+添加文档成功
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+哈哈=hh
+哈哈的同义词为[kaka, haka, haha, hh, kaha]
+gz1050774532@gmail.com的同义词为[gzgmailcom]
+我们=wm
+我们的同义词为[wm, women]
+共产党人=gcdr
+共产党人的同义词为[gcdr, gongchandangren]
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+添加文档成功
+释放了读锁
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+添加文档成功
+2323423的同义词为[]
+234234的同义词为[]
+添加文档成功
+添加文档成功
+22222222222的同义词为[]
+2222222的同义词为[]
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+555的同义词为[]
+添加文档成功
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+添加文档成功
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+添加文档成功
+添加文档成功
+13123123123的同义词为[]
+2123131231的同义词为[]
+添加文档成功
+2014年的同义词为[nian]
+6月的同义词为[yue]
+21日的同义词为[ri]
+一场=yc
+一场的同义词为[yc, yichang]
+名为=mw
+名为的同义词为[mingwei, mw]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+跑步=pb
+跑步的同义词为[pb, paobu]
+比赛=bs
+比赛的同义词为[bisai, bs]
+深圳=sz
+深圳的同义词为[shenzhen, sz]
+海上=hs
+海上的同义词为[hs, haishang]
+世界=sj
+世界的同义词为[shijie, sj]
+举行=jx
+举行的同义词为[jx, juxing, juhang, juheng]
+众多=zd
+众多的同义词为[zd, zhongduo]
+男=n
+男的同义词为[nan, n]
+选手=xs
+选手的同义词为[xuanshou, xs]
+报名=bm
+报名的同义词为[bm, baoming]
+参赛=cs
+参赛的同义词为[cansai, censai, shensai, cs]
+穿上=cs
+穿上的同义词为[chuanshang, cs]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+50米的同义词为[mi]
+直道=zd
+直道的同义词为[zhidao, zd]
+尽情=jq
+尽情的同义词为[jinqing, jq]
+冲刺=cc
+冲刺的同义词为[chongci, cc]
+释放=sf
+释放的同义词为[shifang, sf]
+自己=zj
+自己的同义词为[ziji, zj]
+奔跑=bp
+奔跑的同义词为[bp, benpao]
+现场=xc
+现场的同义词为[xianchang, xc]
+鞋子=xz
+鞋子的同义词为[xiezi, xz]
+翻飞=ff
+翻飞的同义词为[fanfei, ff]
+令=l
+令的同义词为[l, ling]
+观众=gz
+观众的同义词为[gz, guanzhong]
+选手=xs
+选手的同义词为[xuanshou, xs]
+笑=x
+笑的同义词为[xiao, x]
+翻天=ft
+翻天的同义词为[fantian, ft]
+最终=zz
+最终的同义词为[zuizhong, zz]
+来自=lz
+来自的同义词为[laizi, lz]
+英格兰=ygl
+英格兰的同义词为[ygl, yinggelan]
+夺得=dd
+夺得的同义词为[dd, duodei, duode]
+冠军=gj
+冠军的同义词为[gj, guanjun]
+活动=hd
+活动的同义词为[huodong, hd]
+主办=zb
+主办的同义词为[zhuban, zb]
+方为=fw
+方为的同义词为[fw, fangwei]
+此次=cc
+此次的同义词为[cici, cc]
+新奇=xq
+新奇的同义词为[xq, xinji, xinqi]
+独特=dt
+独特的同义词为[dt, dute]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+跑步=pb
+跑步的同义词为[pb, paobu]
+比赛=bs
+比赛的同义词为[bisai, bs]
+取=q
+取的同义词为[q, qu]
+一个=yg
+一个的同义词为[yg, yige]
+好听=ht
+好听的同义词为[haoting, ht, haoyin]
+名字=mz
+名字的同义词为[mingzi, mz]
+犀利=xl
+犀利的同义词为[xl, xili]
+跑=p
+跑的同义词为[p, pao]
+寓意=yy
+寓意的同义词为[yuyi, yy]
+犀利=xl
+犀利的同义词为[xl, xili]
+”的同义词为[]
+态度=td
+态度的同义词为[taiduo, td, taidu]
+包含=bh
+包含的同义词为[baohan, bh]
+”的同义词为[]
+趣味=qw
+趣味的同义词为[cuwei, qw, quwei]
+图为=tw
+图为的同义词为[tuwei, tw]
+跑步=pb
+跑步的同义词为[pb, paobu]
+现场=xc
+现场的同义词为[xianchang, xc]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+添加文档成功
+关闭程序
+释放了读锁
+content:gdg +forumId:[1 TO 2}^0.1    ;docs count=24
+forumId(stored)---1
+postId(stored)---34
+topicId(stored)---11
+userId(stored)---2
+date(stored)---1403319013000
+subject(stored,indexed,tokenized)---我是郭德纲
+forumId(stored)---1
+postId(stored)---6
+topicId(stored)---5
+userId(stored)---2
+date(stored)---1403085541000
+subject(stored,indexed,tokenized)---56456
+forumId(stored)---1
+postId(stored)---2
+topicId(stored)---2
+userId(stored)---2
+date(stored)---1403080643000
+subject(stored,indexed,tokenized)---4535345
+forumId(stored)---1
+postId(stored)---35
+topicId(stored)---12
+userId(stored)---2
+date(stored)---1403319454000
+subject(stored,indexed,tokenized)---hotbain@sina.com
+forumId(stored)---1
+postId(stored)---9
+topicId(stored)---8
+userId(stored)---2
+date(stored)---1403189870000
+subject(stored,indexed,tokenized)---我是公正
+forumId(stored)---1
+postId(stored)---3
+topicId(stored)---3
+userId(stored)---2
+date(stored)---1403080907000
+subject(stored,indexed,tokenized)---435435234524
+forumId(stored)---1
+postId(stored)---8
+topicId(stored)---7
+userId(stored)---2
+date(stored)---1403086807000
+subject(stored,indexed,tokenized)---345345243
+forumId(stored)---1
+postId(stored)---32
+topicId(stored)---10
+userId(stored)---2
+date(stored)---1403265484000
+subject(stored,indexed,tokenized)---我在测试自己索引功能能咋样
+forumId(stored)---1
+postId(stored)---1
+topicId(stored)---1
+userId(stored)---2
+date(stored)---1104829194000
+subject(stored,indexed,tokenized)---Welcome to JForum
+forumId(stored)---1
+postId(stored)---5
+topicId(stored)---4
+userId(stored)---2
+date(stored)---1403083580000
+subject(stored,indexed,tokenized)---3234234
+forumId(stored)---1
+postId(stored)---36
+topicId(stored)---13
+userId(stored)---2
+date(stored)---1403354118000
+subject(stored,indexed,tokenized)---我在北京上班啊
+forumId(stored)---1
+postId(stored)---30
+topicId(stored)---9
+userId(stored)---1
+date(stored)---1403237461000
+subject(stored,indexed,tokenized)---新的话题开始了
+forumId(stored)---1
+postId(stored)---45
+topicId(stored)---22
+userId(stored)---2
+date(stored)---1403357316000
+subject(stored,indexed,tokenized)---Hello world
+forumId(stored)---1
+postId(stored)---38
+topicId(stored)---15
+userId(stored)---2
+date(stored)---1403354157000
+subject(stored,indexed,tokenized)---我在北京上班啊quote
+forumId(stored)---1
+postId(stored)---55
+topicId(stored)---29
+userId(stored)---2
+date(stored)---1403791103000
+subject(stored,indexed,tokenized)---234234
+forumId(stored)---1
+postId(stored)---54
+topicId(stored)---28
+userId(stored)---2
+date(stored)---1403790476000
+subject(stored,indexed,tokenized)---admin action yemian 
+forumId(stored)---1
+postId(stored)---49
+topicId(stored)---25
+userId(stored)---2
+date(stored)---1403435398000
+subject(stored,indexed,tokenized)---2222222
+forumId(stored)---1
+postId(stored)---39
+topicId(stored)---16
+userId(stored)---2
+date(stored)---1403354176000
+subject(stored,indexed,tokenized)---我在北京上班啊555
+forumId(stored)---1
+postId(stored)---48
+topicId(stored)---24
+userId(stored)---2
+date(stored)---1403435382000
+subject(stored,indexed,tokenized)---公告
+forumId(stored)---1
+postId(stored)---53
+topicId(stored)---27
+userId(stored)---2
+date(stored)---1403530637000
+subject(stored,indexed,tokenized)---qqqqq
+18的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+2342342的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+admbase/login.page的同义词为[admbaseloginpage]
+http://www.jforum.net/community.jsp的同义词为[httpwwwjforumnetcommunityjsp]
+http://www.jforum.net/doc的同义词为[httpwwwjforumnetdoc]
+http://www.jforum.net/doc/team的同义词为[httpwwwjforumnetdocteam]
+3452345234523452的同义词为[]
+43523452452的同义词为[]
+45634563的同义词为[]
+345234523的同义词为[]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+哈哈=hh
+哈哈的同义词为[kaka, haka, haha, hh, kaha]
+gz1050774532@gmail.com的同义词为[gzgmailcom]
+我们=wm
+我们的同义词为[wm, women]
+共产党人=gcdr
+共产党人的同义词为[gcdr, gongchandangren]
+我的=wd
+我的的同义词为[wode, wd, wodi]
+名字=mz
+名字的同义词为[mingzi, mz]
+叫=j
+叫的同义词为[jiao, j]
+公正=gz
+公正的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+hotbain@126.com的同义词为[hotbaincom]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+22222222222的同义词为[]
+2323423的同义词为[]
+即将返回到页面上显示的数量为 20
+SearchArgs [keywords=gdg, author=0, orderDir=null, orderBy=null, matchAllKeywords=true, forumId=1, initialRecord=0, fromDate=null, toDate=null, matchType=all]
+六月 29, 2014 11:25:32 上午 org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/jforum] has started
+六月 29, 2014 11:25:32 上午 org.apache.catalina.core.StandardWrapper unload
+INFO: Waiting for 1 instance(s) to be deallocated for Servlet [jforum]
+content:gdg +forumId:[1 TO 2}^0.1    ;docs count=24
+forumId(stored)---1
+postId(stored)---34
+topicId(stored)---11
+userId(stored)---2
+date(stored)---1403319013000
+subject(stored,indexed,tokenized)---我是郭德纲
+forumId(stored)---1
+postId(stored)---6
+topicId(stored)---5
+userId(stored)---2
+date(stored)---1403085541000
+subject(stored,indexed,tokenized)---56456
+forumId(stored)---1
+postId(stored)---2
+topicId(stored)---2
+userId(stored)---2
+date(stored)---1403080643000
+subject(stored,indexed,tokenized)---4535345
+forumId(stored)---1
+postId(stored)---35
+topicId(stored)---12
+userId(stored)---2
+date(stored)---1403319454000
+subject(stored,indexed,tokenized)---hotbain@sina.com
+forumId(stored)---1
+postId(stored)---9
+topicId(stored)---8
+userId(stored)---2
+date(stored)---1403189870000
+subject(stored,indexed,tokenized)---我是公正
+forumId(stored)---1
+postId(stored)---3
+topicId(stored)---3
+userId(stored)---2
+date(stored)---1403080907000
+subject(stored,indexed,tokenized)---435435234524
+forumId(stored)---1
+postId(stored)---8
+topicId(stored)---7
+userId(stored)---2
+date(stored)---1403086807000
+subject(stored,indexed,tokenized)---345345243
+forumId(stored)---1
+postId(stored)---32
+topicId(stored)---10
+userId(stored)---2
+date(stored)---1403265484000
+subject(stored,indexed,tokenized)---我在测试自己索引功能能咋样
+forumId(stored)---1
+postId(stored)---1
+topicId(stored)---1
+userId(stored)---2
+date(stored)---1104829194000
+subject(stored,indexed,tokenized)---Welcome to JForum
+forumId(stored)---1
+postId(stored)---5
+topicId(stored)---4
+userId(stored)---2
+date(stored)---1403083580000
+subject(stored,indexed,tokenized)---3234234
+forumId(stored)---1
+postId(stored)---36
+topicId(stored)---13
+userId(stored)---2
+date(stored)---1403354118000
+subject(stored,indexed,tokenized)---我在北京上班啊
+forumId(stored)---1
+postId(stored)---30
+topicId(stored)---9
+userId(stored)---1
+date(stored)---1403237461000
+subject(stored,indexed,tokenized)---新的话题开始了
+forumId(stored)---1
+postId(stored)---45
+topicId(stored)---22
+userId(stored)---2
+date(stored)---1403357316000
+subject(stored,indexed,tokenized)---Hello world
+forumId(stored)---1
+postId(stored)---38
+topicId(stored)---15
+userId(stored)---2
+date(stored)---1403354157000
+subject(stored,indexed,tokenized)---我在北京上班啊quote
+forumId(stored)---1
+postId(stored)---55
+topicId(stored)---29
+userId(stored)---2
+date(stored)---1403791103000
+subject(stored,indexed,tokenized)---234234
+forumId(stored)---1
+postId(stored)---54
+topicId(stored)---28
+userId(stored)---2
+date(stored)---1403790476000
+subject(stored,indexed,tokenized)---admin action yemian 
+forumId(stored)---1
+postId(stored)---49
+topicId(stored)---25
+userId(stored)---2
+date(stored)---1403435398000
+subject(stored,indexed,tokenized)---2222222
+forumId(stored)---1
+postId(stored)---39
+topicId(stored)---16
+userId(stored)---2
+date(stored)---1403354176000
+subject(stored,indexed,tokenized)---我在北京上班啊555
+forumId(stored)---1
+postId(stored)---48
+topicId(stored)---24
+userId(stored)---2
+date(stored)---1403435382000
+subject(stored,indexed,tokenized)---公告
+forumId(stored)---1
+postId(stored)---53
+topicId(stored)---27
+userId(stored)---2
+date(stored)---1403530637000
+subject(stored,indexed,tokenized)---qqqqq
+18的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+2342342的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+admbase/login.page的同义词为[admbaseloginpage]
+http://www.jforum.net/community.jsp的同义词为[httpwwwjforumnetcommunityjsp]
+http://www.jforum.net/doc的同义词为[httpwwwjforumnetdoc]
+http://www.jforum.net/doc/team的同义词为[httpwwwjforumnetdocteam]
+3452345234523452的同义词为[]
+43523452452的同义词为[]
+45634563的同义词为[]
+345234523的同义词为[]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+哈哈=hh
+哈哈的同义词为[kaka, haka, haha, hh, kaha]
+gz1050774532@gmail.com的同义词为[gzgmailcom]
+我们=wm
+我们的同义词为[wm, women]
+共产党人=gcdr
+共产党人的同义词为[gcdr, gongchandangren]
+我的=wd
+我的的同义词为[wode, wd, wodi]
+名字=mz
+名字的同义词为[mingzi, mz]
+叫=j
+叫的同义词为[jiao, j]
+公正=gz
+公正的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+hotbain@126.com的同义词为[hotbaincom]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+22222222222的同义词为[]
+2323423的同义词为[]
+即将返回到页面上显示的数量为 20
+Destroying JForum...
+Destroying JForum searchEngine······
+六月 29, 2014 11:25:32 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+SEVERE: The web application [/jforum] registered the JDBC driver [com.alibaba.druid.proxy.DruidDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+六月 29, 2014 11:25:32 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+SEVERE: The web application [/jforum] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+六月 29, 2014 11:25:32 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/jforum] appears to have started a thread named [Timer-24] but has failed to stop it. This is very likely to create a memory leak.
+六月 29, 2014 11:25:32 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/jforum] appears to have started a thread named [Timer-29] but has failed to stop it. This is very likely to create a memory leak.
+六月 29, 2014 11:25:33 上午 org.apache.catalina.loader.WebappClassLoader validateJarFile
+INFO: validateJarFile(D:\Java\apache-tomcat-7.0.53\webapps\jforum\WEB-INF\lib\servlet-api.jar) - jar not loaded. See Servlet Spec 3.0, section 10.7.2. Offending class: javax/servlet/Servlet.class
+六月 29, 2014 11:25:34 上午 org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/jforum] is completed
+11:25:41,764  INFO [JForumBaseServlet   ] Starting JForum. Debug mode is true
+11:25:41,770  INFO [ConfigLoader        ] Using cache engine: net.jforum.cache.DefaultCacheEngine
+11:25:41,771  INFO [ConfigLoader        ] Creating an instance of net.jforum.repository.BBCodeRepository
+11:25:41,772  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RankingRepository
+11:25:41,773  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SmiliesRepository
+11:25:41,774  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.ForumRepository
+11:25:41,776  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.TopicRepository
+11:25:41,777  INFO [ConfigLoader        ] Creating an instance of  net.jforum.SessionFacade
+11:25:41,778  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.PostRepository
+11:25:41,779  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.Tpl
+11:25:41,780  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RolesRepository
+11:25:41,780  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SecurityRepository
+11:25:41,781  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.BanlistRepository
+11:25:41,832  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/languages/zh_CN.properties
+11:25:41,850  INFO [ConfigLoader        ] Loading JDBC driver net.jforum.dao.mysql.MysqlDataAccessDriver
+11:25:41,886  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/generic/generic_queries.sql
+11:25:41,887  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/mysql/mysql.sql
+11:25:41,888  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/SystemGlobals.properties
+log4j:WARN No appenders could be found for logger (com.alibaba.druid.pool.DruidDataSource).
+log4j:WARN Please initialize the log4j system properly.
+11:25:42,108  INFO [ConfigLoader        ] Loading clickstream config from D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/clickstream-jforum.xml
+SearchArgs [keywords=gdg, author=0, orderDir=null, orderBy=null, matchAllKeywords=true, forumId=1, initialRecord=0, fromDate=null, toDate=null, matchType=all]
+初始化完毕222222222222
+45634563的同义词为[]
+56456的同义词为[]
+添加文档成功
+3452345234523452的同义词为[]
+4535345的同义词为[]
+添加文档成功
+hotbain@126.com的同义词为[hotbaincom]
+hotbain@sina.com的同义词为[hotbainsinacom]
+添加文档成功
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+公正=gz
+公正的同义词为[gz, gongzheng]
+添加文档成功
+43523452452的同义词为[]
+435435234524的同义词为[]
+添加文档成功
+345234523的同义词为[]
+345345243的同义词为[]
+添加文档成功
+我的=wd
+我的的同义词为[wode, wd, wodi]
+名字=mz
+名字的同义词为[mingzi, mz]
+叫=j
+叫的同义词为[jiao, j]
+公正=gz
+公正的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+测试=cs
+测试的同义词为[ceshi, cs]
+自己=zj
+自己的同义词为[ziji, zj]
+索引=sy
+索引的同义词为[suoyin, sy]
+功能=gn
+功能的同义词为[gn, gongneng]
+能=n
+能的同义词为[neng, n]
+咋=z
+咋的同义词为[ze, za, z, zha]
+样=y
+样的同义词为[yang, y]
+添加文档成功
+18的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+2342342的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+admbase/login.page的同义词为[admbaseloginpage]
+http://www.jforum.net/community.jsp的同义词为[httpwwwjforumnetcommunityjsp]
+http://www.jforum.net/doc的同义词为[httpwwwjforumnetdoc]
+http://www.jforum.net/doc/team的同义词为[httpwwwjforumnetdocteam]
+添加文档成功
+3234234的同义词为[]
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+添加文档成功
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+哈哈=hh
+哈哈的同义词为[kaka, haka, haha, hh, kaha]
+gz1050774532@gmail.com的同义词为[gzgmailcom]
+我们=wm
+我们的同义词为[wm, women]
+共产党人=gcdr
+共产党人的同义词为[gcdr, gongchandangren]
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+添加文档成功
+释放了读锁
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+添加文档成功
+2323423的同义词为[]
+234234的同义词为[]
+添加文档成功
+添加文档成功
+22222222222的同义词为[]
+2222222的同义词为[]
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+555的同义词为[]
+添加文档成功
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+添加文档成功
+添加文档成功
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+添加文档成功
+添加文档成功
+13123123123的同义词为[]
+2123131231的同义词为[]
+添加文档成功
+2014年的同义词为[nian]
+6月的同义词为[yue]
+21日的同义词为[ri]
+一场=yc
+一场的同义词为[yc, yichang]
+名为=mw
+名为的同义词为[mingwei, mw]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+跑步=pb
+跑步的同义词为[pb, paobu]
+比赛=bs
+比赛的同义词为[bisai, bs]
+深圳=sz
+深圳的同义词为[shenzhen, sz]
+海上=hs
+海上的同义词为[hs, haishang]
+世界=sj
+世界的同义词为[shijie, sj]
+举行=jx
+举行的同义词为[jx, juxing, juhang, juheng]
+众多=zd
+众多的同义词为[zd, zhongduo]
+男=n
+男的同义词为[nan, n]
+选手=xs
+选手的同义词为[xuanshou, xs]
+报名=bm
+报名的同义词为[bm, baoming]
+参赛=cs
+参赛的同义词为[cansai, censai, shensai, cs]
+穿上=cs
+穿上的同义词为[chuanshang, cs]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+50米的同义词为[mi]
+直道=zd
+直道的同义词为[zhidao, zd]
+尽情=jq
+尽情的同义词为[jinqing, jq]
+冲刺=cc
+冲刺的同义词为[chongci, cc]
+释放=sf
+释放的同义词为[shifang, sf]
+自己=zj
+自己的同义词为[ziji, zj]
+奔跑=bp
+奔跑的同义词为[bp, benpao]
+现场=xc
+现场的同义词为[xianchang, xc]
+鞋子=xz
+鞋子的同义词为[xiezi, xz]
+翻飞=ff
+翻飞的同义词为[fanfei, ff]
+令=l
+令的同义词为[l, ling]
+观众=gz
+观众的同义词为[gz, guanzhong]
+选手=xs
+选手的同义词为[xuanshou, xs]
+笑=x
+笑的同义词为[xiao, x]
+翻天=ft
+翻天的同义词为[fantian, ft]
+最终=zz
+最终的同义词为[zuizhong, zz]
+来自=lz
+来自的同义词为[laizi, lz]
+英格兰=ygl
+英格兰的同义词为[ygl, yinggelan]
+夺得=dd
+夺得的同义词为[dd, duodei, duode]
+冠军=gj
+冠军的同义词为[gj, guanjun]
+活动=hd
+活动的同义词为[huodong, hd]
+主办=zb
+主办的同义词为[zhuban, zb]
+方为=fw
+方为的同义词为[fw, fangwei]
+此次=cc
+此次的同义词为[cici, cc]
+新奇=xq
+新奇的同义词为[xq, xinji, xinqi]
+独特=dt
+独特的同义词为[dt, dute]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+跑步=pb
+跑步的同义词为[pb, paobu]
+比赛=bs
+比赛的同义词为[bisai, bs]
+取=q
+取的同义词为[q, qu]
+一个=yg
+一个的同义词为[yg, yige]
+好听=ht
+好听的同义词为[haoting, ht, haoyin]
+名字=mz
+名字的同义词为[mingzi, mz]
+犀利=xl
+犀利的同义词为[xl, xili]
+跑=p
+跑的同义词为[p, pao]
+寓意=yy
+寓意的同义词为[yuyi, yy]
+犀利=xl
+犀利的同义词为[xl, xili]
+”的同义词为[]
+态度=td
+态度的同义词为[taiduo, td, taidu]
+包含=bh
+包含的同义词为[baohan, bh]
+”的同义词为[]
+趣味=qw
+趣味的同义词为[cuwei, qw, quwei]
+图为=tw
+图为的同义词为[tuwei, tw]
+跑步=pb
+跑步的同义词为[pb, paobu]
+现场=xc
+现场的同义词为[xianchang, xc]
+高跟鞋=ggx
+高跟鞋的同义词为[ggx, gaogenxie]
+添加文档成功
+关闭程序
+释放了读锁
+content:gdg +forumId:[1 TO 2}^0.1    ;docs count=24
+forumId(stored)---1
+postId(stored)---34
+topicId(stored)---11
+userId(stored)---2
+date(stored)---1403319013000
+subject(stored,indexed,tokenized)---我是郭德纲
+forumId(stored)---1
+postId(stored)---6
+topicId(stored)---5
+userId(stored)---2
+date(stored)---1403085541000
+subject(stored,indexed,tokenized)---56456
+forumId(stored)---1
+postId(stored)---2
+topicId(stored)---2
+userId(stored)---2
+date(stored)---1403080643000
+subject(stored,indexed,tokenized)---4535345
+forumId(stored)---1
+postId(stored)---35
+topicId(stored)---12
+userId(stored)---2
+date(stored)---1403319454000
+subject(stored,indexed,tokenized)---hotbain@sina.com
+forumId(stored)---1
+postId(stored)---9
+topicId(stored)---8
+userId(stored)---2
+date(stored)---1403189870000
+subject(stored,indexed,tokenized)---我是公正
+forumId(stored)---1
+postId(stored)---3
+topicId(stored)---3
+userId(stored)---2
+date(stored)---1403080907000
+subject(stored,indexed,tokenized)---435435234524
+forumId(stored)---1
+postId(stored)---8
+topicId(stored)---7
+userId(stored)---2
+date(stored)---1403086807000
+subject(stored,indexed,tokenized)---345345243
+forumId(stored)---1
+postId(stored)---32
+topicId(stored)---10
+userId(stored)---2
+date(stored)---1403265484000
+subject(stored,indexed,tokenized)---我在测试自己索引功能能咋样
+forumId(stored)---1
+postId(stored)---1
+topicId(stored)---1
+userId(stored)---2
+date(stored)---1104829194000
+subject(stored,indexed,tokenized)---Welcome to JForum
+forumId(stored)---1
+postId(stored)---5
+topicId(stored)---4
+userId(stored)---2
+date(stored)---1403083580000
+subject(stored,indexed,tokenized)---3234234
+forumId(stored)---1
+postId(stored)---36
+topicId(stored)---13
+userId(stored)---2
+date(stored)---1403354118000
+subject(stored,indexed,tokenized)---我在北京上班啊
+forumId(stored)---1
+postId(stored)---30
+topicId(stored)---9
+userId(stored)---1
+date(stored)---1403237461000
+subject(stored,indexed,tokenized)---新的话题开始了
+forumId(stored)---1
+postId(stored)---45
+topicId(stored)---22
+userId(stored)---2
+date(stored)---1403357316000
+subject(stored,indexed,tokenized)---Hello world
+forumId(stored)---1
+postId(stored)---38
+topicId(stored)---15
+userId(stored)---2
+date(stored)---1403354157000
+subject(stored,indexed,tokenized)---我在北京上班啊quote
+forumId(stored)---1
+postId(stored)---55
+topicId(stored)---29
+userId(stored)---2
+date(stored)---1403791103000
+subject(stored,indexed,tokenized)---234234
+forumId(stored)---1
+postId(stored)---54
+topicId(stored)---28
+userId(stored)---2
+date(stored)---1403790476000
+subject(stored,indexed,tokenized)---admin action yemian 
+forumId(stored)---1
+postId(stored)---49
+topicId(stored)---25
+userId(stored)---2
+date(stored)---1403435398000
+subject(stored,indexed,tokenized)---2222222
+forumId(stored)---1
+postId(stored)---39
+topicId(stored)---16
+userId(stored)---2
+date(stored)---1403354176000
+subject(stored,indexed,tokenized)---我在北京上班啊555
+forumId(stored)---1
+postId(stored)---48
+topicId(stored)---24
+userId(stored)---2
+date(stored)---1403435382000
+subject(stored,indexed,tokenized)---公告
+forumId(stored)---1
+postId(stored)---53
+topicId(stored)---27
+userId(stored)---2
+date(stored)---1403530637000
+subject(stored,indexed,tokenized)---qqqqq
+18的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+2342342的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+admbase/login.page的同义词为[admbaseloginpage]
+http://www.jforum.net/community.jsp的同义词为[httpwwwjforumnetcommunityjsp]
+http://www.jforum.net/doc的同义词为[httpwwwjforumnetdoc]
+http://www.jforum.net/doc/team的同义词为[httpwwwjforumnetdocteam]
+3452345234523452的同义词为[]
+43523452452的同义词为[]
+45634563的同义词为[]
+345234523的同义词为[]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+哈哈=hh
+哈哈的同义词为[kaka, haka, haha, hh, kaha]
+gz1050774532@gmail.com的同义词为[gzgmailcom]
+我们=wm
+我们的同义词为[wm, women]
+共产党人=gcdr
+共产党人的同义词为[gcdr, gongchandangren]
+我的=wd
+我的的同义词为[wode, wd, wodi]
+名字=mz
+名字的同义词为[mingzi, mz]
+叫=j
+叫的同义词为[jiao, j]
+公正=gz
+公正的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+hotbain@126.com的同义词为[hotbaincom]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+22222222222的同义词为[]
+2323423的同义词为[]
+即将返回到页面上显示的数量为 20
+SearchArgs [keywords=gdg, author=0, orderDir=null, orderBy=null, matchAllKeywords=true, forumId=1, initialRecord=0, fromDate=null, toDate=null, matchType=all]
+content:gdg +forumId:[1 TO 2}^0.1    ;docs count=24
+forumId(stored)---1
+postId(stored)---34
+topicId(stored)---11
+userId(stored)---2
+date(stored)---1403319013000
+subject(stored,indexed,tokenized)---我是郭德纲
+forumId(stored)---1
+postId(stored)---6
+topicId(stored)---5
+userId(stored)---2
+date(stored)---1403085541000
+subject(stored,indexed,tokenized)---56456
+forumId(stored)---1
+postId(stored)---2
+topicId(stored)---2
+userId(stored)---2
+date(stored)---1403080643000
+subject(stored,indexed,tokenized)---4535345
+forumId(stored)---1
+postId(stored)---35
+topicId(stored)---12
+userId(stored)---2
+date(stored)---1403319454000
+subject(stored,indexed,tokenized)---hotbain@sina.com
+forumId(stored)---1
+postId(stored)---9
+topicId(stored)---8
+userId(stored)---2
+date(stored)---1403189870000
+subject(stored,indexed,tokenized)---我是公正
+forumId(stored)---1
+postId(stored)---3
+topicId(stored)---3
+userId(stored)---2
+date(stored)---1403080907000
+subject(stored,indexed,tokenized)---435435234524
+forumId(stored)---1
+postId(stored)---8
+topicId(stored)---7
+userId(stored)---2
+date(stored)---1403086807000
+subject(stored,indexed,tokenized)---345345243
+forumId(stored)---1
+postId(stored)---32
+topicId(stored)---10
+userId(stored)---2
+date(stored)---1403265484000
+subject(stored,indexed,tokenized)---我在测试自己索引功能能咋样
+forumId(stored)---1
+postId(stored)---1
+topicId(stored)---1
+userId(stored)---2
+date(stored)---1104829194000
+subject(stored,indexed,tokenized)---Welcome to JForum
+forumId(stored)---1
+postId(stored)---5
+topicId(stored)---4
+userId(stored)---2
+date(stored)---1403083580000
+subject(stored,indexed,tokenized)---3234234
+forumId(stored)---1
+postId(stored)---36
+topicId(stored)---13
+userId(stored)---2
+date(stored)---1403354118000
+subject(stored,indexed,tokenized)---我在北京上班啊
+forumId(stored)---1
+postId(stored)---30
+topicId(stored)---9
+userId(stored)---1
+date(stored)---1403237461000
+subject(stored,indexed,tokenized)---新的话题开始了
+forumId(stored)---1
+postId(stored)---45
+topicId(stored)---22
+userId(stored)---2
+date(stored)---1403357316000
+subject(stored,indexed,tokenized)---Hello world
+forumId(stored)---1
+postId(stored)---38
+topicId(stored)---15
+userId(stored)---2
+date(stored)---1403354157000
+subject(stored,indexed,tokenized)---我在北京上班啊quote
+forumId(stored)---1
+postId(stored)---55
+topicId(stored)---29
+userId(stored)---2
+date(stored)---1403791103000
+subject(stored,indexed,tokenized)---234234
+forumId(stored)---1
+postId(stored)---54
+topicId(stored)---28
+userId(stored)---2
+date(stored)---1403790476000
+subject(stored,indexed,tokenized)---admin action yemian 
+forumId(stored)---1
+postId(stored)---49
+topicId(stored)---25
+userId(stored)---2
+date(stored)---1403435398000
+subject(stored,indexed,tokenized)---2222222
+forumId(stored)---1
+postId(stored)---39
+topicId(stored)---16
+userId(stored)---2
+date(stored)---1403354176000
+subject(stored,indexed,tokenized)---我在北京上班啊555
+forumId(stored)---1
+postId(stored)---48
+topicId(stored)---24
+userId(stored)---2
+date(stored)---1403435382000
+subject(stored,indexed,tokenized)---公告
+forumId(stored)---1
+postId(stored)---53
+topicId(stored)---27
+userId(stored)---2
+date(stored)---1403530637000
+subject(stored,indexed,tokenized)---qqqqq
+18的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+2342342的同义词为[]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+admbase/login.page的同义词为[admbaseloginpage]
+http://www.jforum.net/community.jsp的同义词为[httpwwwjforumnetcommunityjsp]
+http://www.jforum.net/doc的同义词为[httpwwwjforumnetdoc]
+http://www.jforum.net/doc/team的同义词为[httpwwwjforumnetdocteam]
+3452345234523452的同义词为[]
+43523452452的同义词为[]
+45634563的同义词为[]
+345234523的同义词为[]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+新的=xd
+新的的同义词为[xindi, xinde, xd]
+话题=ht
+话题的同义词为[huati, ht]
+开始=ks
+开始的同义词为[ks, kaishi]
+哈哈=hh
+哈哈的同义词为[kaka, haka, haha, hh, kaha]
+gz1050774532@gmail.com的同义词为[gzgmailcom]
+我们=wm
+我们的同义词为[wm, women]
+共产党人=gcdr
+共产党人的同义词为[gcdr, gongchandangren]
+我的=wd
+我的的同义词为[wode, wd, wodi]
+名字=mz
+名字的同义词为[mingzi, mz]
+叫=j
+叫的同义词为[jiao, j]
+公正=gz
+公正的同义词为[gz, gongzheng]
+宫政=gz
+宫政的同义词为[gz, gongzheng]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+郭德纲=gdg
+郭德纲的同义词为[guodegang, gdg]
+hotbain@126.com的同义词为[hotbaincom]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+北京=bj
+北京的同义词为[bj, beijing]
+上班=sb
+上班的同义词为[sb, shangban]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+公告=gg
+公告的同义词为[gonggu, gg, gonggao]
+22222222222的同义词为[]
+2323423的同义词为[]
+即将返回到页面上显示的数量为 20
+六月 29, 2014 11:26:45 上午 org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/jforum] has started
+Destroying JForum...
+Destroying JForum searchEngine······
+六月 29, 2014 11:26:45 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+SEVERE: The web application [/jforum] registered the JDBC driver [com.alibaba.druid.proxy.DruidDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+六月 29, 2014 11:26:45 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+SEVERE: The web application [/jforum] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+六月 29, 2014 11:26:45 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/jforum] appears to have started a thread named [Timer-30] but has failed to stop it. This is very likely to create a memory leak.
+六月 29, 2014 11:26:45 上午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/jforum] appears to have started a thread named [Timer-35] but has failed to stop it. This is very likely to create a memory leak.
+六月 29, 2014 11:26:45 上午 org.apache.catalina.loader.WebappClassLoader validateJarFile
+INFO: validateJarFile(D:\Java\apache-tomcat-7.0.53\webapps\jforum\WEB-INF\lib\servlet-api.jar) - jar not loaded. See Servlet Spec 3.0, section 10.7.2. Offending class: javax/servlet/Servlet.class
+六月 29, 2014 11:26:47 上午 org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/jforum] is completed
+11:26:48,868  INFO [JForumBaseServlet   ] Starting JForum. Debug mode is true
+11:26:48,875  INFO [ConfigLoader        ] Using cache engine: net.jforum.cache.DefaultCacheEngine
+11:26:48,876  INFO [ConfigLoader        ] Creating an instance of net.jforum.repository.BBCodeRepository
+11:26:48,877  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RankingRepository
+11:26:48,878  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SmiliesRepository
+11:26:48,879  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.ForumRepository
+11:26:48,881  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.TopicRepository
+11:26:48,883  INFO [ConfigLoader        ] Creating an instance of  net.jforum.SessionFacade
+11:26:48,883  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.PostRepository
+11:26:48,884  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.Tpl
+11:26:48,885  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RolesRepository
+11:26:48,886  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SecurityRepository
+11:26:48,887  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.BanlistRepository
+11:26:48,938  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/languages/zh_CN.properties
+11:26:48,956  INFO [ConfigLoader        ] Loading JDBC driver net.jforum.dao.mysql.MysqlDataAccessDriver
+11:26:48,991  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/generic/generic_queries.sql
+11:26:48,991  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/mysql/mysql.sql
+11:26:48,992  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/SystemGlobals.properties
+log4j:WARN No appenders could be found for logger (com.alibaba.druid.pool.DruidDataSource).
+log4j:WARN Please initialize the log4j system properly.
+11:26:54,764 ERROR [ForumStartup        ] Unable to bootstrap JForum repository.
+net.jforum.exceptions.DatabaseException: java.sql.SQLException: Error
+	at com.alibaba.druid.pool.DruidDataSource.handleConnectionException(DruidDataSource.java:1116)
+	at com.alibaba.druid.pool.DruidPooledConnection.handleException(DruidPooledConnection.java:127)
+	at com.alibaba.druid.pool.DruidPooledStatement.checkException(DruidPooledStatement.java:68)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeQuery(DruidPooledPreparedStatement.java:238)
+	at net.jforum.dao.generic.GenericCategoryDAO.selectAll(GenericCategoryDAO.java:104)
+	at net.jforum.repository.ForumRepository.loadCategories(ForumRepository.java:798)
+	at net.jforum.repository.ForumRepository.start(ForumRepository.java:128)
+	at net.jforum.ForumStartup.startForumRepository(ForumStartup.java:100)
+	at net.jforum.JForum.init(JForum.java:112)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1284)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1197)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:864)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:134)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:501)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:950)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1040)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:607)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:313)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.sql.SQLException: Error
+	... 26 more
+Caused by: java.lang.OutOfMemoryError: PermGen space
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:800)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:2957)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:1210)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1690)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1571)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeQuery(DruidPooledPreparedStatement.java:233)
+	... 22 more
+net.jforum.exceptions.RepositoryStartupException: Error while trying to start ForumRepository: net.jforum.exceptions.DatabaseException: java.sql.SQLException: Error
+	at com.alibaba.druid.pool.DruidDataSource.handleConnectionException(DruidDataSource.java:1116)
+	at com.alibaba.druid.pool.DruidPooledConnection.handleException(DruidPooledConnection.java:127)
+	at com.alibaba.druid.pool.DruidPooledStatement.checkException(DruidPooledStatement.java:68)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeQuery(DruidPooledPreparedStatement.java:238)
+	at net.jforum.dao.generic.GenericCategoryDAO.selectAll(GenericCategoryDAO.java:104)
+	at net.jforum.repository.ForumRepository.loadCategories(ForumRepository.java:798)
+	at net.jforum.repository.ForumRepository.start(ForumRepository.java:128)
+	at net.jforum.ForumStartup.startForumRepository(ForumStartup.java:100)
+	at net.jforum.JForum.init(JForum.java:112)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1284)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1197)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:864)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:134)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:501)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:950)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1040)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:607)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:313)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: net.jforum.exceptions.DatabaseException: java.sql.SQLException: Error
+	... 26 more
+Caused by: java.sql.SQLException: Error
+	... 26 more
+Caused by: java.lang.OutOfMemoryError: PermGen space
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:800)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:2957)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:1210)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1690)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1571)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeQuery(DruidPooledPreparedStatement.java:233)
+	... 22 more
+六月 29, 2014 11:26:54 上午 org.apache.catalina.core.ApplicationContext log
+SEVERE: StandardWrapper.Throwable
+net.jforum.exceptions.ForumStartupException: Error while starting jforum
+	at com.alibaba.druid.pool.DruidDataSource.handleConnectionException(DruidDataSource.java:1116)
+	at com.alibaba.druid.pool.DruidPooledConnection.handleException(DruidPooledConnection.java:127)
+	at com.alibaba.druid.pool.DruidPooledStatement.checkException(DruidPooledStatement.java:68)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeQuery(DruidPooledPreparedStatement.java:238)
+	at net.jforum.dao.generic.GenericCategoryDAO.selectAll(GenericCategoryDAO.java:104)
+	at net.jforum.repository.ForumRepository.loadCategories(ForumRepository.java:798)
+	at net.jforum.repository.ForumRepository.start(ForumRepository.java:128)
+	at net.jforum.ForumStartup.startForumRepository(ForumStartup.java:100)
+	at net.jforum.JForum.init(JForum.java:112)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1284)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1197)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:864)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:134)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:501)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:950)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1040)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:607)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:313)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: net.jforum.exceptions.RepositoryStartupException: Error while trying to start ForumRepository: net.jforum.exceptions.DatabaseException: java.sql.SQLException: Error
+	... 26 more
+Caused by: net.jforum.exceptions.DatabaseException: java.sql.SQLException: Error
+	... 26 more
+Caused by: java.sql.SQLException: Error
+	... 26 more
+Caused by: java.lang.OutOfMemoryError: PermGen space
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:800)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:2957)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:1210)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1690)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1571)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeQuery(DruidPooledPreparedStatement.java:233)
+	... 22 more
+
+六月 29, 2014 11:26:54 上午 org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Allocate exception for servlet jforum
+java.lang.OutOfMemoryError: PermGen space
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:800)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:2957)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:1210)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1690)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1571)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeQuery(DruidPooledPreparedStatement.java:233)
+	at net.jforum.dao.generic.GenericCategoryDAO.selectAll(GenericCategoryDAO.java:104)
+	at net.jforum.repository.ForumRepository.loadCategories(ForumRepository.java:798)
+	at net.jforum.repository.ForumRepository.start(ForumRepository.java:128)
+	at net.jforum.ForumStartup.startForumRepository(ForumStartup.java:100)
+	at net.jforum.JForum.init(JForum.java:112)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1284)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1197)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:864)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:134)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:501)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:950)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1040)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:607)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:313)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+11:26:54,823  INFO [JForumBaseServlet   ] Starting JForum. Debug mode is true
+11:26:54,824  INFO [ConfigLoader        ] Using cache engine: net.jforum.cache.DefaultCacheEngine
+11:26:54,824  INFO [ConfigLoader        ] Creating an instance of net.jforum.repository.BBCodeRepository
+11:26:54,824  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RankingRepository
+11:26:54,824  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SmiliesRepository
+11:26:54,825  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.ForumRepository
+11:26:54,825  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.TopicRepository
+11:26:54,825  INFO [ConfigLoader        ] Creating an instance of  net.jforum.SessionFacade
+11:26:54,825  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.PostRepository
+11:26:54,825  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.Tpl
+11:26:54,825  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.RolesRepository
+11:26:54,825  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.SecurityRepository
+11:26:54,825  INFO [ConfigLoader        ] Creating an instance of  net.jforum.repository.BanlistRepository
+11:26:54,834  INFO [ConfigLoader        ] Loading JDBC driver net.jforum.dao.mysql.MysqlDataAccessDriver
+11:26:54,834  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/generic/generic_queries.sql
+11:26:54,834  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/database/mysql/mysql.sql
+11:26:54,834  INFO [FileMonitor         ] Watching D:\Java\apache-tomcat-7.0.53\webapps\jforum/WEB-INF/config/SystemGlobals.properties

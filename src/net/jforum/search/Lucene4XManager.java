@@ -62,6 +62,7 @@ import org.apache.lucene.search.highlight.Highlighter;
 import org.apache.lucene.search.highlight.InvalidTokenOffsetsException;
 import org.apache.lucene.search.highlight.QueryScorer;
 import org.apache.lucene.search.highlight.Scorer;
+import org.apache.lucene.search.highlight.SimpleHTMLFormatter;
 import org.apache.lucene.search.vectorhighlight.FieldQuery;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
@@ -466,11 +467,12 @@ public class Lucene4XManager implements SearchManager {
 			Post post = (Post)iter.next();
 			
 			Scorer scorer = new QueryScorer(query);
-			Highlighter highlighter = new Highlighter(scorer);
+			SimpleHTMLFormatter simpleHTMLFormatter = new SimpleHTMLFormatter("<code>", "</code>");  
+			Highlighter highlighter = new Highlighter(simpleHTMLFormatter, scorer);
 			
 			TokenStream tokenStream = analyzer.tokenStream(
 				SearchFields.Indexed.CONTENT, new StringReader(post.getText()));
-
+			
 			String fragment = highlighter.getBestFragment(tokenStream, post.getText());
 			post.setText(fragment != null ? fragment : post.getText());
 			tempContainer.put(new Integer(post.getId()).toString(), post);

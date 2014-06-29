@@ -104,7 +104,7 @@ public class SearchAction extends Command
 		int recordsPerPage = SystemGlobals.getIntValue(ConfigKeys.TOPICS_PER_PAGE);
 		
 		SearchResult searchResult = operation.performSearch(args);
-		operation.prepareForDisplay();
+//		operation.prepareForDisplay();
 		System.err.println("即将返回到页面上显示的数量为 "+ searchResult.records().size());
 		this.setTemplateName(operation.viewTemplate());
 		
