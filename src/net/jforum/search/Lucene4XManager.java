@@ -68,6 +68,7 @@ import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
 import org.apache.lucene.util.BytesRef;
 import org.apache.lucene.util.Version;
+import org.hsqldb.lib.HashMap;
 import org.jgroups.tests.UnicastTest.StartData;
 import org.lionsoul.jcseg.core.JcsegTaskConfig;
 import org.lionsoul.jcseg.lucene.JcsegAnalyzer4X;
@@ -459,7 +460,8 @@ public class Lucene4XManager implements SearchManager {
 	private List retrieveRealPosts(LinkedList<Integer> postIds, Query query) throws Exception
 	{
 		List posts = DataAccessDriver.getInstance().newLuceneDAO().getPostsData(postIds);
-		
+		LinkedList<Post> orderedPosts = new LinkedList<Post>();
+		Map<String, Post> tempContainer =new java.util.HashMap<String, Post>();
 		for (Iterator iter = posts.iterator(); iter.hasNext(); ) {
 			Post post = (Post)iter.next();
 			
@@ -471,9 +473,12 @@ public class Lucene4XManager implements SearchManager {
 
 			String fragment = highlighter.getBestFragment(tokenStream, post.getText());
 			post.setText(fragment != null ? fragment : post.getText());
+			tempContainer.put(new Integer(post.getId()).toString(), post);
 		}
-		
-		return posts;
+		for(Integer i : postIds){
+			orderedPosts.add(tempContainer.get(i.toString()));
+		}
+		return orderedPosts;
 	}
 	
 	public static void parseDocument(Document document){
