@@ -21,3 +21,7 @@
 
 navbar-fixed-top
 21、对于git每次处理完一个小问题就要commit一下，这样有利于问题的查找和回滚
+22、http://www.oschina.net/code/snippet_12_734   --------红薯          网站增加社会化分享按钮代码
+23、OSCHINA软件与Github集成的JS Widget源码-------------http://www.oschina.net/code/snippet_100267_11631
+24、github开发者网站----https://developer.github.com
+25、github logo使用方法 : https://github.com/logos

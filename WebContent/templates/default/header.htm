@@ -101,9 +101,11 @@
             </li>
             </#if>
             <#if !logged && !sso>
-				<li>
-					<a id="register" class="" href="${JForumContext.encodeURL("/user/insert")}"><i class="glyphicon glyphicon-map-marker"></i>&nbsp; ${I18n.getMessage("ForumBase.register")}</a>
-				</li>				
+            	<#if registrationEnabled>
+					<li>
+						<a id="register" class="" href="${JForumContext.encodeURL("/user/insert")}"><i class="glyphicon glyphicon-map-marker"></i>&nbsp; ${I18n.getMessage("ForumBase.register")}</a>
+					</li>
+				</#if>	
 				<li>			
 					<a id="login" class="" href="${JForumContext.encodeURL("/user/login")}"><i class="glyphicon glyphicon-circle-arrow-up"></i>&nbsp; ${I18n.getMessage("ForumBase.login")}</a>
 				</li>

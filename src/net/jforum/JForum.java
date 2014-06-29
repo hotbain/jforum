@@ -60,6 +60,7 @@ import net.jforum.context.web.WebRequestContext;
 import net.jforum.context.web.WebResponseContext;
 import net.jforum.dao.MySQLVersionWorkarounder;
 import net.jforum.entities.Banlist;
+import net.jforum.entities.Config;
 import net.jforum.exceptions.ExceptionWriter;
 import net.jforum.exceptions.ForumStartupException;
 import net.jforum.repository.BanlistRepository;
@@ -157,6 +158,7 @@ public class JForum extends JForumBaseServlet
 			
 			ControllerUtils utils = new ControllerUtils();
 			utils.refreshSession();
+			context.put("registrationEnabled", SystemGlobals.getBoolValue(ConfigKeys.REGISTRATION_ENABLED));
 			
 			context.put("logged", SessionFacade.isLogged());
 			
