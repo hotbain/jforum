@@ -306,6 +306,8 @@ public class ConfigKeys
 	public static final String INDEX_COUNT_THREOLD="index_count_threold";
 	public static final String SEARCH_DECORATION_PREFIX = "search_decoration_prefix";
 	public static final String SEARCH_DECORATION_POSTFIX="search_decoration_postfix";
+	public static final String SAERCH_TOPIC_CONTENT_BOOST = "search_topic_content_boost";
+	public static final String SAERCH_TOPIC_SUBJECT_BOOST = "search_topic_subject_boost";
 
 	private ConfigKeys() {}
 }
