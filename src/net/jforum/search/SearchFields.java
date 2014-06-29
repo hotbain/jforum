@@ -51,11 +51,11 @@ public final class SearchFields
 {
 	public static final class Keyword
 	{
-		public static final String POST_ID = "post.id";
-		public static final String TOPIC_ID = "topic.id";
-		public static final String FORUM_ID = "forum.id";
-		public static final String USER_ID = "user.id";
-		public static final String CATEGORY_ID = "category.id";
+		public static final String POST_ID = "postId";
+		public static final String TOPIC_ID = "topicId";
+		public static final String FORUM_ID = "forumId";
+		public static final String USER_ID = "userId";
+		public static final String CATEGORY_ID = "categoryId";
 		public static final String DATE = "date";
 		public static final String CONTENT="content";
 		public static final String SUBJECT="subject";

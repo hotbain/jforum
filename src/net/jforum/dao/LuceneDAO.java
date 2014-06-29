@@ -44,6 +44,7 @@
 package net.jforum.dao;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -55,6 +56,8 @@ public interface LuceneDAO
 	public List getPostsToIndex(int fromPostId, int toPostId);
 	
 	public List getPostsData(int[] postIds);
+	
+	public List getPostsData(LinkedList<Integer> postIds);
 	
 	public int firstPostIdByDate(Date date);
 	

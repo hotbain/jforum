@@ -20,3 +20,4 @@
 20、升级表情注意事项：   -----查看 :  net.jforum.util.SmilesInsertSqlUtils
 
 navbar-fixed-top
+21、对于git每次处理完一个小问题就要commit一下，这样有利于问题的查找和回滚

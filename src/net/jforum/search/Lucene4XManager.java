@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -46,18 +47,26 @@ import org.apache.lucene.index.Terms;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.queryparser.classic.QueryParser;
+import org.apache.lucene.search.BooleanClause;
+import org.apache.lucene.search.BooleanClause.Occur;
+import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.NumericRangeQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.TermQuery;
+import org.apache.lucene.search.TermRangeQuery;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.highlight.Highlighter;
 import org.apache.lucene.search.highlight.InvalidTokenOffsetsException;
 import org.apache.lucene.search.highlight.QueryScorer;
 import org.apache.lucene.search.highlight.Scorer;
+import org.apache.lucene.search.vectorhighlight.FieldQuery;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.util.BytesRef;
 import org.apache.lucene.util.Version;
 import org.jgroups.tests.UnicastTest.StartData;
 import org.lionsoul.jcseg.core.JcsegTaskConfig;
@@ -80,7 +89,7 @@ import net.jforum.util.preferences.SystemGlobals;
 public class Lucene4XManager implements SearchManager {
 	private  Map<String, Post> processiongMap =new ConcurrentHashMap<String, Post>();
 	private  AtomicInteger unprocessingCounter = new AtomicInteger(0);
-	private  int count = SystemGlobals.getIntValue(ConfigKeys.INDEX_COUNT_THREOLD);
+	private  int count = 12;
 	private  ReadWriteLock readWriteLock =new ReentrantReadWriteLock();
 	private  Analyzer analyzer =null;
 	private  IndexWriter indexWriter =null;
@@ -123,10 +132,10 @@ public class Lucene4XManager implements SearchManager {
 		manager.create(getPost());
 		manager.create(getPost());
 		manager.create(getPost());
-		
-		manager.indexWriter.commit();
+////		
+//		manager.indexWriter.commit();
 		SearchArgs searchArgs =new SearchArgs();
-		searchArgs.setKeywords("няняме");
+		searchArgs.setKeywords("gdg");
 		searchArgs.setForumId(1);
 		searchArgs.startFetchingAtRecord(0);
 		manager.search(searchArgs);
@@ -369,22 +378,43 @@ public class Lucene4XManager implements SearchManager {
 //		readLock.lock();
 		try {
 			StringBuffer criteria = new StringBuffer(256);
-			this.filterByForum(args, criteria);
-			this.filterByKeywords(args, criteria);
+//			this.filterByForum(args, criteria);
+			for(String kw : args.getKeywords()){
+				criteria=criteria.append("content:"+kw+" ");
+			}
+//			this.filterByKeywords(args, criteria);
 //			this.filterByDateRange(args, criteria);
 //			Query query = new QueryParser("", new StandardAnalyzer()).parse(criteria.toString());
-			Query query = new QueryParser(Version.LUCENE_46, "hobby", analyzer).parse(criteria.toString());
+//			if(args.getForumId()>0){
+//				criteria =criteria.append(" +"+SearchFields.Keyword.FORUM_ID+":"+args.getForumId() );
+//			}
+			Query query = new QueryParser(Version.LUCENE_46, SearchFields.Keyword.CONTENT , analyzer).parse(criteria.toString());
+//			
+			query.setBoost(1f);
+			BooleanQuery booleanQuery =new BooleanQuery();
+			booleanQuery.add(query,Occur.SHOULD);
+			
+			if(args.getForumId()>0){
+				NumericRangeQuery<Integer> forumNumericRangeQuery =NumericRangeQuery.newIntRange(SearchFields.Keyword.FORUM_ID, args.getForumId(), args.getForumId()+1, true,false);
+				
+//				BytesRef ref =new BytesRef(new Integer(args.getForumId()).byteValue());
+//				BytesRef ref2 =new BytesRef(new Integer(args.getForumId()+1).byteValue());
+//				booleanQuery.add(new TermRangeQuery(SearchFields.Keyword.FORUM_ID,ref, ref2, true, false),Occur.MUST);
+						//(new Term(SearchFields.Keyword.FORUM_ID, new Integer(args.getForumId()).toString())),Occur.SHOULD);
+				forumNumericRangeQuery.setBoost(0.1f);
+				booleanQuery.add(forumNumericRangeQuery,Occur.MUST);
+				
+			}
 //			if (logger.isDebugEnabled()) {
 //				logger.debug("Generated query: " + query);
 //			}
 			
-
 //			qr.setBoost(5f);
 //			TopDocs docs = searcher.search(qr,getFilter(),12,getSort());
-//			TopDocs docs = searcher.search(query,null,SystemGlobals.getIntValue(ConfigKeys.SEARCH_FETCH_ALL_COUNT),Sort.RELEVANCE);
-			TopDocs docs = searcher.search(query,null,SystemGlobals.getIntValue(ConfigKeys.SEARCH_FETCH_ALL_COUNT),Sort.RELEVANCE);
+			TopDocs docs = searcher.search(booleanQuery,null,SystemGlobals.getIntValue(ConfigKeys.SEARCH_FETCH_ALL_COUNT),Sort.RELEVANCE);
+//			TopDocs docs = searcher.search(booleanQuery,null,12,Sort.RELEVANCE);
 
-			System.err.println("docs count="+ docs.totalHits);
+			System.err.println(booleanQuery+"    ;docs count="+ docs.totalHits);
 			
 			
 			int pageCount =args.fetchCount();
@@ -397,12 +427,13 @@ public class Lucene4XManager implements SearchManager {
 			if(currentPageNum==totalPageNum){
 				endIndex =docs.scoreDocs.length-1;
 			}
-			int[] post_ids =new int[endIndex-beginIndex+1];
+			LinkedList<Integer> linkedList =new LinkedList<Integer>();
 			for(int index = beginIndex;index<= endIndex;index++){
 				Document document = searcher.doc(docs.scoreDocs[index].doc);
-				post_ids[index]= Integer.parseInt(document.getField(SearchFields.Keyword.POST_ID).stringValue());
+				parseDocument(document);
+				linkedList.add(Integer.parseInt(document.getField(SearchFields.Keyword.POST_ID).stringValue()));
 			}
-			return new SearchResult(retrieveRealPosts(post_ids, query), docs.scoreDocs.length);
+			return new SearchResult(retrieveRealPosts(linkedList, query), docs.scoreDocs.length);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
@@ -412,6 +443,7 @@ public class Lucene4XManager implements SearchManager {
 	}
 
 
+	
 	private void ensureSearcherExist() {
 		if(searcher!=null){
 			return ;
@@ -424,7 +456,7 @@ public class Lucene4XManager implements SearchManager {
 		}
 		searcher =new IndexSearcher(indexReader,threadPool );
 	}
-	private List retrieveRealPosts(int[] postIds, Query query) throws Exception
+	private List retrieveRealPosts(LinkedList<Integer> postIds, Query query) throws Exception
 	{
 		List posts = DataAccessDriver.getInstance().newLuceneDAO().getPostsData(postIds);
 		

@@ -49,6 +49,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import net.jforum.JForumExecutionContext;
@@ -210,6 +211,62 @@ public class GenericLuceneDAO implements LuceneDAO
 		
 		return l;
 	}
+	
+	/**
+	 * @see net.jforum.dao.LuceneDAO#getPostsData(int[])
+	 */
+	public List getPostsData(LinkedList<Integer> postIds)
+	{
+		if (postIds.size() == 0) {
+			return new LinkedList<Post>();
+		}
+		
+		List l = new LinkedList<Post>();
+		
+		PreparedStatement p = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = SystemGlobals.getSql("SearchModel.getPostsDataForLucene");
+			sql = sql.replaceAll(":posts:", this.buildInClause(postIds));
+			
+			p = JForumExecutionContext.getConnection().prepareStatement(sql);
+			rs = p.executeQuery();
+			
+			while (rs.next()) {
+				Post post = this.makePost(rs);
+				post.setPostUsername(rs.getString("username"));
+				
+				l.add(post);
+			}
+		}
+		catch (SQLException e) {
+			throw new DatabaseException(e);
+		}
+		finally {
+			DbUtils.close(rs, p);
+		}
+		
+		return l;
+	}
+	
+	private String buildInClause(LinkedList<Integer> postIds)
+	{
+		StringBuffer sb = new StringBuffer(128);
+		int index = 0;
+		for (Integer id : postIds) {
+			sb.append(id.toString());
+			if(++index<postIds.size()){
+				sb.append(',');
+			}
+		}
+//		
+//		int lastIndex=sb.lastIndexOf(",");
+//		sb =sb.replace(lastIndex, lastIndex, "");
+		
+		return sb.toString();
+	}
+	
 	
 	private String buildInClause(int[] postIds)
 	{

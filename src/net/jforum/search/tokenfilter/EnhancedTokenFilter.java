@@ -97,10 +97,24 @@ public class EnhancedTokenFilter  extends TokenFilter{
 	     temp[i] = new String[]{""};
 	    }
 	   }
+	   StringBuilder stringBuilder =new StringBuilder();
+	   try {
+		   for(String[] pinyinGroup : temp){
+//			   pinyinGroup[0].length()>=1? stringBuilder.append(pinyinGroup[0].charAt(0)),"";
+			   stringBuilder.append(pinyinGroup[0].charAt(0));
+		   }
+	} catch (Exception e) {
+		stringBuilder=null;
+	}
 	   String[] pingyinArray = Exchange(temp);
 	   Set<String> pinyinSet = new HashSet<String>();
+	  
 	   for(int i=0;i<pingyinArray.length;i++){
-	    pinyinSet.add(pingyinArray[i]);
+		   pinyinSet.add(pingyinArray[i]);
+	   }
+	   if(stringBuilder!=null&&!stringBuilder.toString().equals(src)){
+		   System.out.println(src+"="+ stringBuilder.toString());
+		   pinyinSet.add(stringBuilder.toString());
 	   }
 	   return pinyinSet;
 	  }
@@ -206,6 +220,7 @@ public class EnhancedTokenFilter  extends TokenFilter{
 			for(String alias : aliasSet){
 				this.sameWords.add(alias);
 			}
+			System.out.println(k+"的同义词为"+ sameWords);
 //			System.out.println(k+"'s alias size=" +aliasSet.size()+";alias content is "+ aliasSet);
 			return true;
 		}
