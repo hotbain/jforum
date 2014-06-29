@@ -25,3 +25,8 @@ navbar-fixed-top
 23、OSCHINA软件与Github集成的JS Widget源码-------------http://www.oschina.net/code/snippet_100267_11631
 24、github开发者网站----https://developer.github.com
 25、github logo使用方法 : https://github.com/logos
+ 1、后期功能完善------------------github\qq登陆
+           2、搜索页面全局搜索
+           3、搜索结果页面，再次搜索框显示。----input/form提交、隐藏字段显示、
+           4、在后台注册功能中也需要进行进行验证是否可用。------------通过ajax\或者页面提交方式完成.
+           
