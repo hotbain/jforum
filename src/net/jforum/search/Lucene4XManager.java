@@ -467,7 +467,7 @@ public class Lucene4XManager implements SearchManager {
 			Post post = (Post)iter.next();
 			
 			Scorer scorer = new QueryScorer(query);
-			SimpleHTMLFormatter simpleHTMLFormatter = new SimpleHTMLFormatter("<code>", "</code>");  
+			SimpleHTMLFormatter simpleHTMLFormatter = new SimpleHTMLFormatter(SystemGlobals.getValue(ConfigKeys.SEARCH_DECORATION_PREFIX), SystemGlobals.getValue(ConfigKeys.SEARCH_DECORATION_POSTFIX));  
 			Highlighter highlighter = new Highlighter(simpleHTMLFormatter, scorer);
 			
 			TokenStream tokenStream = analyzer.tokenStream(

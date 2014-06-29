@@ -304,6 +304,8 @@ public class ConfigKeys
 	public static final String FREEMARKER_EXTRA_TEMPLATE_PATH = "freemarker.extra.template.path";
 	
 	public static final String INDEX_COUNT_THREOLD="index_count_threold";
+	public static final String SEARCH_DECORATION_PREFIX = "search_decoration_prefix";
+	public static final String SEARCH_DECORATION_POSTFIX="search_decoration_postfix";
 
 	private ConfigKeys() {}
 }
