@@ -588,8 +588,12 @@ public class Lucene4XManager implements SearchManager {
 
 	public void destroy(){
 		try {
-			indexWriter.close();
-			indexReader.close();
+			if(indexWriter!= null){
+				indexWriter.close();
+			}
+			if(indexReader!=null){
+				indexReader.close();
+			}
 			threadPool.shutdownNow();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -600,10 +604,17 @@ public class Lucene4XManager implements SearchManager {
 		TopicDAO topicDAO =DataAccessDriver.getInstance().newTopicDAO();
 		PostDAO  postDAO = DataAccessDriver.getInstance().newPostDAO();
 		//TODO 清空以前的索引----删除锁文件、清空目录;
+		destroy();
+		init();
 		List<Integer> postIds =topicDAO.getAllFirstPostIds();
 		for(Integer postId : postIds){
 			Post post =postDAO.selectById(postId);
 			create(post);
+		}
+		try {
+			reOpenReader();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	

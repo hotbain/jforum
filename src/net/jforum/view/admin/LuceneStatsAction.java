@@ -128,19 +128,19 @@ public class LuceneStatsAction extends AdminCommand
 		
 //		LuceneReindexer reindexer = new LuceneReindexer(this.settings(), args, recreate);
 //		reindexer.startBackgroundProcess();
-		if(recreate){
-			Thread t  =new Thread(new Runnable() {
-				@Override
-				public void run() {
-					SearchFacade.reindex();
-				}
-			});
-			t.setDaemon(true);
-			t.start();
-			
-			this.list();
-		}
+		boolean indexSuccess=false;
 		
+		if(recreate){
+			try {
+				SearchFacade.reindex();
+				indexSuccess=true;
+			} catch (Exception e) {
+				e.printStackTrace();
+				request.addOrReplaceParameter("msg", e.getMessage());
+			}
+		}
+		request.addParameter("result", indexSuccess);
+		this.setTemplateName(TemplateKeys.SEARCH_INDEX_RESULT);
 	}
 	
 	public void cancelIndexing()

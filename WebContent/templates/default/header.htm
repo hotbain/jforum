@@ -89,6 +89,12 @@
 								<i class=" glyphicon glyphicon-wrench  glyphicon-white"></i>&nbsp;${I18n.getMessage("ForumBase.admin")}
 						</a>
 					</li>
+					<li>
+						<a id="reIndex" href='${JForumContext.encodeURL("/admBase/login")}?module=adminSearchStats&action=reconstructIndexFromScratch&indexOperationType=recreate'>
+								<i class=" glyphicon glyphicon-wrench  glyphicon-white"></i>&nbsp;${I18n.getMessage("admin.header.reindex.msg")}
+						</a>
+					</li>
+					
 				</#if>
                  <#if logged>
 						<#if !sso>

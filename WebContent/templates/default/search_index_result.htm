@@ -1,0 +1,19 @@
+<#include "header.htm"/>
+
+                   <div class="container">
+	                   	<div class="row">
+	                   		<div class="col-md-12">
+	                   			<#if request.getParameter("msg")?exists>
+	                   			<div class="alert alert-danger text-center">
+	                   				 ${request.getParameter("msg").toString()}
+	                   			</div>
+	                   		<#else>
+	                   			<div class="alert alert-success text-center"><div class="alert-link">${I18n.getMessage("reindex.success_msg")}</div></div>	
+	                   		</#if>
+	                   		
+	                   		</div>
+	                   	</div>
+                   </div>
+ <!-- ×ó²àµ¼º½ÁÐ½áÊø-->                      
+<#include "bottom.htm"/>
+
