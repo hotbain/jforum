@@ -42,16 +42,17 @@
 						
 						<div>
 							<div class="pull-left container">
-												<form accept-charset="${encoding}" role="form" action="${JForumContext.encodeURL("/jforum")}" method="post" id="formSearch" name="formSearch">
+												<form accept-charset="${encoding}" role="form" action="${JForumContext.encodeURL("/jforum")}" method="post" class="form-horizontal">
 													<input type="hidden" name="module" value="search"/>
 													<input type="hidden" name="action" value="search"/>
 													<#if request.getParameter("forum")?exists>
 														<input type="hidden" name="forum" value="${request.getParameter("forum")}">
 													</#if>
 													<input type="hidden" name="match_type" value="all">
-														 <div class="form-group row">
+														 <div class="form-group row has-success has-feedback">
 															    <div class="col-sm-5">
 																		<input id="search_result_input" type="search" value="${request.getParameter("search_keywords")}"  required placeholder="${I18n.getMessage("Search.Input.Required.placeHodler_Spec")}"  name="search_keywords" class="form-control"/>
+															    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
 															    </div>
 															     <div class="col-sm-4">
 															     		<button type="submit" class="btn btn-success btn-medium" ><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>

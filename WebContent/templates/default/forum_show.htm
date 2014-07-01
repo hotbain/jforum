@@ -62,23 +62,28 @@
 						</td>
 					</#if>
 
-					<form accept-charset="${encoding}" role="form" action="${JForumContext.encodeURL("/jforum")}" method="post" id="formSearch" name="formSearch">
-					<input type="hidden" name="module" value="search"/>
-					<input type="hidden" name="action" value="search"/>
-					<input type="hidden" name="forum" value="${forum.id}">
-					<input type="hidden" name="match_type" value="all">
+				
 
-					<td  valign="middle" align="left" colspan="${colspan?default("")}">
-						 <div class="form-group">
-							    <div class="col-sm-5">
-										<input type="search"  required placeholder="${I18n.getMessage("Search.Input.Required.placeHodler_Spec")}"  name="search_keywords" class="form-control"/>
-							    </div>
-							     <div class="col-sm-2">
-							     		<button type="submit" class="btn btn-success btn-medium" ><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>
-							    </div>
-							     <div class="col-sm-5">
-							    </div>
-  						</div>
+					<td   colspan="${colspan?default("")}">
+							<form accept-charset="${encoding}" role="form" action="${JForumContext.encodeURL("/jforum")}" method="post" id="formSearch" class="form-horizontal" name="formSearch">
+								<input type="hidden" name="module" value="search"/>
+								<input type="hidden" name="action" value="search"/>
+								<input type="hidden" name="forum" value="${forum.id}">
+								<input type="hidden" name="match_type" value="all">
+								&nbsp;
+								<div class="form-group has-success has-feedback">
+								    <div class="col-sm-5">
+											<input type="search"  required placeholder="${I18n.getMessage("Search.Input.Required.placeHodler_Spec")}"  name="search_keywords" class="form-control"/>
+								   			<span class="glyphicon glyphicon-search form-control-feedback"></span>
+								   	</div>
+								     <div class="col-sm-2">
+								     		<button type="submit" class="btn btn-success btn-medium" ><i class="glyphicon glyphicon-search"></i>&nbsp;${I18n.getMessage("ForumBase.search")}</button>
+								    </div>
+								     <div class="col-sm-5">
+								    </div>
+  								</div>
+							</form>
+						
 					</td>
 
 					</form>
