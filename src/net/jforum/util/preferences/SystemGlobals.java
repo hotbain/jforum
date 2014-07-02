@@ -289,6 +289,10 @@ public class SystemGlobals implements VariableStore
 	{
 		return Integer.parseInt(getValue(field));
 	}
+	
+	public static float getFloatValue(String field){
+		return Float.parseFloat(getValue(field));
+	}
 
 	/**
 	 * Retrieve an boolean-values configuration field
