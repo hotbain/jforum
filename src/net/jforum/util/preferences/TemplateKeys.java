@@ -207,4 +207,6 @@ public class TemplateKeys
 	public static final String AJAX_TEST_MAIL = "ajax.test.mail";
 	public static final String AJAX_LOAD_POST = "ajax.load.post";
 	public static final String SEARCH_INDEX_RESULT = "search_index_result";
+	public static final String NOT_FOUND_PAGE = "not.found.page";
+	public static final String INNER_ERROR_PAGE = "inner.error.page";
 }

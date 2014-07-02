@@ -82,7 +82,18 @@ public class ForumAction extends Command
 	 */
 	public void list()
 	{
-		this.setTemplateName(TemplateKeys.FORUMS_LIST);
+		String errorCode =request.getParameter("err_code");
+		if(errorCode!=null){
+			if(errorCode.equals("404")){
+				this.setTemplateName(TemplateKeys.NOT_FOUND_PAGE);
+			}else if(errorCode.equals("500")){
+				this.setTemplateName(TemplateKeys.INNER_ERROR_PAGE);
+			}
+			return ;
+		}else{
+			this.setTemplateName(TemplateKeys.FORUMS_LIST);
+		}
+		
 
 		this.context.put("allCategories", ForumCommon.getAllCategoriesAndForums(true));
 		this.context.put("topicsPerPage", new Integer(SystemGlobals.getIntValue(ConfigKeys.TOPICS_PER_PAGE)));

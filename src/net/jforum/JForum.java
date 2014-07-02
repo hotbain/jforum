@@ -174,7 +174,7 @@ public class JForum extends JForumBaseServlet
 				? ModulesRepository.getModuleClass(module) 
 				: null;
 			
-			if (moduleClass == null) {
+			if (moduleClass == null) { //没有找到指定的处理类的话，就会返回404页面---list.extension?error_code=404
 				// Module not found, send 404 not found response
 				response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			}
